@@ -11,11 +11,14 @@ Repo from paper: [Link to repo](https://github.com/nikhilmaram/Show_and_Tell.git
 ```
 ├── model.py
 │
+└── hej
 
 ```
 models/
 ├── contains stored parameters
 │
+└── hej
+
 ```
 
 ```
@@ -26,4 +29,5 @@ data/
 │   └── elspot price for each year
 ├── price_data.csv
 └── price_data.py
+
 ```
