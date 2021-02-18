@@ -21,65 +21,32 @@ class MLP(nn.Module):
             nn.Linear(hidden_size, output_size)
         )
 
-        """ self.block1 = nn.Sequential(
-            nn.Linear(input_size, 512),
-            nn.ReLU(),
-            nn.Linear(512, 512),
-            nn.ReLU(),
-            nn.Linear(512, 512),
-            nn.ReLU(),
-            nn.Linear(512, 256),
-            nn.ReLU()
-        )
+    def forward(self, x):
+        return self.layers(x)
 
-        self.block2 = nn.Sequential(
-            nn.Linear(256, 256),
+class Autoencoder(nn.Module):
+    def __init__(self, size, hidden_size):
+        super(Autoencoder, self).__init__()
+        self.layers = nn.Sequential(
+            nn.Linear(size, hidden_size),
             nn.ReLU(),
-            nn.Linear(256, 256),
-            nn.ReLU(),
-            nn.Linear(256, 256),
-            nn.ReLU(),
-            nn.Linear(256, 256),
-            nn.ReLU()
+            nn.Linear(hidden_size, size)
         )
-
-        self.block3 = nn.Sequential(
-            nn.Linear(256, 256),
-            nn.ReLU(),
-            nn.Linear(256, 256),
-            nn.ReLU(),
-            nn.Linear(256, 256),
-            nn.ReLU(),
-            nn.Linear(256, 128),
-            nn.ReLU()
-        )
-
-        self.block4 = nn.Sequential(
-            nn.Linear(128, 128),
-            nn.ReLU(),
-            nn.Linear(128, 128),
-            nn.ReLU(),
-            nn.Linear(128, 128),
-            nn.ReLU(),
-            nn.Linear(128, 64),
-            nn.ReLU()
-        )
-
-        self.block5 = nn.Sequential(
-            nn.Linear(64, 64),
-            nn.ReLU(),
-            nn.Linear(64, 64),
-            nn.ReLU(),
-            nn.Linear(64, 64),
-            nn.ReLU(),
-            nn.Linear(64, output_size),
-        ) """
 
     def forward(self, x):
-        """ x = self.block1(x)
-        x = self.block2(x)
-        x = self.block3(x)
-        x = self.block4(x)
-        x = self.block5(x)
- """
         return self.layers(x)
+
+class EnsembleModel(nn.Module):
+    def __init__(self, models, n_features):
+        super(EnsembleModel, self).__init__()
+        self.models = models
+        self.n_features = n_features
+
+    def forward(self, x):
+        output = []
+        for i, model in enumerate(self.models):
+            y = model(x[:,:,i*self.n_features:(i+1)*self.n_features])[:,-1]
+            output.append(y)
+        
+        return sum(output) / len(output)
+        

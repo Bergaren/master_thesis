@@ -6,15 +6,20 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import seaborn as sns
 import time
-import datetime
 import numpy as np
+import sys
 from torch.utils.data import TensorDataset, DataLoader
 from tqdm import tqdm
 import holidays
-from models import RNN, MLP
+from models import RNN, MLP, EnsembleModel
+from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error
+from math import sqrt
+from dataset import create_datasets, Dataset
 
-def train(model, dataset, lr = 10**-3, epochs = 50):
-    print('Training...')
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+def train(model, dataset, lr = 10**-2, epochs = 50):
+    print('\n Training... \n')
     model.train()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr)
     criterion = torch.nn.MSELoss()
@@ -25,7 +30,7 @@ def train(model, dataset, lr = 10**-3, epochs = 50):
         y_true = []
         epoch_loss = []
 
-        for i, batch in enumerate(dataset):
+        for i, batch in enumerate(tqdm(dataset,desc='Batch')):
             optimizer.zero_grad()
 
             X, target = batch
@@ -43,24 +48,36 @@ def train(model, dataset, lr = 10**-3, epochs = 50):
         
         losses.append( sum(epoch_loss) / len(epoch_loss) )
 
-    plt.plot(losses)
+    """ plt.plot(losses)
     plt.title('Loss')
     plt.ylabel('MSE')
     plt.xlabel('Epoch')
-    plt.show()
+    plt.show() """
 
     return model
 
 def validate(model, dataset):
+    print("\n Validating... \n")
     model.eval()
 
     criterion = torch.nn.L1Loss()
 
-    y_pred = []
-    y_true = []
+    y_pred = {
+        'Dayahead SE3' : [],
+        'Dayahead SE4' : [],
+        'Intraday SE3' : [],
+        'Intraday SE4' : []
+    }
+    y_true = {
+        'Dayahead SE3' : [],
+        'Dayahead SE4' : [],
+        'Intraday SE3' : [],
+        'Intraday SE4' : []
+    }
     losses = []
-    for i, batch in enumerate(dataset):
+    for i, batch in enumerate(tqdm(dataset,desc='Batch')):
         X, target = batch
+
         output = model(X)    
         if type(model).__name__ == "RNN":
             output = output[:,-1]
@@ -68,166 +85,99 @@ def validate(model, dataset):
         loss = criterion(output, target)
         losses.append(loss.item())
 
-        y_pred.extend(output.flatten().tolist())
-        y_true.extend(target.flatten().tolist())
+        i = 1
+        for column in y_pred.keys():
+            y_pred[column].extend(output[:,:24*i].flatten().tolist())
+            i += 1
 
-    plt.plot(y_pred[:25], label='Prediction')
-    plt.plot(y_true[:25], label='Actual')
+        i = 1
+        for column in y_true.keys():
+            y_true[column].extend(target[:,:24*i].flatten().tolist())
+            i += 1
+
+    d = 30
+    plt.plot(y_pred['Dayahead SE3'][24*d:24*(d+1)+1], label='Pred Dayahead')
+    plt.plot(y_true['Dayahead SE3'][24*d:24*(d+1)+1], label='True Dayahead')
+    plt.plot(y_pred['Intraday SE3'][24*d:24*(d+1)+1], label='Pred Intraday')
+    plt.plot(y_true['Intraday SE3'][24*d:24*(d+1)+1], label='True Intraday')
     plt.title('Predicted vs actual price')
     plt.ylabel('€/MWh')
     plt.xlabel('Hours')
     plt.legend()
 
-    print("Average price: {:.2f} €/MWh".format( np.mean(y_true) ))
-    print("STD:           {:.2f}".format( np.std(y_true) ))
-    print("L1:            {:.2f}".format( np.mean(losses) ))
-
-    plt.show()
-
-def load_dataset( model_name ):
-    print('Loading data...')
+    print("All L1:        {:.2f}".format( np.mean(losses) ))
+    #print(mean_absolute_error(y_true,y_pred))
     
-    df = pd.read_csv('data/price_data.csv', encoding = "ISO-8859-1", sep=',', decimal='.', index_col='Delivery', parse_dates=['Delivery'])
+    d = { 
+        'Market': y_pred.keys(), 
+        'Average Actual Price': [np.mean(v) for v in y_true.values()],
+        'Std (actual price)': [np.std(v) for v in y_true.values()],
+        'Average Predicted Price': [np.mean(v) for v in y_pred.values()],
+        'Std (pred price)': [np.std(v) for v in y_pred.values()],
+        'L1' : [mean_absolute_error(y_true[k],y_pred[k]) for k in y_true.keys()],
+        'L1 (%)' : [mean_absolute_percentage_error(y_true[k],y_pred[k]) for k in y_true.keys()]
+    }
     
-    df = standard_score(df)
-    df.fillna(0, inplace=True)
-    if model_name == "MLP":
-        X, Y = flat_data(df, 18)
-    elif model_name == "RNN":
-        X, Y = sequential_data(df, 2)
-        print(X.shape)
-        X = torch.transpose(X, 1, 2)
+    print(pd.DataFrame(data=d))
+    print("STD:           {:.2f}".format( np.std(y_true['Dayahead SE3']) ))
 
-    dataset_train = TensorDataset(X, Y)        
-    training_generator = DataLoader(dataset_train, shuffle = True, batch_size = 32)
-    validate_generator = DataLoader(dataset_train, shuffle = False, batch_size = 32)
-
-    return training_generator, validate_generator
-
-def flat_data(df, lookback):
-    start_date = datetime.datetime(2015, 1, 2, 00, 00, 00)
-    end_date = datetime.datetime(2021, 1, 1, 00, 00, 00)
-
-    delta_day = datetime.timedelta(days=1)
-    delta_twenty_three_hours = datetime.timedelta(hours=23)
-    delta_lookback = datetime.timedelta(hours=lookback)
-    delta_one_hour = datetime.timedelta(hours=1)
-
-    se_holidays = holidays.CountryHoliday('SE')
-
-    X = []
-    Y = []
-
-    while start_date < end_date:
-        todays_data = df.loc[
-            (start_date)
-            : 
-            (start_date+delta_twenty_three_hours)
-        ]
-        Y.append(
-            todays_data['Dayahead SE3'].tolist() + 
-            todays_data['Dayahead SE4'].tolist() + 
-            todays_data['Intraday SE3'].tolist() + 
-            todays_data['Intraday SE4'].tolist()
-        )
-
-        backward_data = df.loc[
-            (start_date-delta_lookback)
-            : 
-            (start_date - delta_one_hour)
-        ]
-        is_holiday = 1 if start_date in se_holidays else 0
-        month = [0]*12
-        month[start_date.month-1] = 1
-        day_of_week = [0]*7
-        day_of_week[start_date.weekday()] = 1
-
-        X.append(
-            backward_data['Dayahead SE3 (s)'].tolist() + 
-            backward_data['Dayahead SE4 (s)'].tolist() + 
-            backward_data['Intraday SE3 (s)'][:lookback-11].tolist() + 
-            backward_data['Intraday SE4 (s)'][:lookback-11].tolist() +
-            [is_holiday] +
-            month + 
-            day_of_week
-        )
-        start_date += delta_day
-
-    return torch.Tensor(X), torch.Tensor(Y)
-
-def sequential_data(df, lookback):
-    start_date = datetime.datetime(2015, 1, lookback+1, 00, 00, 00)
-    end_date = datetime.datetime(2021, 1, 1, 00, 00, 00)
-
-    delta_day = datetime.timedelta(days=1)
-    delta_lookback = datetime.timedelta(days=lookback)
-    delta_twenty_three_hours = datetime.timedelta(hours=23)
-    delta_one_hour = datetime.timedelta(hours=1)
-
-    se_holidays = holidays.CountryHoliday('SE')
-
-    X = []
-    Y = []
-
-    while start_date < end_date:
-        todays_data = df.loc[
-            (start_date)
-            : 
-            (start_date+delta_twenty_three_hours)
-        ]
-        Y.append(
-            todays_data['Dayahead SE3'].tolist() + 
-            todays_data['Dayahead SE4'].tolist() + 
-            todays_data['Intraday SE3'].tolist() + 
-            todays_data['Intraday SE4'].tolist()
-        )
-
-        backward_data = df.loc[
-                (start_date-delta_lookback)
-                : 
-                (start_date-delta_one_hour)
-            ]
-
-        is_holiday = 1 if start_date in se_holidays else 0
-        month = [0]*12
-        month[start_date.month-1] = 1
-        day_of_week = [0]*7
-        day_of_week[start_date.weekday()] = 1
-
-        backward_data['Intraday SE3 (s)'].iloc[-11:] = 0
-        backward_data['Intraday SE4 (s)'].iloc[-11:] = 0
-
-        x = np.vstack((
-            backward_data['Dayahead SE3 (s)'],
-            backward_data['Dayahead SE4 (s)'],
-            backward_data['Intraday SE3 (s)'],
-            backward_data['Intraday SE4 (s)'],
-            [is_holiday]*lookback*24,
-            np.transpose(np.array([month]*lookback*24)),
-            np.transpose(np.array([day_of_week]*lookback*24))
-        ))
-        X.append(x)
-        start_date += delta_day
-
-    return torch.FloatTensor(X), torch.FloatTensor(Y)
-
-def standard_score(df):
-    for column in ['Dayahead SE3', 'Dayahead SE4', 'Intraday SE3', 'Intraday SE4']:
-        std = df[column].std()
-        mean = df[column].mean()
-
-        df['{} (s)'.format(column)] = (df[column] - mean) / std
-    return df
+    """ plt.show() """
 
 if __name__ == "__main__":
-    print("(1) - MLP, (2) - LSTM")
-    m_choice = int(input('Choose model: '))
-    if (m_choice == 1):
-        model = MLP(input_size=70, output_size=24*4, hidden_size=64)
-    elif (m_choice == 2):
-        model = RNN(input_size=24, num_layers=1, output_size=24*4, hidden_size=64)
+    args = sys.argv
 
-    train_set, validate_set = load_dataset( model_name = type(model).__name__ )    
+    if len(args) != 4:
+        raise Exception( (
+            "Please specify 2 arguments.\n"
+            "Argument 1: (0) - No Seasonality   | (1) - Seasonality\n"
+            "Argument 2: (0) - MLP              | (1) - NLP\n"
+            "Argument 3: (0) - Raw Price        | (1) - EMD         | (2) - VMD\n"
+            ))
+        
+    n_features = 0
+    if int(args[1]) == 0:
+        seasonality = False
+        print("(0) - No Seasonality")
+    elif int(args[1]) == 1:
+        n_features += 20
+        seasonality = True
+        print("(1) - Seasonality")
 
-    model = train(model, train_set, epochs=50)
-    validate(model, validate_set)
+    if int(args[2]) == 0:
+        print("(0) - MLP")
+        model = MLP(input_size=50+n_features, output_size=24*4, hidden_size=64)
+        model_name = type(model).__name__
+    elif int(args[2]) == 1:
+        print("(1) - LSTM")
+        if int(args[3]) == 0:
+            print("(0) - Raw price")
+            model = RNN(input_size=4+n_features, num_layers=1, output_size=24*4, hidden_size=64)
+            model.to(device)
+        elif int(args[3]) == 1:
+            print("(1) - EMD")
+            models = []
+            for i in range(1,5):    
+                model = RNN(input_size=4, num_layers=4, output_size=24*4, hidden_size=64)
+                model.to(device)
+                models.append(model)
+            #model = RNN(input_size=4*6, num_layers=1, output_size=24*4, hidden_size=64)
+        
+        model_name = "RNN"
+    
+    Dataset = Dataset(seasonality=seasonality)
+    #train_set, validate_set = create_datasets(file_path = 'data/price_data.csv', model_name = model_name, seasonality = seasonality, EMD=False )    
+
+    if int(args[3]) == 1:
+        for i, model in enumerate(models):
+            print('Training model: {}'.format(i+1))
+            models[i] = train(model, Dataset.train_set[i], epochs=20)
+            validate(model, Dataset.validate_set[i])
+        
+        ensemble_model = EnsembleModel(models, n_features=4)
+        #model = train(model, train_set[-1], epochs=20)
+        validate(ensemble_model, Dataset.validate_set[-1])
+    else:
+        model = train(model, Dataset.train_set, epochs=20)
+        validate(model, Dataset.validate_set)
+        
+        
