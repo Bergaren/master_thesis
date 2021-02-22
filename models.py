@@ -25,12 +25,15 @@ class MLP(nn.Module):
         return self.layers(x)
 
 class Autoencoder(nn.Module):
-    def __init__(self, size, hidden_size):
+    def __init__(self, input_size, output_size):
         super(Autoencoder, self).__init__()
         self.layers = nn.Sequential(
-            nn.Linear(size, hidden_size),
+            nn.Linear(input_size, 128),
             nn.ReLU(),
-            nn.Linear(hidden_size, size)
+            nn.Linear(128, 64),
+            nn.ReLU(),
+            nn.Linear(64, 128),
+            nn.Linear(128, output_size)
         )
 
     def forward(self, x):

@@ -118,7 +118,7 @@ class Dataset():
         self.date_list              = []
         
         if self.k > 1:
-            self.feature_data = self.create_cluster()
+            self.create_cluster()
             
         if model_name == "RNN":
             self.X, self.Y = self.sequential_data() 
@@ -157,6 +157,8 @@ class Dataset():
             cluster = self.feature_data.loc[start_date]['cluster'] if self.k > 1 else 0
 
             todays_data = self.price_data.loc[start_date : start_date+delta_twenty_three_hours]
+            y = []
+
             Y[cluster].append(
                 todays_data['Dayahead SE3'].tolist() + 
                 todays_data['Dayahead SE4'].tolist() + 
@@ -260,9 +262,7 @@ class Dataset():
 
     def create_cluster(self):
         clusters = KPrototypes(n_clusters = self.k, verbose=1).fit_predict(self.feature_data.to_numpy(), categorical=[0, 1 ,2])
-        feature_data['cluster'] = clusters
-
-        return feature_data
+        self.feature_data['cluster'] = clusters
 
     def create_generators(self):
         training_generators = []
