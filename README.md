@@ -10,6 +10,8 @@ Repo from paper: [Link to repo](https://github.com/nikhilmaram/Show_and_Tell.git
 
 ```
 ├── model.py
+├── main.py
+├── dataset.py
 │
 └── hej
 ```
@@ -28,5 +30,6 @@ data/
 ├── elspot_dayahead
 │   └── elspot price for each year
 ├── price_data.csv
-└── price_data.py
+├── feature_data.csv
+└── data.py
 ```
