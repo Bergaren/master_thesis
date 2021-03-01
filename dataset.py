@@ -9,114 +9,22 @@ from torch.utils.data import TensorDataset, DataLoader
 from kmodes.kprototypes import KPrototypes
 from sklearn.model_selection import train_test_split
 import holidays
-
-def seq_emd_data(df, lookback):
-    start_date = datetime.datetime(2015, 1, lookback+1, 00, 00, 00)
-    end_date = datetime.datetime(2021, 1, 1, 00, 00, 00)
-
-    delta_day = datetime.timedelta(days=1)
-    delta_lookback = datetime.timedelta(days=lookback)
-    delta_twenty_three_hours = datetime.timedelta(hours=23)
-    delta_one_hour = datetime.timedelta(hours=1)
-
-    se_holidays = holidays.CountryHoliday('SE')
-
-    X = {
-        'imf 1' : [],
-        'imf 2' : [],
-        'imf 3' : [],
-        'imf 4' : [],
-        'imf 5' : [],
-        'imf 6' : [],
-        'all'   : []
-    }
-    Y = []
-
-    while start_date < end_date:
-        todays_data = df.loc[
-            (start_date)
-            : 
-            (start_date+delta_twenty_three_hours)
-        ]
-        Y.append(
-            todays_data['Dayahead SE3'].tolist() + 
-            todays_data['Dayahead SE4'].tolist() + 
-            todays_data['Intraday SE3'].tolist() + 
-            todays_data['Intraday SE4'].tolist()
-        )
-
-        backward_data = df.loc[
-                (start_date-delta_lookback)
-                : 
-                (start_date-delta_one_hour)
-            ]
-
-        backward_data['Intraday SE3 (s)'].iloc[-11:] = 0
-        backward_data['Intraday SE4 (s)'].iloc[-11:] = 0
-
-        for key in X.keys():
-            if key != 'all':
-                x = np.vstack((
-                    backward_data['Dayahead SE3 ({})'.format(key)],
-                    backward_data['Dayahead SE4 ({})'.format(key)],
-                    backward_data['Intraday SE3 ({})'.format(key)],
-                    backward_data['Intraday SE4 ({})'.format(key)]
-                ))
-                X[key].append(x)
-            else:
-                x = np.vstack((
-                    backward_data['Dayahead SE3 (imf 1)'],
-                    backward_data['Dayahead SE4 (imf 1)'],
-                    backward_data['Intraday SE3 (imf 1)'],
-                    backward_data['Intraday SE4 (imf 1)'],
-
-                    backward_data['Dayahead SE3 (imf 2)'],
-                    backward_data['Dayahead SE4 (imf 2)'],
-                    backward_data['Intraday SE3 (imf 2)'],
-                    backward_data['Intraday SE4 (imf 2)'],
-
-                    backward_data['Dayahead SE3 (imf 3)'],
-                    backward_data['Dayahead SE4 (imf 3)'],
-                    backward_data['Intraday SE3 (imf 3)'],
-                    backward_data['Intraday SE4 (imf 3)'],
-
-                    backward_data['Dayahead SE3 (imf 4)'],
-                    backward_data['Dayahead SE4 (imf 4)'],
-                    backward_data['Intraday SE3 (imf 4)'],
-                    backward_data['Intraday SE4 (imf 4)'],
-
-                    backward_data['Dayahead SE3 (imf 5)'],
-                    backward_data['Dayahead SE4 (imf 5)'],
-                    backward_data['Intraday SE3 (imf 5)'],
-                    backward_data['Intraday SE4 (imf 5)'],
-
-                    backward_data['Dayahead SE3 (imf 6)'],
-                    backward_data['Dayahead SE4 (imf 6)'],
-                    backward_data['Intraday SE3 (imf 6)'],
-                    backward_data['Intraday SE4 (imf 6)'],
-                ))
-                X[key].append(x)
-
-        start_date += delta_day
-    
-    for key in X.keys():
-        X[key] = torch.transpose(torch.FloatTensor(X[key]), 1, 2)
-    Y = torch.FloatTensor(Y)
-
-    return X, Y
+from vmdpy import VMD
 
 class Dataset():
-    def __init__(self, price_file_path = 'data/price_data.csv', model_name="RNN", embedded_features = False, lookback=2, k=1):
+    def __init__(self, price_file_path = 'data/price_data.csv', model_name="RNN", embedded_features = False, lookback=2, k=1, modes=1):
         print("Loading dataset...")
         self.price_file_path        = price_file_path
         self.model_name             = model_name
         self.embedded_features      = embedded_features
         self.lookback               = lookback
         self.k                      = k
+        self.modes                  = modes
         self.price_data             = self.load_price_data()
         self.feature_data           = self.load_feature_data()
         self.date_list              = []
-        
+        self.markets                = ['Dayahead SE3', 'Dayahead SE4', 'Intraday SE3', 'Intraday SE4']
+
         if self.k > 1:
             self.create_cluster()
             
@@ -125,7 +33,18 @@ class Dataset():
         elif model_name == "MLP":
             self.X, self.Y = self.flat_data()
 
-        self.train_set, self.validate_set = self.create_generators()
+        self.train_set, self.validate_set, self.test_set = self.create_generators()
+
+    """ def get_data(self, i, kind="train"):
+        if kind == "train":
+            if self.modes == 1:
+                return self.train_set[i]
+            else:
+                return self.train_set[0]
+        
+        if kind == "validate":
+            return self.validate_set[i] """
+
 
     def load_price_data(self):
         df = pd.read_csv(self.price_file_path, encoding = "ISO-8859-1", sep=',', decimal='.', index_col='Delivery', parse_dates=['Delivery'])
@@ -147,18 +66,14 @@ class Dataset():
         delta_lookback = datetime.timedelta(hours=self.lookback)
         delta_one_hour = datetime.timedelta(hours=1)
 
-        X = {}
-        Y = {}
-        for i in range(self.k):
-            X[i] = []
-            Y[i] = []
+        X = [[] for _ in range(self.k)]
+        Y = [[] for _ in range(self.k)]
 
-        while start_date < end_date:            
-            cluster = self.feature_data.loc[start_date]['cluster'] if self.k > 1 else 0
+        while start_date < end_date:
+            cluster = int(self.feature_data.loc[start_date]['cluster']) if self.k > 1 else 0
 
             todays_data = self.price_data.loc[start_date : start_date+delta_twenty_three_hours]
-            y = []
-
+            
             Y[cluster].append(
                 todays_data['Dayahead SE3'].tolist() + 
                 todays_data['Dayahead SE4'].tolist() + 
@@ -167,12 +82,20 @@ class Dataset():
             )
 
             backward_data = self.price_data.loc[start_date-delta_lookback : start_date - delta_one_hour]
-            X[cluster].append(
-                backward_data['Dayahead SE3 (s)'].tolist() + 
-                backward_data['Dayahead SE4 (s)'].tolist() + 
-                backward_data['Intraday SE3 (s)'][:self.lookback-11].tolist() + 
-                backward_data['Intraday SE4 (s)'][:self.lookback-11].tolist()   
-            )
+            
+            if self.modes > 1:
+                x = []
+                for m in self.markets:
+                    us, u_hat, omega = VMD(backward_data['{} (s)'.format(m)].to_numpy(), alpha=2000, tau=0., DC=0, init=1, K=self.modes, tol=1e-7)
+                    x += us.flatten().tolist()
+            else:
+                x = (
+                    backward_data['Dayahead SE3 (s)'].tolist() + 
+                    backward_data['Dayahead SE4 (s)'].tolist() + 
+                    backward_data['Intraday SE3 (s)'][:self.lookback-11].tolist() + 
+                    backward_data['Intraday SE4 (s)'][:self.lookback-11].tolist()   
+                )
+            X[cluster].append(x)
             
             if self.embedded_features:
                 todays_f_data = self.feature_data.loc[start_date]
@@ -185,10 +108,9 @@ class Dataset():
 
             start_date += delta_day
 
-        for key in X.keys():
-            X[key] = torch.Tensor(X[key])
-            Y[key] = torch.Tensor(Y[key])
-
+        for i in range(len(X)):
+            X[i] = torch.Tensor(X[i])
+            Y[i] = torch.Tensor(Y[i])
         return X, Y
     
     def create_one_hot(self, i, size):
@@ -223,8 +145,8 @@ class Dataset():
             )
 
             backward_data = self.price_data.loc[start_date-delta_lookback : start_date-delta_one_hour]
-            backward_data['Intraday SE3 (s)'].iloc[-11:] = 0
-            backward_data['Intraday SE4 (s)'].iloc[-11:] = 0
+            backward_data['Intraday SE3 (s)'].iloc[-11:] = backward_data['Intraday SE3 (s)'].iloc[-12]
+            backward_data['Intraday SE4 (s)'].iloc[-11:] = backward_data['Intraday SE4 (s)'].iloc[-12]
 
             x = np.vstack((
                 backward_data['Dayahead SE3 (s)'],
@@ -267,16 +189,22 @@ class Dataset():
     def create_generators(self):
         training_generators = []
         validate_generators = []
+        test_generators     = []
         
-        for k in self.X.keys():
-            X_train, X_test, y_train, y_test = train_test_split(self.X[k], self.Y[k], test_size=0.1, shuffle=True)
+        for i in range(len(self.X)):
+            X_train, X_test, y_train, y_test = train_test_split(self.X[i], self.Y[i], test_size=0.1, shuffle=True)
+            X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.1/0.9)
+
             dataset_train = TensorDataset(X_train, y_train)
-            dataset_val = TensorDataset(X_test, y_test)
+            dataset_val = TensorDataset(X_val, y_val)
+            dataset_test = TensorDataset(X_test, y_test)
 
             training_generator = DataLoader(dataset_train, shuffle = True, batch_size = 32)
-            validate_generator = DataLoader(dataset_val, shuffle = False, batch_size = 32)
+            val_generator = DataLoader(dataset_val, shuffle = False, batch_size = 32)
+            test_generator = DataLoader(dataset_test, shuffle = False, batch_size = 32)
 
             training_generators.append(training_generator)
-            validate_generators.append(validate_generator)
+            validate_generators.append(val_generator)
+            test_generators.append(test_generator)
 
-        return training_generators, validate_generators
+        return training_generators, validate_generators, test_generators
