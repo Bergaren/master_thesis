@@ -3,10 +3,10 @@ import numpy as np
 import datetime
 import holidays
 import requests
+import re
 from os import path
-from PyEMD import EMD, Visualisation
+from PyEMD import EMD, CEEMDAN, Visualisation
 from scipy.stats import zscore
-
 
 def seasonal_data():
     start_date = datetime.datetime(2015, 1, 1, 00, 00, 00)
@@ -47,7 +47,6 @@ def load_dayahead_prices( year ):
     df.rename(columns={"SE3": "Dayahead SE3"}, inplace=True)
     df.rename(columns={"SE4": "Dayahead SE4"}, inplace=True)
 
-
     delivery = []
     for index, row in df.iterrows():
         d_str = row['Date'] + ' ' + row['Hours'].split()[0]
@@ -56,7 +55,6 @@ def load_dayahead_prices( year ):
         )
 
     df.insert(0, "Delivery", delivery, True)
-    
     df.drop(columns=['Date', 'Hours'], inplace=True)
 
     return df
@@ -146,16 +144,48 @@ def arrange_price_data():
             df.to_csv('price_yearly/price_data_{}.csv'.format(year), index=False)
 
 def combine_yearly_price_data():
-    price_2015 = pd.read_csv('price_yearly/price_data_2015.csv', sep=',', decimal=".", index_col='Delivery', parse_dates=['Delivery'])
-    price_2016 = pd.read_csv('price_yearly/price_data_2016.csv', sep=',', decimal=".", index_col='Delivery', parse_dates=['Delivery'])
-    price_2017 = pd.read_csv('price_yearly/price_data_2017.csv', sep=',', decimal=".", index_col='Delivery', parse_dates=['Delivery'])
-    price_2018 = pd.read_csv('price_yearly/price_data_2018.csv', sep=',', decimal=".", index_col='Delivery', parse_dates=['Delivery'])
-    price_2019 = pd.read_csv('price_yearly/price_data_2019.csv', sep=',', decimal=".", index_col='Delivery', parse_dates=['Delivery'])
-    price_2020 = pd.read_csv('price_yearly/price_data_2020.csv', sep=',', decimal=".", index_col='Delivery', parse_dates=['Delivery'])
-
-    df = price_2015
-    for df2 in [price_2016, price_2017, price_2018, price_2019, price_2020]:
+    df =  pd.read_csv('price_yearly/price_data_2015.csv', sep=',', decimal=".", index_col='Delivery', parse_dates=['Delivery'])
+    for year in range(2016, 2021):
+        df2 =  pd.read_csv('price_yearly/price_data_{}.csv'.format(year), sep=',', decimal=".", index_col='Delivery', parse_dates=['Delivery'])
         df = df.append(df2, ignore_index = False)
+    return df
+
+def load_market_data(path, year, prefix):
+    df = pd.read_csv('{}_{}_hourly.csv'.format(path, year), sep=';', decimal=",", header=2, encoding='iso 8859-1')
+    df.rename(columns={"Unnamed: 0": "Date"}, inplace=True)
+    df.fillna(0, inplace=True)
+
+    delivery = []
+    for index, row in df.iterrows():
+        d_str = row['Date'] + ' ' + row['Hours'].split()[0]
+        delivery.append(
+            datetime.datetime.strptime(d_str, '%d-%m-%Y %H')
+        )
+    regions = re.compile('> SE3|> SE4')
+    cols = [c for c in df.columns if regions.search(c)]
+    df = df[cols]
+    df = df.add_prefix(prefix)
+
+    df.index = delivery
+    return df
+
+def combine_market_data():
+    # Elspot flow data
+    elspot_flow = load_market_data('elspot_dayahead/elspot-flow-se', 2015, 'dayahead-flow ')
+    elbas_flow = load_market_data('elbas_intraday/elbas-flow', 2015, 'intraday-flow ')
+    cap = load_market_data('elspot_dayahead/elspot-capacities-se', 2015, 'cap ')
+    df = pd.concat([elspot_flow, elbas_flow, cap], axis=1, ignore_index=False)
+    for y in range(2016, 2021):
+        elspot_flow = load_market_data('elspot_dayahead/elspot-flow-se', y, 'dayahead-flow ')
+        elbas_flow = load_market_data('elbas_intraday/elbas-flow', y, 'intraday-flow ')
+        cap = load_market_data('elspot_dayahead/elspot-capacities-se', y, 'cap ')
+        df2 = pd.concat([elspot_flow, elbas_flow, cap], axis=1, ignore_index=False)
+        df = pd.concat([df, df2], axis=0, ignore_index=False)
+
+    df.dropna(axis=1, inplace=True)
+    df = df[~df.index.duplicated(keep='last')]
+    df = (df-df.min())/(df.max()-df.min())
+    #df=(df-df.mean())/df.std()
 
     return df
 
@@ -207,26 +237,34 @@ def arrange_time_relations(df):
         start_date += delta_day
     return data
 
-def standard_score(df):
-    for column in ['Dayahead SE3', 'Dayahead SE4', 'Intraday SE3', 'Intraday SE4']:
+def standardize(df):
+    for column in df.columns:
         std = df[column].std()
         mean = df[column].mean()
 
         df['{} (s)'.format(column)] = (df[column] - mean) / std
     return df
 
+def normalize(df):
+    for column in df.columns:
+        minc = df[column].min()
+        maxc = df[column].max()
+
+        df['{} (n)'.format(column)] = (df[column] - minc) / (maxc - minc)
+    return df
+
 def create_imf(df):
-    emd = EMD()
+    ceemdan = CEEMDAN()
 
     for column in ['Dayahead SE3', 'Dayahead SE4', 'Intraday SE3', 'Intraday SE4']:
-        print('Creating IMFs')
-        emd.emd(df[column].to_numpy())
-        imfs, res = emd.get_imfs_and_residue()
-        
+        print("Creating IMFS for {}".format(column))
+        ceemdan.ceemdan(df[column].to_numpy(), max_imf=5)
+        imfs, res = ceemdan.get_imfs_and_residue()
+
         for n, imf in enumerate(imfs):
             df['{} (imf {})'.format(column, n+1)] = imf
-            df['{} (res)'.format(column)] = res
-
+        df['{} (res)'.format(column)] = res
+    
     return df
 
 def combine_weather_data():    
@@ -250,20 +288,32 @@ def combine_weather_data():
 
 if __name__ == "__main__":
     # Create seasonal data
-    seasonal_data = seasonal_data()
+    """ seasonal_data = seasonal_data()
 
     # Merge all weather data
-    weather_data = combine_weather_data()
+    #weather_data = combine_weather_data().iloc[:-1]
+ 
+    # Merge all market data excluding price
+    market_data = combine_market_data()
 
-    feature_data = pd.concat([seasonal_data, weather_data], ignore_index=False, axis=1)
-    feature_data.to_csv('feature_data.csv', index=True)
+    feature_data = pd.concat([market_data, seasonal_data], ignore_index=False, axis=1)
+    feature_data.fillna(0, inplace=True)
+    feature_data.replace(to_replace=0, method='ffill',inplace=True)
+    feature_data.to_csv('feature_data.csv', index=True) """
 
     # Merge all price data
-    #arrange_price_data()
-    #price_data = combine_yearly_price_data()
+    arrange_price_data()
+    price_data = combine_yearly_price_data()
+    price_data.fillna(0, inplace=True)
+    s = (price_data == 0).astype(int).sum()
+    #price_data=price_data.loc[~(price_data==0.0).any(axis=1)]
+    print(len(price_data['Dayahead SE4']))
+    print(s)
+    """ price_data.fillna(0, inplace=True)
+    price_data.replace(to_replace=0, method='ffill', inplace=True)
+    price_data = create_imf(price_data)
 
-    #price_data.replace(to_replace=0, method='ffill',inplace=True)
-    #price_data.fillna(0, inplace=True)
-    #price_data = standard_score(price_data)
+    price_data = standardize(price_data)
+    price_data = normalize(price_data)
 
-    #price_data.to_csv('price_data.csv', index=True)
+    df.to_csv('price_data_3.csv', index=True) """

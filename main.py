@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
+from torchsummary import summary
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
@@ -12,7 +13,7 @@ import optuna
 from torch.utils.data import TensorDataset, DataLoader
 from tqdm import tqdm
 import holidays
-from models import RNN, MLP, EnsembleModel, Autoencoder, HybridModel
+from models import LSTM, GRU, MLP, EnsembleModel, Autoencoder, HybridModel
 from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error
 from matplotlib.animation import FuncAnimation
 from math import sqrt
@@ -35,17 +36,11 @@ def train(model, train_set, val_set, lr = 10**-2, epochs=20, trial=None, plot=Fa
         y_true = []
         epoch_loss = []
 
-        for i, batch in enumerate(tqdm(train_set, desc='Batch', disable=True)):
+        for i, batch in enumerate(tqdm(train_set, desc='Batch', disable=False)):
             optimizer.zero_grad()
 
             X, target = batch
             output = model(X)
-            
-            if type(model).__name__ == "RNN":
-                output = output[:,-1]
-            elif type(model).__name__ == "Autoencoder":
-                target = X
-
             loss = criterion(output, target)
             loss.backward()
             epoch_loss.append(loss.item())
@@ -87,8 +82,6 @@ def validate(model, dataset):
             X, target = batch
 
             output = model(X)    
-            if type(model).__name__ == "RNN":
-                output = output[:,-1]
 
             loss = criterion(output, target)
             losses.append(loss.item())
@@ -116,8 +109,6 @@ def test(models, datasets):
             X, target = batch
 
             output = model(X)    
-            if type(model).__name__ == "RNN":
-                output = output[:,-1]
 
             loss = criterion(output, target)
             losses.append(loss.item())
@@ -166,7 +157,7 @@ def objective(trial, model, train_set, val_set):
     model = model.to(device)
 
     lr = trial.suggest_float("lr", 1e-5, 1e-1, log=True)
-    mse = train(model, train_set, val_set, lr=lr, epochs = 50, trial=trial)
+    mse = train(model, train_set, val_set, lr=lr, epochs = 30, trial=trial)
 
     return mse
 
@@ -194,108 +185,25 @@ def hyper_parameter_selection(model, train_set, val_set):
     return trial.params
 
 if __name__ == "__main__":
-    args = sys.argv
     models = []
 
-    #model = MLP(input_size=config.input_size, output_size=config.output_size)
-    model = RNN(input_size=config.input_size, output_size=config.output_size)
-    models.append(model)
+    for i in range(config.n_modes if config.ensemmble else 1):
+        if config.model == "MLP":
+            model = MLP(input_size=config.input_size, output_size=config.output_size, mode=0)
+        elif config.model == "LSTM":
+            model = LSTM(input_size=config.input_size, output_size=config.output_size, mode=0)
+        elif config.model == "GRU":
+            model = GRU(input_size=config.input_size, output_size=config.output_size, mode=0)
+        models.append(model)
+        
+    if config.mode_decomp and config.ensemmble:
+        model = EnsembleModel(models, n_features=config.input_size, output_size=config.output_size)
+        models = [model]
 
-    Dataset = Dataset(model_name=type(models[-1]).__name__, lookback=config.lookback, k=config.k, embedded_features=config.embedded_features, modes=config.modes)
+    Dataset = Dataset(model_name=config.model, lookback=config.lookback, k=config.k, embedded_features=config.embedded_features, mode_decomp=config.mode_decomp)
 
     for i, model in enumerate(models):
-        hyper_params = hyper_parameter_selection(model, Dataset.train_set[i], Dataset.validate_set[i])
-        train(model, Dataset.train_set[i], Dataset.validate_set[i], lr=hyper_params['lr'], epochs=20, plot=True)
-
-    test(models, Dataset.test_set)
-
-""" if __name__ == "__main__":
-    args = sys.argv
-
-    if len(args) != 2:
-        arg = int(input(
-            "Choice a model please."
-            "Argument:    Price:    Feature Repr:     Model:              \n"
-            "(0)        - Raw       None              MLP                 \n"
-            "(1)        - Raw       None              RNN                 \n"
-            "(2)        - Raw       Emb. Features     MLP                 \n"
-            "(3)        - Raw       Emb. Features     RNN                 \n"
-            "(4)        - Raw       Clustering        MLP                 \n"
-            "(5)        - Raw       Clustering        RNN                 \n"
-            "(6)        - Raw       Autoencoder       MLP                 \n"
-            "(7)        - Raw       Autoencoder       RNN                 \n"
-            "(8)        - VMD       None              MLP                 \n"
-            "(9)        - VMD       None              RNN                 \n"
-            "(10)       - VMD       Emb. Features     MLP                 \n"
-            "(11)       - VMD       Emb. Features     RNN                 \n"
-            "(12)       - VMD       Clustering        MLP                 \n"
-            "(13)       - VMD       Clustering        RNN                 \n"
-            "(14)       - VMD       Clustering/Autoencoder        RNN     \n"
-        ))
-    else:
-        arg = int(args[1])
-
-    lookback = 24
-    input_size = lookback*2 + (24-11)*2
-    k = 1
-    models = []
-    vmd = False
-    embedded_features = False
-    seasonal_len = 20
-    weather_len = 24
-    modes = 1
+        hyper_params = hyper_parameter_selection(model, Dataset.train_set[i], Dataset.validate_set[i])        
+        train(model, Dataset.train_set[i], Dataset.validate_set[i], lr=hyper_params['lr'], epochs=40, plot=True)
     
-    if arg == 0:
-        models.append(MLP(input_size=input_size, output_size=24*4))
-    elif arg == 1:
-        lookback = 2
-        models.append(RNN(input_size=4, num_layers=1, output_size=24*4, hidden_size=64))
-    elif arg in range(2,4):
-        embedded_features = True
-        if arg == 2:
-            models.append(MLP(input_size=input_size+seasonal_len+weather_len, output_size=24*4))
-        elif arg == 3:
-            lookback = 21
-            models.append(RNN(input_size=4+seasonal_len+weather_len, num_layers=1, output_size=24*4, hidden_size=64))
-    elif arg in range(4, 6):
-        k = 4
-        if arg == 4:
-            for i in range(k):
-                models.append(MLP(input_size=input_size, output_size=24*4, hidden_size=64))
-        elif arg == 5:
-            lookback = 2
-            for i in range(k):
-                models.append(RNN(input_size=4, num_layers=1, output_size=24*4, hidden_size=64))
-    elif arg in range(6,8):
-        embedded_features = True
-        if arg == 6:
-            autoencoder = Autoencoder(input_size=input_size+seasonal_len+weather_len, output_size=input_size+seasonal_len+weather_len)
-            models.append(autoencoder)
-            mlp = MLP(input_size=autoencoder.output_size, output_size=24*4, hidden_size=64)
-            hybrid_model = HybridModel(autoencoder, mlp)
-            models.append(hybrid_model)
-        elif arg == 7:
-            autoencoder = Autoencoder(input_size=input_size+seasonal_len+weather_len, output_size=input_size+seasonal_len+weather_len)
-            models.append(autoencoder)
-            lstm = RNN(input_size=autoencoder.output_size, num_layers=1, output_size=24*4, hidden_size=64)
-            hybrid_model = HybridModel(autoencoder, lstm)
-            models.append(hybrid_model)
-    elif arg in range(8,10):
-        modes = 5
-        if arg == 8:
-            models.append(MLP(input_size=768, output_size=24*4, hidden_size=256))
-        elif arg == 9:
-            pass
-
-    elif arg == 14:
-        vmd = True
-        pass
-
-
-    Dataset = Dataset(model_name=type(models[-1]).__name__, lookback=lookback, k=k, embedded_features=embedded_features, modes=modes)
-
-    for i, model in enumerate(models):
-        hyper_parameter_selection(model, Dataset.train_set[i], Dataset.validate_set[i])
-        train(model, Dataset.train_set[i], Dataset.validate_set[i], epochs=20)
-
-    test(models, Dataset.validate_set) """
+    test(models, Dataset.test_set)

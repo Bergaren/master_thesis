@@ -12,14 +12,14 @@ import holidays
 from vmdpy import VMD
 
 class Dataset():
-    def __init__(self, price_file_path = 'data/price_data.csv', model_name="RNN", embedded_features = False, lookback=2, k=1, modes=1):
+    def __init__(self, price_file_path = 'data/price_data.csv', model_name="RNN", embedded_features = False, mode_decomp = False, lookback=2, k=1):
         print("Loading dataset...")
         self.price_file_path        = price_file_path
         self.model_name             = model_name
         self.embedded_features      = embedded_features
         self.lookback               = lookback
         self.k                      = k
-        self.modes                  = modes
+        self.mode_decomp            = mode_decomp
         self.price_data             = self.load_price_data()
         self.feature_data           = self.load_feature_data()
         self.date_list              = []
@@ -28,7 +28,7 @@ class Dataset():
         if self.k > 1:
             self.create_cluster()
             
-        if model_name == "RNN":
+        if model_name == "LSTM" or model_name == "GRU":
             self.X, self.Y = self.sequential_data() 
         elif model_name == "MLP":
             self.X, self.Y = self.flat_data()
@@ -48,13 +48,10 @@ class Dataset():
 
     def load_price_data(self):
         df = pd.read_csv(self.price_file_path, encoding = "ISO-8859-1", sep=',', decimal='.', index_col='Delivery', parse_dates=['Delivery'])
-        df.fillna(0, inplace=True)
-        df.replace(to_replace=0, method='ffill',inplace=True)
         return df
     
     def load_feature_data(self):
-        df = pd.read_csv('data/feature_data.csv', encoding = "ISO-8859-1", sep=',', decimal='.', index_col='date_time', parse_dates=['date_time'])
-        df.fillna(method='ffill', inplace=True)
+        df = pd.read_csv('data/feature_data.csv', encoding = "ISO-8859-1", sep=',', decimal='.', index_col=0, parse_dates=True)
         return df
 
     def flat_data(self):
@@ -77,34 +74,49 @@ class Dataset():
             Y[cluster].append(
                 todays_data['Dayahead SE3'].tolist() + 
                 todays_data['Dayahead SE4'].tolist() + 
-                todays_data['Intraday SE3'].tolist() + 
+                todays_data['Intraday SE3'].tolist() +
                 todays_data['Intraday SE4'].tolist()
             )
 
             backward_data = self.price_data.loc[start_date-delta_lookback : start_date - delta_one_hour]
-            
-            if self.modes > 1:
+            if self.mode_decomp:
                 x = []
-                for m in self.markets:
-                    us, u_hat, omega = VMD(backward_data['{} (s)'.format(m)].to_numpy(), alpha=2000, tau=0., DC=0, init=1, K=self.modes, tol=1e-7)
-                    x += us.flatten().tolist()
+                for n in range(1,7):
+                    x += (
+                        backward_data['Dayahead SE3 (imf {})'.format(n)].tolist() +
+                        #backward_data['Dayahead SE3 (res)'.format(n)].tolist() + 
+                        backward_data['Dayahead SE4 (imf {})'.format(n)].tolist() +
+                        #backward_data['Dayahead SE4 (res)'.format(n)].tolist() + 
+                        backward_data['Intraday SE3 (imf {})'.format(n)][:self.lookback-11].tolist() +
+                        #backward_data['Intraday SE3 (res)'.format(n)][:self.lookback-11].tolist() + 
+                        backward_data['Intraday SE4 (imf {})'.format(n)][:self.lookback-11].tolist()
+                        #backward_data['Intraday SE4 (res)'.format(n)][:self.lookback-11].tolist()
+                    )
             else:
                 x = (
                     backward_data['Dayahead SE3 (s)'].tolist() + 
                     backward_data['Dayahead SE4 (s)'].tolist() + 
-                    backward_data['Intraday SE3 (s)'][:self.lookback-11].tolist() + 
+                    backward_data['Intraday SE3 (s)'][:self.lookback-11].tolist() +
                     backward_data['Intraday SE4 (s)'][:self.lookback-11].tolist()   
                 )
-            X[cluster].append(x)
             
             if self.embedded_features:
+                backward_f_data = self.feature_data.loc[start_date-delta_lookback : start_date - delta_one_hour]
+                flow            = backward_f_data.iloc[:,:17].values.flatten().tolist()
+
+                todays_f_data   = self.feature_data.loc[start_date : start_date+delta_twenty_three_hours]
+                cap             = todays_f_data.iloc[:,17:-3].values.flatten().tolist()
+
                 todays_f_data = self.feature_data.loc[start_date]
                 month         = self.create_one_hot( todays_f_data['month'], 12 )
                 day_of_week   = self.create_one_hot( todays_f_data['day of week'], 7)
-                weather       = todays_f_data.iloc[3:].tolist()
+                seasonal      = [todays_f_data['holiday']] + month + day_of_week
+                #weather       = todays_f_data.iloc[3:].tolist()
 
-                f_data = [todays_f_data['holiday']] + month + day_of_week + weather
-                X[cluster][-1] += f_data
+                f_data = cap
+                x += f_data
+
+            X[cluster].append(x)
 
             start_date += delta_day
 
@@ -145,15 +157,38 @@ class Dataset():
             )
 
             backward_data = self.price_data.loc[start_date-delta_lookback : start_date-delta_one_hour]
-            backward_data['Intraday SE3 (s)'].iloc[-11:] = backward_data['Intraday SE3 (s)'].iloc[-12]
-            backward_data['Intraday SE4 (s)'].iloc[-11:] = backward_data['Intraday SE4 (s)'].iloc[-12]
 
-            x = np.vstack((
-                backward_data['Dayahead SE3 (s)'],
-                backward_data['Dayahead SE4 (s)'],
-                backward_data['Intraday SE3 (s)'],
-                backward_data['Intraday SE4 (s)']
-            ))
+            if self.mode_decomp:
+                backward_data['Intraday SE3 (imf 1)'].iloc[-11:] = backward_data['Intraday SE3 (imf 1)'].iloc[-12]
+                backward_data['Intraday SE4 (imf 1)'].iloc[-11:] = backward_data['Intraday SE4 (imf 1)'].iloc[-12]
+
+                x = np.vstack((
+                    backward_data['Dayahead SE3 (imf 1)'].tolist(),
+                    backward_data['Dayahead SE4 (imf 1)'].tolist(),
+                    backward_data['Intraday SE3 (imf 1)'].tolist(),
+                    backward_data['Intraday SE4 (imf 1)'].tolist()
+                ))
+                for n in range(2,7):
+                    backward_data['Intraday SE3 (imf {})'.format(n)].iloc[-11:] = backward_data['Intraday SE3 (imf {})'.format(n)].iloc[-12]
+                    backward_data['Intraday SE4 (imf {})'.format(n)].iloc[-11:] = backward_data['Intraday SE4 (imf {})'.format(n)].iloc[-12]
+
+                    x = np.vstack((
+                        x,
+                        backward_data['Dayahead SE3 (imf {})'.format(n)].tolist(),
+                        backward_data['Dayahead SE4 (imf {})'.format(n)].tolist(),
+                        backward_data['Intraday SE3 (imf {})'.format(n)].tolist(),
+                        backward_data['Intraday SE4 (imf {})'.format(n)].tolist()
+                    ))
+            else:
+                backward_data['Intraday SE3 (s)'].iloc[-11:] = backward_data['Intraday SE3 (s)'].iloc[-12]
+                backward_data['Intraday SE4 (s)'].iloc[-11:] = backward_data['Intraday SE4 (s)'].iloc[-12]
+
+                x = np.vstack((
+                    backward_data['Dayahead SE3 (s)'],
+                    backward_data['Dayahead SE4 (s)'],
+                    backward_data['Intraday SE3 (s)'],
+                    backward_data['Intraday SE4 (s)']
+                ))
 
             if self.embedded_features:
                 backward_f_data = self.feature_data.loc[start_date-delta_lookback : start_date-delta_one_hour]

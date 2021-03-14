@@ -1,6 +1,6 @@
 from wwo_hist import retrieve_hist_data
 
-frequency = 24
+frequency = 1
 start_date = '1-Jan-2015'
 end_date = '1-Jan-2021'
 api_key = 'd8973603d0934f34a22105551210802'
