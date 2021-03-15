@@ -10,7 +10,6 @@ class LSTM(nn.Module):
         self.lstm           = None
         self.fc             = None
     
-    #def define_model(self, trial, prefix='A'):
     def define_model(self, trial):
         prefix      = chr(ord('@')+self.mode+1)
         n_layers    = trial.suggest_int("{}_n_layers".format(prefix), 1, 10)
@@ -68,6 +67,24 @@ class MLP(nn.Module):
             layers.append(nn.Linear(in_features, out_features))
             layers.append(nn.ReLU())
             p = trial.suggest_float("{}_dropout_l{}".format(prefix, i), 0.05, 0.5)
+            layers.append(nn.Dropout(p))
+
+            in_features = out_features
+
+        layers.append(nn.Linear(in_features, self.output_size))
+        self.layers = nn.Sequential(*layers)
+
+    def set_optimized_model(self, params):
+        prefix = chr(ord('@')+self.mode+1)
+        n_layers = params["{}_n_layers".format(prefix)]
+        layers = []
+
+        in_features = self.input_size
+        for i in range(n_layers):
+            out_features = params["{}_n_units_l{}".format(prefix, i)]
+            layers.append(nn.Linear(in_features, out_features))
+            layers.append(nn.ReLU())
+            p = params["{}_dropout_l{}".format(prefix, i)]
             layers.append(nn.Dropout(p))
 
             in_features = out_features

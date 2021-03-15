@@ -7,11 +7,11 @@ class Config(object):
       self.cluster           = False
       self.k                 = 4 if self.cluster else 1
 
-      self.mode_decomp       = True
-      self.ensemmble         = True # Only relevant if mode decomposition is used.
+      self.mode_decomp       = False
+      self.ensemble          = True # Only relevant if mode decomposition is used.
       self.n_modes           = 6 if self.mode_decomp else 1     
 
-      self.lookback = 24
+      self.lookback = 7
       self.output_size = 24*4
       self.mlp_price_len = self.lookback*2 + (self.lookback-11)*2
 
@@ -30,7 +30,7 @@ class Config(object):
          length = self.mlp_price_len
       elif self.model == "LSTM" or self.model == "GRU":
          length = self.rnn_price_len
-      if self.mode_decomp and not self.ensemmble:
+      if self.mode_decomp and not self.ensemble:
          length *= self.n_modes
 
       if self.embedded_features:

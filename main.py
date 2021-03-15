@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
-from torchsummary import summary
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
@@ -36,7 +35,7 @@ def train(model, train_set, val_set, lr = 10**-2, epochs=20, trial=None, plot=Fa
         y_true = []
         epoch_loss = []
 
-        for i, batch in enumerate(tqdm(train_set, desc='Batch', disable=False)):
+        for i, batch in enumerate(tqdm(train_set, desc='Batch', disable=True)):
             optimizer.zero_grad()
 
             X, target = batch
@@ -157,7 +156,8 @@ def objective(trial, model, train_set, val_set):
     model = model.to(device)
 
     lr = trial.suggest_float("lr", 1e-5, 1e-1, log=True)
-    mse = train(model, train_set, val_set, lr=lr, epochs = 30, trial=trial)
+    epochs = trial.suggest_int("epochs", 10, 100)
+    mse = train(model, train_set, val_set, lr=lr, epochs=epochs, trial=trial)
 
     return mse
 
@@ -187,23 +187,27 @@ def hyper_parameter_selection(model, train_set, val_set):
 if __name__ == "__main__":
     models = []
 
-    for i in range(config.n_modes if config.ensemmble else 1):
+    for i in range(config.n_modes if config.ensemble else 1):
         if config.model == "MLP":
-            model = MLP(input_size=config.input_size, output_size=config.output_size, mode=0)
+            model = MLP(input_size=config.input_size, output_size=config.output_size, mode=i)
         elif config.model == "LSTM":
-            model = LSTM(input_size=config.input_size, output_size=config.output_size, mode=0)
+            model = LSTM(input_size=config.input_size, output_size=config.output_size, mode=i)
         elif config.model == "GRU":
-            model = GRU(input_size=config.input_size, output_size=config.output_size, mode=0)
+            model = GRU(input_size=config.input_size, output_size=config.output_size, mode=i)
         models.append(model)
-        
-    if config.mode_decomp and config.ensemmble:
-        model = EnsembleModel(models, n_features=config.input_size, output_size=config.output_size)
-        models = [model]
 
     Dataset = Dataset(model_name=config.model, lookback=config.lookback, k=config.k, embedded_features=config.embedded_features, mode_decomp=config.mode_decomp)
 
     for i, model in enumerate(models):
         hyper_params = hyper_parameter_selection(model, Dataset.train_set[i], Dataset.validate_set[i])        
-        train(model, Dataset.train_set[i], Dataset.validate_set[i], lr=hyper_params['lr'], epochs=40, plot=True)
-    
+        model.set_optimized_model(hyper_params)
+        train(model, Dataset.train_set[i], Dataset.validate_set[i], lr=hyper_params['lr'], epochs=hyper_params['epochs'], plot=True)
+        print(model)
+
+    if config.mode_decomp and config.ensemble:
+        model = EnsembleModel(models, n_features=config.input_size, output_size=config.output_size)
+        models = [model]
+
+    #train(models[0], Dataset.train_set[0], Dataset.validate_set[0], lr=hyper_params['lr'], epochs=40, plot=True)
+
     test(models, Dataset.test_set)
