@@ -4,12 +4,10 @@ import numpy as np
 import pandas as pd
 pd.options.mode.chained_assignment = None
 import datetime
-from PyEMD import EMD, Visualisation
 from torch.utils.data import TensorDataset, DataLoader
 from kmodes.kprototypes import KPrototypes
 from sklearn.model_selection import train_test_split
 import holidays
-from vmdpy import VMD
 
 class Dataset():
     def __init__(self, price_file_path = 'data/price_data_2.csv', model_name="RNN", embedded_features = False, mode_decomp = False, lookback=2, k=1):
@@ -195,8 +193,8 @@ class Dataset():
         
         for split in X.keys():
             for k in range(self.k):
-                X[split][k] = torch.Tensor(X[split][k])
-                Y[split][k] = torch.Tensor(Y[split][k])
+                X[split][k] = torch.transpose(torch.FloatTensor(X[split][k]), 1, 2)
+                Y[split][k] = (torch.FloatTensor(Y[split][k]))
 
         return X, Y
 
