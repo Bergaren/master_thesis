@@ -6,7 +6,7 @@ import seaborn as sns
 from vmdpy import VMD
 import time
 
-days = 10
+days = 5
 def standard_score(df):
    for column in ['Dayahead SE3', 'Dayahead SE4', 'Intraday SE3', 'Intraday SE4']:
       std = df[column].std()
