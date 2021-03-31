@@ -18,6 +18,15 @@ class LSTM(nn.Module):
 
         self.lstm   = nn.LSTM(input_size=self.input_size, num_layers=n_layers, hidden_size=hidden_size, batch_first=True, dropout=p)                
         self.fc     = nn.Linear(hidden_size, self.output_size)
+    
+    def set_optimized_model(self, params):
+        prefix      = chr(ord('@')+self.mode+1)
+        n_layers    = params["{}_n_layers".format(prefix)]
+        hidden_size = params["{}_n_units".format(prefix)]
+        p           = params["{}_dropout".format(prefix)]
+
+        self.lstm   = nn.LSTM(input_size=self.input_size, num_layers=n_layers, hidden_size=hidden_size, batch_first=True, dropout=p)                
+        self.fc     = nn.Linear(hidden_size, self.output_size)
 
     def forward(self, x):
         x = x[:,:, self.input_size*self.mode : self.input_size*(self.mode+1)]
@@ -39,6 +48,15 @@ class GRU(nn.Module):
         n_layers    = trial.suggest_int("{}_n_layers".format(prefix), 1, 10)
         hidden_size = trial.suggest_int("{}_n_units".format(prefix), 4, 256)
         p           = trial.suggest_float("{}_dropout".format(prefix), 0.05, 0.5)
+
+        self.gru    = nn.GRU(input_size=self.input_size, num_layers=n_layers, hidden_size=hidden_size, batch_first=True, dropout=p)                
+        self.fc     = nn.Linear(hidden_size, self.output_size)
+
+    def set_optimized_model(self, params):
+        prefix      = chr(ord('@')+self.mode+1)
+        n_layers    = params["{}_n_layers".format(prefix)]
+        hidden_size = params["{}_n_units".format(prefix)]
+        p           = params["{}_dropout".format(prefix)]
 
         self.gru    = nn.GRU(input_size=self.input_size, num_layers=n_layers, hidden_size=hidden_size, batch_first=True, dropout=p)                
         self.fc     = nn.Linear(hidden_size, self.output_size)
