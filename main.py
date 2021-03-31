@@ -252,6 +252,7 @@ if __name__ == "__main__":
     for i, model in enumerate(models):
         hyper_params = hyper_parameter_selection(model, Dataset.train_set[i], Dataset.validate_set[i])        
         model.set_optimized_model(hyper_params)
+        model.to(device)
         train(model, Dataset.train_set[i], Dataset.validate_set[i], lr=hyper_params['lr'], epochs=hyper_params['epochs'], weight_decay=hyper_params['weight_decay'], plot=True)
 
     if config.mode_decomp and config.ensemble:
