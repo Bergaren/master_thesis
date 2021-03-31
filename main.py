@@ -24,13 +24,13 @@ config = Config()
 
 def train(model, train_set, val_set, lr = 10**-2, epochs=30, max_norm=2, weight_decay=0, trial=None, plot=False):
     print('\n Training... \n')
-    model.train()
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
     criterion = torch.nn.MSELoss()
 
     training_losses = []
     validation_losses = []
     for epoch in tqdm(range(epochs), desc='EPOCH'):
+        model.train()
         y_pred = []
         y_true = []
         epoch_loss = []
@@ -38,7 +38,7 @@ def train(model, train_set, val_set, lr = 10**-2, epochs=30, max_norm=2, weight_
         for i, batch in enumerate(tqdm(train_set, desc='Batch', disable=False)):
             optimizer.zero_grad()
 
-            X, target = batch
+            X, target = batch[0].to(device), batch[1].to(device)
             output = model(X)
             loss = criterion(output, target)
             loss.backward()
@@ -77,7 +77,7 @@ def validate(model, dataset):
     losses = []
     with torch.no_grad():
         for i, batch in enumerate(tqdm(dataset, desc='Batch', disable=not verbose)):
-            X, target = batch
+            X, target = batch[0].to(device), batch[1].to(device)
 
             output = model(X)    
 
@@ -106,7 +106,7 @@ def test(models, datasets):
 
         with torch.no_grad():
             for i, batch in enumerate(tqdm(datasets[i],desc='Batch')):
-                X, target = batch
+                X, target = batch[0].to(device), batch[1].to(device)
 
                 output = model(X)    
 
