@@ -1,8 +1,8 @@
 class Config(object):
    def __init__(self):
-      self.model             = "GRU"
+      self.model             = "MLP"
 
-      self.embedded_features = False
+      self.embedded_features = True
 
       self.cluster           = False
       self.k                 = 4 if self.cluster else 1
@@ -11,7 +11,7 @@ class Config(object):
       self.ensemble          = False # Only relevant if mode decomposition is used.
       self.n_modes           = 6 if self.mode_decomp else 1     
 
-      self.lookback = 5
+      self.lookback = 24
       self.output_size = 24
       self.mlp_price_len = self.lookback + (self.lookback-11)
 
@@ -30,8 +30,8 @@ class Config(object):
          length *= (self.n_modes + 1)
 
       if self.embedded_features:
-         length += self.cap_len
-         #length += self.seasonal_len
+         #length += self.cap_len
+         length += self.seasonal_len
 
       return length
       

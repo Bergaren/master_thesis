@@ -20,8 +20,6 @@ class Dataset():
         self.mode_decomp            = mode_decomp
         self.price_data             = self.load_price_data()
         self.feature_data           = self.load_feature_data()
-        self.date_list              = []
-        self.markets                = ['Dayahead SE3', 'Dayahead SE4', 'Intraday SE3', 'Intraday SE4']
 
         if self.k > 1:
             self.create_cluster()
@@ -97,9 +95,8 @@ class Dataset():
                 day_of_week   = self.create_one_hot( todays_f_data['day of week'], 7)
                 seasonal      = [todays_f_data['holiday']] + month + day_of_week
 
-                f_data = cap + seasonal
-                x += f_data
-
+                x += cap + seasonal
+                
             X[split][cluster].append(x)
 
             start_date += delta_day

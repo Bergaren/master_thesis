@@ -13,7 +13,7 @@ from torch.utils.data import TensorDataset, DataLoader
 from tqdm import tqdm
 import holidays
 from models import LSTM, GRU, MLP, EnsembleModel, Autoencoder, HybridModel
-from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, accuracy_score, mean_squared_error, classification_report, confusion_matrix
+from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, accuracy_score, mean_squared_error, classification_report, confusion_matrix, ConfusionMatrixDisplay
 from matplotlib.animation import FuncAnimation
 from math import sqrt
 from dataset import Dataset
@@ -35,7 +35,7 @@ def train(model, train_set, val_set, lr = 10**-2, epochs=30, max_norm=2, weight_
         y_true = []
         epoch_loss = []
 
-        for i, batch in enumerate(tqdm(train_set, desc='Batch', disable=False)):
+        for i, batch in enumerate(tqdm(train_set, desc='Batch', disable=True)):
             optimizer.zero_grad()
 
             X, target = batch[0].to(device), batch[1].to(device)
@@ -89,14 +89,6 @@ def validate(model, dataset):
 def test(models, datasets):
     print("\n Testing... \n")
     criterion = torch.nn.L1Loss()
-    """ y_pred = {
-        'Dayahead SE3' : [],
-        'Intraday SE3' : []
-    }
-    y_true = {
-        'Dayahead SE3' : [],
-        'Intraday SE3' : []
-    } """
     
     y_pred = []
     y_true = []
@@ -120,6 +112,9 @@ def test(models, datasets):
                     y_pred[column].extend(output[:,24*i:24*(i+1)].flatten().tolist())
                     y_true[column].extend(target[:,24*i:24*(i+1)].flatten().tolist())
  """
+
+    print("MAE: {:.2f}".format( np.mean(losses) ))
+
     dir_pred = np.sign(y_pred)
     dir_true = np.sign(y_true)
     #delta_pred = np.subtract(y_pred['Dayahead SE3'], y_pred['Intraday SE3'])
@@ -128,7 +123,14 @@ def test(models, datasets):
     #dir_pred = np.sign(delta_pred)
     #dir_true = np.sign(delta_true)
 
+    print("\nAccuracy:")
     print(accuracy_score(dir_true, dir_pred))
+    print('\Consfusion Report:')
+    cm = confusion_matrix(dir_true, dir_pred, labels=np.unique(dir_pred))
+    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(dir_pred))
+    print(cm)
+    disp.plot()
+    plt.show()
     """ print("\n ### Price prediction ### \n")
     print("\n # Summary statistics #")
     summary_statistics = {
