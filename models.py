@@ -122,7 +122,7 @@ class EnsembleModel(nn.Module):
         
         self.aggregator = nn.Sequential(
             nn.ReLU(),
-            nn.Linear(output_size*len(models), output_size)
+            nn.Linear(sum([m.output_size for m in self.models]), output_size)
         )
     
     def define_model(self, trial):

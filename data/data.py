@@ -4,9 +4,21 @@ import datetime
 import holidays
 import requests
 import re
+from sklearn import linear_model
+from energyquantified import EnergyQuantified
+from energyquantified.time import Frequency
+from energyquantified.metadata import Aggregation, Filter
 from os import path
-from PyEMD import EMD, CEEMDAN, Visualisation
+from datetime import date, timedelta, datetime, time
+#from PyEMD import EMD, CEEMDAN, Visualisation
 from scipy.stats import zscore
+
+with open('../.env', 'r') as f:
+    vars_dict = dict(
+        tuple(line.split('='))
+        for line in f.readlines() if not line.startswith('#')
+    )
+eq = EnergyQuantified(api_key=vars_dict['EG_API_KEY'])
 
 def add_intraday( year ):
     intraday_prices = {
@@ -126,7 +138,7 @@ def combine_market_data():
 
     cap.dropna(axis=1, inplace=True)
     cap = cap[~cap.index.duplicated(keep='last')]
-    training_stop = datetime.datetime(2020, 1, 1, 00, 00, 00)
+    training_stop = datetime(2020, 1, 1, 00, 00, 00)
 
     cap_max = cap.loc[:training_stop].max()
     cap_min = cap.loc[:training_stop].min()
@@ -135,16 +147,16 @@ def combine_market_data():
     return cap
 
 def seasonal_data():
-    start_date = datetime.datetime(2015, 1, 1, 00, 00, 00)
-    end_date = datetime.datetime(2021, 1, 1, 00, 00, 00)
+    start_date = datetime(2015, 1, 1, 00, 00, 00)
+    end_date = datetime(2021, 1, 1, 00, 00, 00)
 
     se_holidays = holidays.CountryHoliday('SE')
-    delta_day = datetime.timedelta(days=1)
+    delta_day = timedelta(days=1)
 
     data = {
         'date_time'     : [],
         'holiday'       : [],
-        'month'         : [],
+        'week'         : [],
         'day of week'   : []
     }
 
@@ -153,7 +165,7 @@ def seasonal_data():
 
         is_holiday = 1 if start_date in se_holidays else 0
         data['holiday'].append(is_holiday)
-        data['month'].append(start_date.month - 1)
+        data['week'].append(start_date.isocalendar()[1] - 1)
         data['day of week'].append(start_date.weekday())
         
         start_date += delta_day
@@ -215,10 +227,10 @@ def combine_yearly_price_data():
         df2 =  pd.read_csv('price_yearly/price_data_{}.csv'.format(year), sep=',', decimal=".", index_col='Delivery', parse_dates=['Delivery'])
         df = df.append(df2, ignore_index = False)
 
-    print(df.describe())
 
     df.fillna(0, inplace=True)
     df.replace(to_replace=0, method='ffill', inplace=True)
+    #print(df.describe())
 
     df.drop(columns=['Dayahead SE4', 'Intraday SE4'], inplace=True)
 
@@ -234,7 +246,7 @@ def load_market_data(path, year, prefix):
     for index, row in df.iterrows():
         d_str = row['Date'] + ' ' + row['Hours'].split()[0]
         delivery.append(
-            datetime.datetime.strptime(d_str, '%d-%m-%Y %H')
+            datetime.strptime(d_str, '%d-%m-%Y %H')
         )
     regions = re.compile('> SE3')
     cols = [c for c in df.columns if regions.search(c)]
@@ -245,7 +257,7 @@ def load_market_data(path, year, prefix):
     return df
 
 def standardize(df):
-    training_stop = datetime.datetime(2020, 1, 1, 00, 00, 00)
+    training_stop = datetime(2020, 1, 1, 00, 00, 00)
     for column in df.columns:
         mean = df[column].loc[:training_stop].mean()
         std = df[column].loc[:training_stop].std()
@@ -294,20 +306,85 @@ def combine_weather_data():
     weather = pd.concat([df for df in city_weather.values()], ignore_index=False, axis=1)
     return weather
 
+def combine_production_data():
+    wp = load_wind_production('SE')
+    return wp
+
+def load_wind_production(region):
+    wind_prod = eq.instances.relative(
+        '{} Wind Power Production MWh/h 15min Forecast'.format(region),
+        begin=datetime(2019, 1, 1, 0, 0, 0),
+        end=datetime(2021, 1, 1, 0, 0, 0),
+        days_ahead=1,
+        tag='ecsr',
+        before_time_of_day=time(12, 0),
+        frequency=Frequency.PT1H,
+        aggregation=Aggregation.AVERAGE,
+    )
+    forecasted_wp = wind_prod.to_dataframe()
+
+    wind_prod = eq.timeseries.load(
+        'SE Wind Power Production MWh/h H Actual',
+        begin='2015-01-01',
+        end='2019-01-01',
+    )
+    actual_wp = wind_prod.to_dataframe()
+
+    forecasted_wp.fillna(method='ffill', inplace=True)
+    forecasted_wp.rename(columns={'{} Wind Power Production MWh/h 15min Forecast'.format(region):'{} wp'.format(region)}, inplace=True)
+    actual_wp.fillna(method='ffill', inplace=True)
+    actual_wp.rename(columns={'{} Wind Power Production MWh/h H Actual'.format(region):'{} wp'.format(region)}, inplace=True)
+
+    wp = pd.concat([actual_wp, forecasted_wp], axis=0, ignore_index=False)
+    wp.index = wp.index.tz_localize(None)
+    wp = wp[~wp.index.duplicated(keep='last')]
+    training_stop = datetime(2020, 1, 1, 00, 00, 00)
+
+    wp_max = wp.loc[:training_stop].max()
+    wp_min = wp.loc[:training_stop].min()
+    
+    wp = (wp - wp_min) / (wp_max - wp_min)
+    return wp
+
+def analyze_features(price_data, feature_data):
+    reg = linear_model.LassoCV()
+    features = feature_data.iloc[:,:6]
+    price_spread = price_data['Dayahead SE3'] - price_data['Intraday SE3']
+    
+    x = features.loc[:date(2019,12,31)]
+    y = price_spread.loc[:date(2019,12,31)]
+    
+    reg.fit(x.values, y.values)
+    coef = pd.Series(reg.coef_, index = features.columns)
+    print(coef)
+    print(pd.concat([y,x], ignore_index=False, axis=1).corr())
+
 if __name__ == "__main__":
-    # Create seasonal data
-    seasonal_data = seasonal_data()
- 
-    # Merge all market data excluding price
-    market_data = combine_market_data()
+    if not path.exists('feature_data.csv'):
+        # Create seasonal data
+        seasonal_data = seasonal_data()
 
-    feature_data = pd.concat([market_data, seasonal_data], ignore_index=False, axis=1)
-    feature_data.fillna(0, inplace=True)
-    feature_data.replace(to_replace=0, method='ffill',inplace=True)
-    #feature_data.to_csv('feature_data.csv', index=True)
+        # Merge all market data excluding price
+        market_data = combine_market_data()
+        # Merge all production data
+        production_data = combine_production_data()
 
-    # Merge all price data
-    arrange_price_data()
-    price_data = combine_yearly_price_data()    
-    #price_data = create_imf(price_data)
-    #price_data.to_csv('price_data_2.csv', index=True)
+        feature_data = pd.concat([production_data, market_data, seasonal_data], ignore_index=False, axis=1)
+        feature_data.rename(columns={ feature_data.columns[0] : 'se wp'}, inplace=True)
+
+        feature_data.fillna(method='ffill', inplace=True)
+        feature_data.to_csv('feature_data.csv', index=True)
+    else:
+        feature_data  = pd.read_csv('feature_data.csv', encoding = "ISO-8859-1", sep=',', decimal='.', index_col=0, parse_dates=True)
+
+    if not path.exists('price_data.csv'):
+        # Merge all price data
+        arrange_price_data()
+        price_data = combine_yearly_price_data()
+        price_data.to_csv('price_data.csv', index=True)
+        print(price_data)
+    else:
+        price_data = pd.read_csv('price_data.csv', encoding = "ISO-8859-1", sep=',', decimal='.', index_col='Delivery', parse_dates=['Delivery'])
+
+    analyze_features(price_data, feature_data)
+    

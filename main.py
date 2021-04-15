@@ -240,15 +240,17 @@ def hyper_parameter_selection(model, train_set, val_set):
 if __name__ == "__main__":
     models = []
 
-    for i in range(config.n_modes if config.ensemble else 1):
-        if config.model == "MLP":
-            model = MLP(input_size=config.input_size, output_size=config.output_size, mode=i)
-            print(config.input_size)
-        elif config.model == "LSTM":
-            model = LSTM(input_size=config.input_size, output_size=config.output_size, mode=i)
-        elif config.model == "GRU":
-            model = GRU(input_size=config.input_size, output_size=config.output_size, mode=i)
-        models.append(model)
+    #for i in range(config.n_modes if config.ensemble else 1):
+    if config.model == "MLP":
+        model = MLP(input_size=config.input_size, output_size=config.output_size, mode=i)
+    elif config.model == "LSTM":
+        model = LSTM(input_size=config.input_size, output_size=config.output_size, mode=i)
+    elif config.model == "GRU":
+        model = GRU(input_size=config.input_size, output_size=config.output_size, mode=i)
+    elif config.model == "THD":
+        pass        
+
+    models.append(model)
     Dataset = Dataset(model_name=config.model, lookback=config.lookback, k=config.k, embedded_features=config.embedded_features, mode_decomp=config.mode_decomp)
 
     for i, model in enumerate(models):

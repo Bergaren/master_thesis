@@ -1,0 +1,30 @@
+LSTM
+LSTM (incl seasonality) 
+
+Cluster - LSTM - Garch
+Cluster - LSTM - Linear
+Cluster - LSTM - Average
+
+VMD - LSTM - GARCH
+VMD - LSTM - Linear
+VMD - LSTM - Average
+
+#EMD - LSTM - GARCH
+#EMD - LSTM - Linear
+#EMD - LSTM - Average
+
+VMD - VA - LSTM - GARCH
+VMD - VA - LSTM - Linear
+VMD - VA - LSTM - Average
+
+#EMD - VA - LSTM - GARCH
+#EMD - VA - LSTM - Linear
+#EMD - VA - LSTM - Average
+
+Cluster - VMD - VA - LSTM - GARCH
+Cluster - VMD - VA - LSTM - Linear
+Cluster - VMD - VA - LSTM - Average
+
+#Cluster - EMD - VA - LSTM - GARCH
+#Cluster - EMD - VA - LSTM - Linear
+#Cluster - EMD - VA - LSTM - Average
