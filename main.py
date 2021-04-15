@@ -99,7 +99,6 @@ def test(models, datasets):
         with torch.no_grad():
             for i, batch in enumerate(tqdm(datasets[i],desc='Batch')):
                 X, target = batch[0].to(device), batch[1].to(device)
-
                 output = model(X)    
 
                 loss = criterion(output, target)
@@ -241,6 +240,7 @@ if __name__ == "__main__":
     models = []
 
     #for i in range(config.n_modes if config.ensemble else 1):
+    i = 0
     if config.model == "MLP":
         model = MLP(input_size=config.input_size, output_size=config.output_size, mode=i)
     elif config.model == "LSTM":

@@ -76,7 +76,7 @@ class MLP(nn.Module):
 
     def define_model(self, trial):
         prefix = chr(ord('@')+self.mode+1)
-        n_layers = trial.suggest_int("{}_n_layers".format(prefix), 1, 5)
+        n_layers = trial.suggest_int("{}_n_layers".format(prefix), 1, 10)
         layers = []
 
         in_features = self.input_size

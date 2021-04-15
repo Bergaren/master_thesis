@@ -128,7 +128,7 @@ def arrange_price_data():
             
             df.to_csv('price_yearly/price_data_{}.csv'.format(year), index=False)
 
-def combine_market_data():
+def get_cap_data():
     # Elspot flow data
     cap = load_market_data('elspot_dayahead/elspot-capacities-se', 2015, 'cap ')
 
@@ -307,8 +307,10 @@ def combine_weather_data():
     return weather
 
 def combine_production_data():
-    wp = load_wind_production('SE')
-    return wp
+    wp      = load_wind_production('SE')
+    solar   = load_solar_production('SE')
+    nuclear = load_nuclear_production('SE')
+    return pd.concat([wp, solar, nuclear], axis=1, ignore_index=True)
 
 def load_wind_production(region):
     wind_prod = eq.instances.relative(
@@ -331,9 +333,9 @@ def load_wind_production(region):
     actual_wp = wind_prod.to_dataframe()
 
     forecasted_wp.fillna(method='ffill', inplace=True)
-    forecasted_wp.rename(columns={'{} Wind Power Production MWh/h 15min Forecast'.format(region):'{} wp'.format(region)}, inplace=True)
+    forecasted_wp.rename(columns={'{} Wind Power Production MWh/h 15min Forecast'.format(region):'wp {}'.format(region)}, inplace=True)
     actual_wp.fillna(method='ffill', inplace=True)
-    actual_wp.rename(columns={'{} Wind Power Production MWh/h H Actual'.format(region):'{} wp'.format(region)}, inplace=True)
+    actual_wp.rename(columns={'{} Wind Power Production MWh/h H Actual'.format(region):'wp {}'.format(region)}, inplace=True)
 
     wp = pd.concat([actual_wp, forecasted_wp], axis=0, ignore_index=False)
     wp.index = wp.index.tz_localize(None)
@@ -345,6 +347,114 @@ def load_wind_production(region):
     
     wp = (wp - wp_min) / (wp_max - wp_min)
     return wp
+
+def load_solar_production(region):
+    solar_prod = eq.instances.relative(
+        '{} Solar Photovoltaic Production MWh/h 15min Forecast'.format(region),
+        begin=datetime(2019, 1, 1, 0, 0, 0),
+        end=datetime(2021, 1, 1, 0, 0, 0),
+        days_ahead=1,
+        tag='ecsr',
+        before_time_of_day=time(12, 0),
+        frequency=Frequency.PT1H,
+        aggregation=Aggregation.AVERAGE,
+    )
+    forecasted_solar = solar_prod.to_dataframe()
+
+    solar_prod = eq.timeseries.load(
+        'SE Solar Photovoltaic Production MWh/h H Actual',
+        begin='2015-01-01',
+        end='2019-01-01',
+    )
+    actual_solar = solar_prod.to_dataframe()
+
+    forecasted_solar.fillna(method='ffill', inplace=True)
+    forecasted_solar.rename(columns={'{} Solar Photovoltaic Production MWh/h 15min Forecast'.format(region):'solar {}'.format(region)}, inplace=True)
+    actual_solar.fillna(method='ffill', inplace=True)
+    actual_solar.rename(columns={'{} Solar Photovoltaic Production MWh/h H Actual'.format(region):'solar {}'.format(region)}, inplace=True)
+
+    solar = pd.concat([actual_solar, forecasted_solar], axis=0, ignore_index=False)
+    solar.index = solar.index.tz_localize(None)
+    solar = solar[~solar.index.duplicated(keep='last')]
+    training_stop = datetime(2020, 1, 1, 00, 00, 00)
+
+    solar_max = solar.loc[:training_stop].max()
+    solar_min = solar.loc[:training_stop].min()
+    
+    solar = (solar - solar_min) / (solar_max - solar_min)
+    return solar
+
+def load_nuclear_production(region):
+    nuclear_prod = eq.instances.relative(
+        '{} Nuclear Production MWh/h 15min Forecast'.format(region),
+        begin=datetime(2019, 1, 1, 0, 0, 0),
+        end=datetime(2021, 1, 1, 0, 0, 0),
+        days_ahead=1,
+        tag='',
+        before_time_of_day=time(12, 0),
+        frequency=Frequency.PT1H,
+        aggregation=Aggregation.AVERAGE,
+    )
+    forecasted_nuclear = nuclear_prod.to_dataframe()
+
+    nuclear_prod = eq.timeseries.load(
+        '{} Nuclear Production MWh/h H Actual'.format(region),
+        begin='2015-01-01',
+        end='2019-01-01',
+    )
+    actual_nuclear = nuclear_prod.to_dataframe()
+
+    forecasted_nuclear.fillna(method='ffill', inplace=True)
+    forecasted_nuclear.rename(columns={'{} Nuclear Production MWh/h 15min Forecast'.format(region):'nuclear {}'.format(region)}, inplace=True)
+    actual_nuclear.fillna(method='ffill', inplace=True)
+    actual_nuclear.rename(columns={'{} Nuclear Production MWh/h H Actual'.format(region):'nuclear {}'.format(region)}, inplace=True)
+
+    nuclear = pd.concat([actual_nuclear, forecasted_nuclear], axis=0, ignore_index=False)
+    nuclear.index = nuclear.index.tz_localize(None)
+    nuclear = nuclear[~nuclear.index.duplicated(keep='last')]
+    training_stop = datetime(2020, 1, 1, 00, 00, 00)
+
+    nuclear_max = nuclear.loc[:training_stop].max()
+    nuclear_min = nuclear.loc[:training_stop].min()
+    
+    nuclear = (nuclear - nuclear_min) / (nuclear_max - nuclear_min)
+    return nuclear
+
+def get_cons_data(region):
+    cons = eq.instances.relative(
+      '{} Consumption MWh/h 15min Forecast'.format(region),
+      begin=datetime(2019, 1, 1, 0, 0, 0),
+      end=datetime(2021, 1, 1, 0, 0, 0),
+      days_ahead=1,
+      tag='ecsr',
+      before_time_of_day=time(12, 0),
+      frequency=Frequency.PT1H,
+      aggregation=Aggregation.AVERAGE,
+    )
+    forecasted_cons = cons.to_dataframe()
+
+    cons = eq.timeseries.load(
+        '{} Consumption MWh/h H Actual'.format(region),
+        begin='2015-01-01',
+        end='2019-01-01',
+    )
+    actual_cons = cons.to_dataframe()
+
+    forecasted_cons.fillna(method='ffill', inplace=True)
+    forecasted_cons.rename(columns={'{} Consumption MWh/h 15min Forecast'.format(region):'cons {}'.format(region)}, inplace=True)
+    actual_cons.fillna(method='ffill', inplace=True)
+    actual_cons.rename(columns={'{} Consumption MWh/h H Actual'.format(region):'cons {}'.format(region)}, inplace=True)
+
+    cons = pd.concat([actual_cons, forecasted_cons], axis=0, ignore_index=False)
+    cons.index = cons.index.tz_localize(None)
+    cons = cons[~cons.index.duplicated(keep='last')]
+    training_stop = datetime(2020, 1, 1, 00, 00, 00)
+
+    cons_max = cons.loc[:training_stop].max()
+    cons_min = cons.loc[:training_stop].min()
+    
+    cons = (cons - cons_min) / (cons_max - cons_min)
+    return cons
 
 def analyze_features(price_data, feature_data):
     reg = linear_model.LassoCV()
@@ -364,14 +474,21 @@ if __name__ == "__main__":
         # Create seasonal data
         seasonal_data = seasonal_data()
 
-        # Merge all market data excluding price
-        market_data = combine_market_data()
-        # Merge all production data
+        # Get forecasted capacity
+        capacity_data = get_cap_data()
+        # Get forecasted production data
         production_data = combine_production_data()
+        # Get forecasted consumption data
+        consumption_data = get_cons_data('SE')
 
-        feature_data = pd.concat([production_data, market_data, seasonal_data], ignore_index=False, axis=1)
-        feature_data.rename(columns={ feature_data.columns[0] : 'se wp'}, inplace=True)
-
+        feature_data = pd.concat([production_data, consumption_data, capacity_data, seasonal_data], ignore_index=False, axis=1)
+        feature_data.rename(columns={ 
+            feature_data.columns[0] : 'wp se', 
+            feature_data.columns[1] : 'solar se',
+            feature_data.columns[2] : 'nuclear se', 
+            feature_data.columns[3] : 'cons se',
+        }, inplace=True)
+        print(feature_data)
         feature_data.fillna(method='ffill', inplace=True)
         feature_data.to_csv('feature_data.csv', index=True)
     else:
@@ -382,7 +499,6 @@ if __name__ == "__main__":
         arrange_price_data()
         price_data = combine_yearly_price_data()
         price_data.to_csv('price_data.csv', index=True)
-        print(price_data)
     else:
         price_data = pd.read_csv('price_data.csv', encoding = "ISO-8859-1", sep=',', decimal='.', index_col='Delivery', parse_dates=['Delivery'])
 

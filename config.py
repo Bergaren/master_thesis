@@ -1,6 +1,6 @@
 class Config(object):
    def __init__(self):
-      self.model             = "MLP"
+      self.model             = "LSTM"
 
       self.embedded_features = True
 
@@ -11,12 +11,14 @@ class Config(object):
       self.ensemble          = False # Only relevant if mode decomposition is used.
       self.n_modes           = 6 if self.mode_decomp else 1     
 
-      self.lookback = 24
+      self.lookback = 5 # In days if RNN model and in hours if MLP
       self.output_size = 24
       self.mlp_price_len = self.lookback + (self.lookback-11)
 
-      self.seasonal_len = 20
+      self.prod_len = 24*3
+      self.cons_len = 24
       self.cap_len = 24*5
+      self.seasonal_len = 61
 
       self.rnn_price_len = 2
       self.input_size = self.configure_input_size()
@@ -30,9 +32,8 @@ class Config(object):
          length *= (self.n_modes + 1)
 
       if self.embedded_features:
-         #length += self.cap_len
-         length += self.seasonal_len
-
+         length += self.prod_len + self.cap_len + self.cons_len + self.seasonal_len
+      print(length)
       return length
       
 

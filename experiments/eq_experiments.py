@@ -18,7 +18,12 @@ with open('../.env', 'r') as f:
    )
 
 eq = EnergyQuantified(api_key=vars_dict['EG_API_KEY'])
-
+curves = eq.metadata.curves(q="se nuclear forecast")
+forecasts = eq.instances.load(
+   curves[0]
+)
+for f in forecasts:
+   print(f)
 def get_wind_se():
    wind_prod = eq.instances.relative(
       'SE Wind Power Production MWh/h 15min Forecast',
@@ -49,16 +54,18 @@ def get_wind_se():
 
 def get_nuclear_se():
    nuclear_prod = eq.instances.relative(
-      'SE Nuclear Production MWh/h 15min Forecast',
-      begin=datetime(2019, 1, 1, 0, 0, 0),
-      end=datetime(2020, 1, 1, 0, 0, 0),
+      curves[0],
+      begin=datetime(2020, 3, 1, 0, 0, 0),
+      end=datetime(2021, 1, 1, 0, 0, 0),
       days_ahead=1,
-      tag='ecsr',
+      tag='',
       before_time_of_day=time(12, 0),
       frequency=Frequency.PT1H,
       aggregation=Aggregation.AVERAGE,
    )
    forecasted_nuclear = nuclear_prod.to_dataframe()
+   print(nuclear_prod)
+   print(forecasted_nuclear)
 
    nuclear_prod = eq.timeseries.load(
       'SE Nuclear Production MWh/h H Actual',
@@ -128,8 +135,16 @@ def get_consumption_se():
    actual_cons.fillna(method='ffill', inplace=True)
    actual_cons.rename(columns={'SE Consumption MWh/h H Actual':'se cons'}, inplace=True)
 
-   cons_se = pd.concat([actual_cons, forecasted_cons], axis=0, ignore_index=False)
-   return cons_se
+   cons = pd.concat([actual_cons, forecasted_cons], axis=0, ignore_index=False)
+   cons.index = cons.index.tz_localize(None)
+   cons = cons[~cons.index.duplicated(keep='last')]
+   training_stop = datetime(2020, 1, 1, 00, 00, 00)
+
+   cons_max = cons.loc[:training_stop].max()
+   cons_min = cons.loc[:training_stop].min()
+   
+   cons = (cons - cons_min) / (cons_max - cons_min)
+   return cons
 
 def get_residual_se():
    res = eq.instances.relative(
@@ -159,10 +174,11 @@ def get_residual_se():
    res_se = pd.concat([actual_res, forecasted_res], axis=0, ignore_index=False)
    return res_se
 
-wp_se = get_wind_se()
+#wp_se = get_wind_se()
 nuclear_se = get_nuclear_se()
-solar_se = get_solar_se()
-cons_se = get_consumption_se()
+print(nuclear_se)
+#solar_se = get_solar_se()
+#cons_se = get_consumption_se()
 
 features = pd.concat([wp_se, nuclear_se, solar_se, cons_se], axis=1, ignore_index=False)
 features.index = features.index.tz_localize(None)

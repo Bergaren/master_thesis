@@ -87,15 +87,16 @@ class Dataset():
                     )
             
             if self.embedded_features:
-                todays_f_data   = self.feature_data.loc[start_date : start_date+delta_twenty_three_hours]
-                cap             = todays_f_data.iloc[:,:-3].values.flatten().tolist()
+                entire_day      = self.feature_data.loc[start_date : start_date+delta_twenty_three_hours]
+                prod            = entire_day[['wp se','solar se','nuclear se']].values.flatten().tolist()
+                cons            = entire_day[['cons se']].values.flatten().tolist()
+                cap             = entire_day[['cap SE2 > SE3','cap SE4 > SE3','cap NO1 > SE3','cap DK1 > SE3','cap FI > SE3']].values.flatten().tolist()
 
-                todays_f_data = self.feature_data.loc[start_date]
-                month         = self.create_one_hot( todays_f_data['month'], 12 )
-                day_of_week   = self.create_one_hot( todays_f_data['day of week'], 7)
-                seasonal      = [todays_f_data['holiday']] + month + day_of_week
-
-                x += cap + seasonal
+                one_point     = self.feature_data.loc[start_date]
+                week          = self.create_one_hot( one_point['week'], 53 )
+                day_of_week   = self.create_one_hot( one_point['day of week'], 7)
+                seasonal      = [one_point['holiday']] + week + day_of_week
+                x += prod + cons + cap + seasonal
                 
             X[split][cluster].append(x)
 
@@ -167,21 +168,30 @@ class Dataset():
                     ))                
 
             if self.embedded_features:
-                f_data   = self.feature_data.loc[start_date : start_date+delta_twenty_three_hours]
-                cap      = f_data.iloc[:,:-3].values.flatten()
-                cap      = np.tile(cap, (x.shape[1],1))
+                entire_day      = self.feature_data.loc[start_date : start_date+delta_twenty_three_hours]
+                prod            = entire_day[['wp se','solar se','nuclear se']].values.flatten()
+                prod            = np.tile(prod, (x.shape[1],1))
+                cons            = entire_day[['cons se']].values.flatten()
+                cons            = np.tile(cons, (x.shape[1],1))
+                cap             = entire_day[['cap SE2 > SE3','cap SE4 > SE3','cap NO1 > SE3','cap DK1 > SE3','cap FI > SE3']].values.flatten()
+                cap             = np.tile(cap, (x.shape[1],1))
 
-                todays_f_data = self.feature_data.loc[start_date]
-                
-                backward_f_data = self.feature_data.loc[start_date-delta_lookback : start_date-delta_one_hour]
+                one_point   = self.feature_data.loc[start_date]
+                week        = self.create_one_hot( one_point['week'], 53 )
+                week        = np.tile(week, (x.shape[1],1))
+                day_of_week = self.create_one_hot( one_point['day of week'], 7)
+                day_of_week = np.tile(day_of_week, (x.shape[1],1))
+                holiday     = [one_point['holiday']]
+                holiday     = np.tile(holiday, (x.shape[1],1))
 
-                #f_data.columns = backward_f_data.columns
-
-                month = np.stack(f_data['month'].apply(lambda m: self.create_one_hot(m, 12)), axis=1)
-                day_of_week = np.stack(f_data['day of week'].apply(lambda d: self.create_one_hot(d, 7)), axis=1)
                 x = np.vstack((
                     x,
-                    cap.transpose()
+                    prod.transpose(),
+                    cons.transpose(),
+                    cap.transpose(),
+                    week.T,
+                    day_of_week.T,
+                    holiday.T
                 ))
                 
             X[split][cluster].append(x)
