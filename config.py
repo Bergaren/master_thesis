@@ -11,7 +11,7 @@ class Config(object):
       self.ensemble          = False # Only relevant if mode decomposition is used.
       self.n_modes           = 6 if self.mode_decomp else 1     
 
-      self.lookback = 5 # In days if RNN model and in hours if MLP
+      self.lookback = 24 # In days if RNN model and in hours if MLP
       self.output_size = 24
       self.mlp_price_len = self.lookback + (self.lookback-11)
 
