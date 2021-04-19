@@ -4,12 +4,28 @@ import numpy as np
 import pandas as pd
 pd.options.mode.chained_assignment = None
 import datetime
-from torch.utils.data import TensorDataset, DataLoader
+from torch.utils.data import TensorDataset, DataLoader, Dataset
 from kmodes.kprototypes import KPrototypes
 from sklearn.model_selection import train_test_split
 import holidays
 
-class Dataset():
+class Dataset(TensorDataset):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+        self.features = None
+
+    def __len__(self):
+        return len(self.y)
+
+    def __getitem__(self, index):
+        X = self.x[index]
+        y = self.y[index]
+
+        return X, y
+
+class DataLoaderCreator():
     def __init__(self, price_file_path = 'data/price_data_2.csv', model_name="RNN", embedded_features = False, mode_decomp = False, lookback=2, k=1):
         print("Loading dataset...")
         self.price_file_path        = price_file_path
@@ -227,9 +243,9 @@ class Dataset():
             #X_train, X_test, y_train, y_test = X[:-test_len], X[-test_len:], Y[:-test_len], Y[-test_len:]
             #X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.1)
 
-            dataset_train = TensorDataset(self.X['train'][k], self.Y['train'][k])
-            dataset_val = TensorDataset(self.X['valid'][k], self.Y['valid'][k])
-            dataset_test = TensorDataset(self.X['test'][k], self.Y['test'][k])
+            dataset_train = Dataset(self.X['train'][k], self.Y['train'][k])
+            dataset_val = Dataset(self.X['valid'][k], self.Y['valid'][k])
+            dataset_test = Dataset(self.X['test'][k], self.Y['test'][k])
 
             training_generator = DataLoader(dataset_train, shuffle = True, batch_size = 32)
             val_generator = DataLoader(dataset_val, shuffle = True, batch_size = 32)

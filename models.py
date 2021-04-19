@@ -169,24 +169,6 @@ class TwoHeadedHybridModel(nn.Module):
 
         self.ensemble.input_size = rnn_output_size + mlp_output_size
         self.ensemble.define_model(trial)
-    
-    """ def define_ensemble(self, trial):
-        n_layers = trial.suggest_int("Ensemble_n_layers", 1, 10)
-        layers = [nn.ReLU()]
-
-        in_features = trial.params['RNN_head_output_size'] + trial.params['MLP_head_output_size']
-        for i in range(n_layers):
-            out_features = trial.suggest_int("Ensemble_n_units_l{}".format(i), 4, 256)
-            layers.append(nn.Linear(in_features, out_features))
-            layers.append(nn.ReLU())
-            p = trial.suggest_float("Ensemble_dropout_l{}".format(i), 0.05, 0.5)
-            layers.append(nn.Dropout(p))
-
-            in_features = out_features
-
-        layers.append(nn.Linear(in_features, self.output_size))
-
-        return nn.Sequential(*layers) """
 
     def set_optimized_model(self, params):
         rnn_output_size = params["RNN_head_output_size"]

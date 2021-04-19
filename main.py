@@ -16,12 +16,37 @@ from models import LSTM, GRU, MLP, EnsembleModel, TwoHeadedHybridModel
 from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, accuracy_score, mean_squared_error, classification_report, confusion_matrix, ConfusionMatrixDisplay
 from matplotlib.animation import FuncAnimation
 from math import sqrt
-from dataset import Dataset
+from dataset import DataLoaderCreator
 from config import Config
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(device)
 config = Config()
+""" 
+trial.suggest_int("wp", 0, 1)
+trial.suggest_int("nuclear", 0, 1)
+trial.suggest_int("solar", 0, 1)
+trial.suggest_int("cons", 0, 1)
+trial.suggest_int("cap", 0, 1)
+trial.suggest_int("year", 0, 1)
+trial.suggest_int("week", 0, 1)
+trial.suggest_int("day of week", 0, 1)
+trial.suggest_int("holiday", 0, 1) """
+
+def custom_enumerate(array, trial):
+
+    c = 0
+    print(len(trial.params))
+    for e in array:
+        if config.embedded_features:
+            x = e[0]
+            # x = x[trial.params['wp']] + 
+            print(x.shape)
+            y = e[1]
+            yield(c, (x,y))
+        else:
+            yield (c, e)
+        c += 1
 
 def train(model, train_set, val_set, lr = 10**-2, epochs=30, max_norm=2, weight_decay=0, trial=None, plot=False):
     print('\n Training... \n')
@@ -37,8 +62,9 @@ def train(model, train_set, val_set, lr = 10**-2, epochs=30, max_norm=2, weight_
         
         y_true = []
         epoch_loss = []
+        print(train_set.dataset)
 
-        for i, batch in enumerate(tqdm(train_set, desc='Batch', disable=True)):
+        for i, batch in custom_enumerate(tqdm(train_set, desc='Batch', disable=True), trial):
             optimizer.zero_grad()
 
             X, target = batch[0].to(device), batch[1].to(device)
@@ -127,11 +153,6 @@ def test(models, datasets):
 
     dir_pred = np.sign(y_pred)
     dir_true = np.sign(y_true)
-    #delta_pred = np.subtract(y_pred['Dayahead SE3'], y_pred['Intraday SE3'])
-    #delta_true = np.subtract(y_true['Dayahead SE3'], y_true['Intraday SE3'])
-
-    #dir_pred = np.sign(delta_pred)
-    #dir_true = np.sign(delta_true)
 
     print("\nAccuracy:")
     print(accuracy_score(dir_true, dir_pred))
@@ -211,14 +232,25 @@ def test(models, datasets):
     print('>std:        {:.3f}        {}'.format(trade_rule_acc, len(trade))) """
 
 def objective(trial, model, train_set, val_set):
+    trial.suggest_float("lr", 1e-5, 1e-1, log=True)
+    trial.suggest_int("epochs", 10, 100)
+    trial.suggest_float("weight_decay", 1e-5, 1e-1, log=True)
+
+    if config.embedded_features:
+        trial.suggest_int("wp", 0, 1)
+        trial.suggest_int("nuclear", 0, 1)
+        trial.suggest_int("solar", 0, 1)
+        trial.suggest_int("cons", 0, 1)
+        trial.suggest_int("cap", 0, 1)
+        trial.suggest_int("year", 0, 1)
+        trial.suggest_int("week", 0, 1)
+        trial.suggest_int("day of week", 0, 1)
+        trial.suggest_int("holiday", 0, 1)
+    
     model.define_model(trial)
     model = model.to(device)
 
-    lr = trial.suggest_float("lr", 1e-5, 1e-1, log=True)
-    epochs = trial.suggest_int("epochs", 10, 100)
-    weight_decay = trial.suggest_float("weight_decay", 1e-5, 1e-1, log=True)
-    #max_norm = trial.suggest_int("max_norm", 1, 5)
-    mse = train(model, train_set, val_set, lr=lr, epochs=epochs, weight_decay=weight_decay, trial=trial)
+    mse = train(model, train_set, val_set, lr=trial.params['lr'], epochs=trial.params['epochs'], weight_decay=trial.params['weight_decay'], trial=trial)
 
     return mse
 
@@ -264,7 +296,7 @@ if __name__ == "__main__":
           
 
     models.append(model)
-    Dataset = Dataset(model_name=config.model, lookback=config.lookback, k=config.k, embedded_features=config.embedded_features, mode_decomp=config.mode_decomp)
+    Dataset = DataLoaderCreator(model_name=config.model, lookback=config.lookback, k=config.k, embedded_features=config.embedded_features, mode_decomp=config.mode_decomp)
 
     for i, model in enumerate(models):
         hyper_params = hyper_parameter_selection(model, Dataset.train_set[i], Dataset.validate_set[i])        
