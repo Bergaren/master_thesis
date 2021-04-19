@@ -121,7 +121,7 @@ def test(models, datasets):
                 """ for i, column in enumerate(y_pred.keys()):
                     y_pred[column].extend(output[:,24*i:24*(i+1)].flatten().tolist())
                     y_true[column].extend(target[:,24*i:24*(i+1)].flatten().tolist())
- """
+                """
 
     print("MSE: {:.2f}".format( np.mean(losses) ))
 
