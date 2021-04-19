@@ -24,7 +24,7 @@ class Dataset():
         if self.k > 1:
             self.create_cluster()
             
-        if model_name == "LSTM" or model_name == "GRU":
+        if model_name in ['LSTM', 'GRU', 'THD']:
             self.X, self.Y = self.sequential_data() 
         elif model_name == "MLP":
             self.X, self.Y = self.flat_data()
@@ -93,9 +93,10 @@ class Dataset():
                 cap             = entire_day[['cap SE2 > SE3','cap SE4 > SE3','cap NO1 > SE3','cap DK1 > SE3','cap FI > SE3']].values.flatten().tolist()
 
                 one_point     = self.feature_data.loc[start_date]
+                year          = [start_date.year-2015]
                 week          = self.create_one_hot( one_point['week'], 53 )
                 day_of_week   = self.create_one_hot( one_point['day of week'], 7)
-                seasonal      = [one_point['holiday']] + week + day_of_week
+                seasonal      = [one_point['holiday']] + year + week + day_of_week
                 x += prod + cons + cap + seasonal
                 
             X[split][cluster].append(x)
@@ -177,6 +178,8 @@ class Dataset():
                 cap             = np.tile(cap, (x.shape[1],1))
 
                 one_point   = self.feature_data.loc[start_date]
+                year        = [start_date.year-2015]
+                year        = np.tile(year, (x.shape[1],1))
                 week        = self.create_one_hot( one_point['week'], 53 )
                 week        = np.tile(week, (x.shape[1],1))
                 day_of_week = self.create_one_hot( one_point['day of week'], 7)
@@ -189,6 +192,7 @@ class Dataset():
                     prod.transpose(),
                     cons.transpose(),
                     cap.transpose(),
+                    year.T,
                     week.T,
                     day_of_week.T,
                     holiday.T

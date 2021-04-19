@@ -1,6 +1,6 @@
 class Config(object):
    def __init__(self):
-      self.model             = "LSTM"
+      self.model             = "THD"
 
       self.embedded_features = True
 
@@ -18,7 +18,7 @@ class Config(object):
       self.prod_len = 24*3
       self.cons_len = 24
       self.cap_len = 24*5
-      self.seasonal_len = 61
+      self.seasonal_len = 62
 
       self.rnn_price_len = 2
       self.input_size = self.configure_input_size()
@@ -26,7 +26,7 @@ class Config(object):
    def configure_input_size(self):
       if self.model == "MLP":
          length = self.mlp_price_len
-      elif self.model == "LSTM" or self.model == "GRU":
+      elif self.model in ['LSTM', 'GRU', 'THD']:
          length = self.rnn_price_len
       if self.mode_decomp and not self.ensemble:
          length *= (self.n_modes + 1)

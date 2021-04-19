@@ -12,7 +12,7 @@ import optuna
 from torch.utils.data import TensorDataset, DataLoader
 from tqdm import tqdm
 import holidays
-from models import LSTM, GRU, MLP, EnsembleModel, Autoencoder, HybridModel
+from models import LSTM, GRU, MLP, EnsembleModel, TwoHeadedHybridModel
 from sklearn.metrics import mean_absolute_error, mean_absolute_percentage_error, accuracy_score, mean_squared_error, classification_report, confusion_matrix, ConfusionMatrixDisplay
 from matplotlib.animation import FuncAnimation
 from math import sqrt
@@ -20,18 +20,21 @@ from dataset import Dataset
 from config import Config
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+print(device)
 config = Config()
 
 def train(model, train_set, val_set, lr = 10**-2, epochs=30, max_norm=2, weight_decay=0, trial=None, plot=False):
     print('\n Training... \n')
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
-    criterion = torch.nn.MSELoss()
+    criterion = nn.MSELoss()
+    criterion2 = nn.BCEWithLogitsLoss()
 
     training_losses = []
     validation_losses = []
     for epoch in tqdm(range(epochs), desc='EPOCH'):
         model.train()
         y_pred = []
+        
         y_true = []
         epoch_loss = []
 
@@ -41,12 +44,20 @@ def train(model, train_set, val_set, lr = 10**-2, epochs=30, max_norm=2, weight_
             X, target = batch[0].to(device), batch[1].to(device)
             output = model(X)
             loss = criterion(output, target)
+
+            target, output = torch.sign(target), torch.sign(output)
+            target[target==-1], output[output==-1] = 0, 0
+            loss2 = criterion2(target, output)
+            
+            loss = loss/torch.norm(loss) + loss2/torch.norm(loss2)
+
             loss.backward()
             epoch_loss.append(loss.item())
 
             #torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm)
             optimizer.step()
         
+
         training_losses.append( sum(epoch_loss) / len(epoch_loss) )
         mse = validate(model, val_set)
         validation_losses.append(mse)
@@ -112,7 +123,7 @@ def test(models, datasets):
                     y_true[column].extend(target[:,24*i:24*(i+1)].flatten().tolist())
  """
 
-    print("MAE: {:.2f}".format( np.mean(losses) ))
+    print("MSE: {:.2f}".format( np.mean(losses) ))
 
     dir_pred = np.sign(y_pred)
     dir_true = np.sign(y_true)
@@ -205,7 +216,7 @@ def objective(trial, model, train_set, val_set):
 
     lr = trial.suggest_float("lr", 1e-5, 1e-1, log=True)
     epochs = trial.suggest_int("epochs", 10, 100)
-    weight_decay = trial.suggest_float("weight_decay", 1e-5, 1e-1)
+    weight_decay = trial.suggest_float("weight_decay", 1e-5, 1e-1, log=True)
     #max_norm = trial.suggest_int("max_norm", 1, 5)
     mse = train(model, train_set, val_set, lr=lr, epochs=epochs, weight_decay=weight_decay, trial=trial)
 
@@ -248,7 +259,9 @@ if __name__ == "__main__":
     elif config.model == "GRU":
         model = GRU(input_size=config.input_size, output_size=config.output_size, mode=i)
     elif config.model == "THD":
-        pass        
+        n_static_features = config.input_size-config.rnn_price_len
+        model = TwoHeadedHybridModel(rnn_input_size=config.rnn_price_len, mlp_input_size=n_static_features, output_size=config.output_size)
+          
 
     models.append(model)
     Dataset = Dataset(model_name=config.model, lookback=config.lookback, k=config.k, embedded_features=config.embedded_features, mode_decomp=config.mode_decomp)

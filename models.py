@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class LSTM(nn.Module):
-    def __init__(self, input_size, output_size, mode=0):
+    def __init__(self, input_size, output_size=None, mode=0):
         super(LSTM, self).__init__()
         self.input_size     = input_size
         self.output_size    = output_size
@@ -12,7 +12,7 @@ class LSTM(nn.Module):
     
     def define_model(self, trial):
         prefix      = chr(ord('@')+self.mode+1)
-        n_layers    = trial.suggest_int("{}_n_layers".format(prefix), 1, 10)
+        n_layers    = trial.suggest_int("{}_n_layers".format(prefix), 1, 3)
         hidden_size = trial.suggest_int("{}_n_units".format(prefix), 4, 256)
         p           = trial.suggest_float("{}_dropout".format(prefix), 0.05, 0.5)
 
@@ -35,7 +35,7 @@ class LSTM(nn.Module):
         return x[:,-1]
 
 class GRU(nn.Module):
-    def __init__(self, input_size, output_size, mode=0):
+    def __init__(self, input_size, output_size=None, mode=0):
         super(GRU, self).__init__()
         self.input_size     = input_size
         self.output_size    = output_size
@@ -45,7 +45,7 @@ class GRU(nn.Module):
     
     def define_model(self, trial):
         prefix      = chr(ord('@')+self.mode+1)
-        n_layers    = trial.suggest_int("{}_n_layers".format(prefix), 1, 10)
+        n_layers    = trial.suggest_int("{}_n_layers".format(prefix), 1, 3)
         hidden_size = trial.suggest_int("{}_n_units".format(prefix), 4, 256)
         p           = trial.suggest_float("{}_dropout".format(prefix), 0.05, 0.5)
 
@@ -67,7 +67,7 @@ class GRU(nn.Module):
         return x[:,-1]
 
 class MLP(nn.Module):
-    def __init__(self, input_size, output_size, mode):
+    def __init__(self, input_size=None, output_size=None, mode=0):
         super(MLP, self).__init__()
         self.layers = None
         self.input_size = input_size
@@ -76,7 +76,7 @@ class MLP(nn.Module):
 
     def define_model(self, trial):
         prefix = chr(ord('@')+self.mode+1)
-        n_layers = trial.suggest_int("{}_n_layers".format(prefix), 1, 10)
+        n_layers = trial.suggest_int("{}_n_layers".format(prefix), 1, 3)
         layers = []
 
         in_features = self.input_size
@@ -111,7 +111,6 @@ class MLP(nn.Module):
         self.layers = nn.Sequential(*layers)
 
     def forward(self, x):
-        x = x[:,self.input_size*self.mode : self.input_size*(self.mode+1)]
         return self.layers(x)
 
 class EnsembleModel(nn.Module):
@@ -138,39 +137,66 @@ class EnsembleModel(nn.Module):
 
         return self.aggregator(y)
         
-class HybridModel(nn.Module):
-    def __init__(self, modelA, modelB):
-        super(HybridModel, self).__init__()
-        self.modelA = modelA
-        self.modelB = modelB
+class TwoHeadedHybridModel(nn.Module):
+    def __init__(self, rnn_input_size, mlp_input_size, output_size, rnn_type='LSTM'):
+        super(TwoHeadedHybridModel, self).__init__()
+        self.rnn_head       = LSTM(rnn_input_size, None, 0)
+        self.mlp_head       = MLP(mlp_input_size, None, 1)
+        self.ensemble       = MLP(None, output_size, 2)
+        self.activation     = nn.ReLU()
+
+        self.rnn_type       = rnn_type
+        self.rnn_input_size = rnn_input_size
+        self.mlp_input_size = mlp_input_size
+        self.output_size    = output_size
     
     def forward(self, x):
-        x = self.modelA(x)
-        x = self.modelB(x)
-        return x
+        x1 = self.rnn_head(x[:,:,:2])
+        x2 = self.mlp_head(x[:,0,2:])
 
+        x = self.activation( torch.cat((x1, x2), dim=1) )
+        return self.ensemble(x)
+    
+    def define_model(self, trial):
+        rnn_output_size = trial.suggest_int("RNN_head_output_size", 4, 24)
+        mlp_output_size = trial.suggest_int("MLP_head_output_size", 4, 24)
 
-class Autoencoder(nn.Module):
-    def __init__(self, input_size, output_size, decode=True):
-        super(Autoencoder, self).__init__()
-        self.input_size = input_size
-        self.output_size = output_size
-        self.decode
-        self.encoder = nn.Sequential(
-            nn.Linear(self.input_size, 128),
-            nn.ReLU(),
-            nn.Linear(128, 4),
-            nn.ReLU()
-        )
-        self.decoder = nn.Sequential(
-            nn.Linear(4, 128),
-            nn.ReLU(),
-            nn.Linear(128, self.output_size)
-        )
+        self.rnn_head.output_size = rnn_output_size
+        self.rnn_head.define_model(trial)
 
-    def forward(self, x):
-        encoding = self.encoder(x)
-        if self.decode:
-            return self.decoder(encoding)
-        else:
-            return encoding
+        self.mlp_head.output_size = mlp_output_size
+        self.mlp_head.define_model(trial)
+
+        self.ensemble.input_size = rnn_output_size + mlp_output_size
+        self.ensemble.define_model(trial)
+    
+    """ def define_ensemble(self, trial):
+        n_layers = trial.suggest_int("Ensemble_n_layers", 1, 10)
+        layers = [nn.ReLU()]
+
+        in_features = trial.params['RNN_head_output_size'] + trial.params['MLP_head_output_size']
+        for i in range(n_layers):
+            out_features = trial.suggest_int("Ensemble_n_units_l{}".format(i), 4, 256)
+            layers.append(nn.Linear(in_features, out_features))
+            layers.append(nn.ReLU())
+            p = trial.suggest_float("Ensemble_dropout_l{}".format(i), 0.05, 0.5)
+            layers.append(nn.Dropout(p))
+
+            in_features = out_features
+
+        layers.append(nn.Linear(in_features, self.output_size))
+
+        return nn.Sequential(*layers) """
+
+    def set_optimized_model(self, params):
+        rnn_output_size = params["RNN_head_output_size"]
+        mlp_output_size = params["MLP_head_output_size"]
+
+        self.rnn_head.output_size = rnn_output_size
+        self.rnn_head.set_optimized_model(params)
+
+        self.mlp_head.output_size = mlp_output_size
+        self.mlp_head.set_optimized_model(params)
+
+        self.ensemble.input_size = rnn_output_size + mlp_output_size
+        self.ensemble.set_optimized_model(params)
