@@ -18,12 +18,11 @@ with open('../.env', 'r') as f:
    )
 
 eq = EnergyQuantified(api_key=vars_dict['EG_API_KEY'])
-curves = eq.metadata.curves(q="se nuclear forecast")
-forecasts = eq.instances.load(
-   curves[0]
-)
-for f in forecasts:
-   print(f)
+curves = eq.metadata.curves(q="se temperature forecast")
+
+for c in curves:
+   print(c)
+   
 def get_wind_se():
    wind_prod = eq.instances.relative(
       'SE Wind Power Production MWh/h 15min Forecast',
@@ -175,8 +174,7 @@ def get_residual_se():
    return res_se
 
 #wp_se = get_wind_se()
-nuclear_se = get_nuclear_se()
-print(nuclear_se)
+#nuclear_se = get_nuclear_se()
 #solar_se = get_solar_se()
 #cons_se = get_consumption_se()
 

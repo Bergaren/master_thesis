@@ -22,31 +22,6 @@ from config import Config
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(device)
 config = Config()
-""" 
-trial.suggest_int("wp", 0, 1)
-trial.suggest_int("nuclear", 0, 1)
-trial.suggest_int("solar", 0, 1)
-trial.suggest_int("cons", 0, 1)
-trial.suggest_int("cap", 0, 1)
-trial.suggest_int("year", 0, 1)
-trial.suggest_int("week", 0, 1)
-trial.suggest_int("day of week", 0, 1)
-trial.suggest_int("holiday", 0, 1) """
-
-def custom_enumerate(array, trial):
-
-    c = 0
-    print(len(trial.params))
-    for e in array:
-        if config.embedded_features:
-            x = e[0]
-            # x = x[trial.params['wp']] + 
-            print(x.shape)
-            y = e[1]
-            yield(c, (x,y))
-        else:
-            yield (c, e)
-        c += 1
 
 def train(model, train_set, val_set, lr = 10**-2, epochs=30, max_norm=2, weight_decay=0, trial=None, plot=False):
     print('\n Training... \n')
@@ -62,20 +37,19 @@ def train(model, train_set, val_set, lr = 10**-2, epochs=30, max_norm=2, weight_
         
         y_true = []
         epoch_loss = []
-        print(train_set.dataset)
 
-        for i, batch in custom_enumerate(tqdm(train_set, desc='Batch', disable=True), trial):
+        for i, batch in enumerate(tqdm(train_set, desc='Batch', disable=True)):
             optimizer.zero_grad()
 
             X, target = batch[0].to(device), batch[1].to(device)
             output = model(X)
             loss = criterion(output, target)
 
-            target, output = torch.sign(target), torch.sign(output)
-            target[target==-1], output[output==-1] = 0, 0
-            loss2 = criterion2(target, output)
+            #target, output = torch.sign(target), torch.sign(output)
+            #target[target==-1], output[output==-1] = 0, 0
+            #loss2 = criterion2(target, output)
             
-            loss = loss/torch.norm(loss) + loss2/torch.norm(loss2)
+            #loss = loss/torch.norm(loss) + loss2/torch.norm(loss2)
 
             loss.backward()
             epoch_loss.append(loss.item())
@@ -231,11 +205,29 @@ def test(models, datasets):
     print('All:         {:.3f}        {}'.format(all_trade_acc, len(delta_pred)))
     print('>std:        {:.3f}        {}'.format(trade_rule_acc, len(trade))) """
 
+def feature_filter(params):
+    series_f_idxs = []
+    static_f_idxs = []
+
+    if config.embedded_features:
+        for k in config.f_mapping.keys():
+            if k == 'price':
+                series_f_idxs += list(config.f_mapping[k])
+            elif k == 'flow' and params[k] == 1:
+                series_f_idxs += list(config.f_mapping[k])
+            elif params[k] == 1:
+                static_f_idxs += list(config.f_mapping[k])
+    else:
+        series_f_idxs += list(config.f_mapping['price'])
+    
+    return (series_f_idxs, static_f_idxs)
+
 def objective(trial, model, train_set, val_set):
     trial.suggest_float("lr", 1e-5, 1e-1, log=True)
     trial.suggest_int("epochs", 10, 100)
     trial.suggest_float("weight_decay", 1e-5, 1e-1, log=True)
 
+    # Set optimized model
     if config.embedded_features:
         trial.suggest_int("wp", 0, 1)
         trial.suggest_int("nuclear", 0, 1)
@@ -246,8 +238,10 @@ def objective(trial, model, train_set, val_set):
         trial.suggest_int("week", 0, 1)
         trial.suggest_int("day of week", 0, 1)
         trial.suggest_int("holiday", 0, 1)
+        trial.suggest_int("flow", 0, 1)
     
-    model.define_model(trial)
+    f_idxs = feature_filter(trial.params)
+    model.define_model(trial, f_idxs)
     model = model.to(device)
 
     mse = train(model, train_set, val_set, lr=trial.params['lr'], epochs=trial.params['epochs'], weight_decay=trial.params['weight_decay'], trial=trial)
@@ -256,12 +250,10 @@ def objective(trial, model, train_set, val_set):
 
 def hyper_parameter_selection(model, train_set, val_set):
     study = optuna.create_study(direction="minimize")
-    study.optimize(lambda trial: objective(trial, model, train_set, val_set), n_trials=200)
+    study.optimize(lambda trial: objective(trial, model, train_set, val_set), n_trials=100)
 
     pruned_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.PRUNED]
     complete_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.COMPLETE]
-
-    #optuna.visualization.plot_param_importances(study)
 
     print("Study statistics: ")
     print("  Number of finished trials: ", len(study.trials))
@@ -285,24 +277,22 @@ if __name__ == "__main__":
     #for i in range(config.n_modes if config.ensemble else 1):
     i = 0
     if config.model == "MLP":
-        model = MLP(input_size=config.input_size, output_size=config.output_size, mode=i)
+        model = MLP(output_size=config.output_size, mode=i)
     elif config.model == "LSTM":
-        model = LSTM(input_size=config.input_size, output_size=config.output_size, mode=i)
+        model = LSTM(output_size=config.output_size, mode=i)
     elif config.model == "GRU":
-        model = GRU(input_size=config.input_size, output_size=config.output_size, mode=i)
+        model = GRU(output_size=config.output_size, mode=i)
     elif config.model == "THD":
-        n_static_features = config.input_size-config.rnn_price_len
-        model = TwoHeadedHybridModel(rnn_input_size=config.rnn_price_len, mlp_input_size=n_static_features, output_size=config.output_size)
+        model = TwoHeadedHybridModel(output_size=config.output_size)
           
-
     models.append(model)
     Dataset = DataLoaderCreator(model_name=config.model, lookback=config.lookback, k=config.k, embedded_features=config.embedded_features, mode_decomp=config.mode_decomp)
 
     for i, model in enumerate(models):
         hyper_params = hyper_parameter_selection(model, Dataset.train_set[i], Dataset.validate_set[i])        
-        model.set_optimized_model(hyper_params)
+        model.set_optimized_model(hyper_params, feature_filter(hyper_params))
         model.to(device)
-        train(model, Dataset.train_set[i], Dataset.validate_set[i], lr=hyper_params['lr'], epochs=hyper_params['epochs'], weight_decay=hyper_params['weight_decay'], plot=True)
+        train(model, Dataset.train_set[i], Dataset.validate_set[i], lr=hyper_params['lr'], epochs=100, weight_decay=hyper_params['weight_decay'], plot=True)
 
     if config.mode_decomp and config.ensemble:
         model = EnsembleModel(models, n_features=config.input_size, output_size=config.output_size)
