@@ -26,7 +26,7 @@ config = Config()
 def train(model, train_set, val_set, lr = 10**-2, epochs=30, max_norm=2, weight_decay=0, trial=None, plot=False):
     print('\n Training... \n')
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
-    criterion = nn.MSELoss()
+    criterion = nn.SmoothL1Loss()
     criterion2 = nn.BCEWithLogitsLoss()
 
     training_losses = []
@@ -83,7 +83,7 @@ def validate(model, dataset):
         print("\n Validating... \n")
 
     model.eval()
-    criterion = torch.nn.MSELoss()
+    criterion = torch.nn.SmoothL1Loss()
 
     losses = []
     with torch.no_grad():
@@ -184,6 +184,7 @@ def objective(trial, model, train_set, val_set):
     trial.suggest_float("lr", 1e-5, 1e-1, log=True)
     trial.suggest_int("epochs", 10, 100)
     trial.suggest_float("weight_decay", 1e-5, 1e-1, log=True)
+    trial.suggest_float("beta", 1e-1,3)
 
     # Set optimized model
     if config.embedded_features:
@@ -250,7 +251,7 @@ if __name__ == "__main__":
         hyper_params = hyper_parameter_selection(model, Dataset.train_set[i], Dataset.validate_set[i])        
         model.set_optimized_model(hyper_params, feature_filter(hyper_params))
         model.to(device)
-        train(model, Dataset.train_set[i], Dataset.validate_set[i], lr=hyper_params['lr'], epochs=100, weight_decay=hyper_params['weight_decay'], plot=True)
+        train(model, Dataset.train_set[i], Dataset.validate_set[i], lr=hyper_params['lr'], epochs=hyper_params['epochs'], weight_decay=hyper_params['weight_decay'], plot=True)
 
     if config.mode_decomp and config.ensemble:
         model = EnsembleModel(models, n_features=config.input_size, output_size=config.output_size)
