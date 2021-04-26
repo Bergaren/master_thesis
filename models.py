@@ -11,11 +11,13 @@ class LSTM(nn.Module):
         self.f_idxs         = None
         self.lstm           = None
         self.fc             = None
+        self.lookback       = None
     
     def define_model(self, trial, f_idxs):
         series_f_idxs, static_f_idxs    = f_idxs
         self.f_idxs                     = series_f_idxs + static_f_idxs
         self.input_size                 = len(self.f_idxs)
+        self.lookback                   = trial.params['lookback']
 
         prefix      = chr(ord('@')+self.mode+1)
         n_layers    = trial.suggest_int("{}_n_layers".format(prefix), 1, 3)
@@ -29,6 +31,7 @@ class LSTM(nn.Module):
         series_f_idxs, static_f_idxs    = f_idxs
         self.f_idxs                     = series_f_idxs + static_f_idxs
         self.input_size                 = len(self.f_idxs)
+        self.lookback                   = params['lookback']
 
         prefix      = chr(ord('@')+self.mode+1)
         n_layers    = params["{}_n_layers".format(prefix)]
@@ -39,7 +42,7 @@ class LSTM(nn.Module):
         self.fc     = nn.Linear(hidden_size, self.output_size)
 
     def forward(self, x):
-        o, _ = self.lstm(x[:,:,self.f_idxs])
+        o, _ = self.lstm(x[:,-self.lookback:,self.f_idxs])
         x = self.fc(o)
         return x[:,-1]
 
@@ -51,11 +54,14 @@ class GRU(nn.Module):
         self.gru            = None
         self.fc             = None
         self.mode           = mode
+
+        self.lookback       = None
     
     def define_model(self, trial, f_idxs):
         series_f_idxs, static_f_idxs    = f_idxs
         self.f_idxs                     = series_f_idxs + static_f_idxs
         self.input_size                 = len(self.f_idxs)
+        self.lookback                   = trial.params['lookback']
         
         prefix      = chr(ord('@')+self.mode+1)
         n_layers    = trial.suggest_int("{}_n_layers".format(prefix), 1, 3)
@@ -79,7 +85,7 @@ class GRU(nn.Module):
         self.fc     = nn.Linear(hidden_size, self.output_size)
 
     def forward(self, x):
-        o, _ = self.gru(x[:,:,self.f_idxs])
+        o, _ = self.gru(x[:,-self.lookback:,self.f_idxs])
         x = self.fc(o)
         return x[:,-1]
 

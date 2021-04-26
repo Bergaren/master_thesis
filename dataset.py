@@ -40,7 +40,8 @@ class DataLoaderCreator():
         return df
 
     def flat_data(self):
-        start_date = datetime.datetime(2015, 1, 2, 00, 00, 00)
+        delta_lookback = datetime.timedelta(hours=self.lookback)
+        start_date = datetime.datetime(2015, 1, 1, 00, 00, 00) + delta_lookback
         end_date = datetime.datetime(2021, 1, 1, 00, 00, 00)
 
         valid_start = datetime.datetime(2019, 1, 1)
@@ -48,7 +49,6 @@ class DataLoaderCreator():
 
         delta_day = datetime.timedelta(days=1)
         delta_twenty_three_hours = datetime.timedelta(hours=23)
-        delta_lookback = datetime.timedelta(hours=self.lookback)
         delta_one_hour = datetime.timedelta(hours=1)
 
         X = {
@@ -121,14 +121,14 @@ class DataLoaderCreator():
         return array
 
     def sequential_data(self):
-        start_date = datetime.datetime(2015, 1, self.lookback+1, 00, 00, 00)
+        delta_lookback = datetime.timedelta(hours=self.lookback)
+        start_date = datetime.datetime(2015, 1, 1, 00, 00, 00) + delta_lookback
         end_date = datetime.datetime(2021, 1, 1, 00, 00, 00)
 
         valid_start = datetime.datetime(2019, 1, 1)
         test_start = datetime.datetime(2020, 1, 1)
 
         delta_day = datetime.timedelta(days=1)
-        delta_lookback = datetime.timedelta(days=self.lookback)
         delta_twenty_three_hours = datetime.timedelta(hours=23)
         delta_one_hour = datetime.timedelta(hours=1)
 

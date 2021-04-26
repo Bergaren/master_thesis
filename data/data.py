@@ -308,14 +308,14 @@ def create_imf(df):
 def get_eq_data(region, variable, tag, path_name, shortname):
     if not path.exists(path_name):
         f = eq.instances.relative(
-        '{} {} 15min Forecast'.format(region, variable),
-        begin=datetime(2019, 1, 1, 0, 0, 0),
-        end=datetime(2021, 1, 1, 0, 0, 0),
-        days_ahead=1,
-        tag=tag,
-        before_time_of_day=time(12, 0),
-        frequency=Frequency.PT1H,
-        aggregation=Aggregation.AVERAGE,
+            '{} {} 15min Forecast'.format(region, variable),
+            begin=datetime(2019, 1, 1, 0, 0, 0),
+            end=datetime(2021, 1, 1, 0, 0, 0),
+            days_ahead=1,
+            tag=tag,
+            before_time_of_day=time(12, 0),
+            frequency=Frequency.PT1H,
+            aggregation=Aggregation.AVERAGE,
         )
         forecasted = f.to_dataframe()
 

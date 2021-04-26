@@ -26,7 +26,7 @@ config = Config()
 def train(model, train_set, val_set, lr = 10**-2, epochs=30, max_norm=2, weight_decay=0, trial=None, plot=False):
     print('\n Training... \n')
     optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
-    criterion = nn.SmoothL1Loss()
+    criterion = nn.SmoothL1Loss(beta=1)
     criterion2 = nn.BCEWithLogitsLoss()
 
     training_losses = []
@@ -97,7 +97,7 @@ def validate(model, dataset):
     
     return np.average(losses)
 
-def test(models, datasets):
+def test(models, datasets, extension_set):
     print("\n Testing... \n")
     criterion = torch.nn.L1Loss()
     
@@ -118,50 +118,59 @@ def test(models, datasets):
                 y_pred.extend(output.flatten().tolist())
                 y_true.extend(target.flatten().tolist())
 
-    print("MAE: {:.2f}".format( np.mean(losses) ))
-
     dir_pred = np.sign(y_pred)
     dir_true = np.sign(y_true)
+    dir_pred[dir_pred==-1], dir_true[dir_true==-1] = 0, 0 
 
-    print("\nAccuracy:")
-    print(accuracy_score(dir_true, dir_pred))
-    print('\nConsfusion Report:')
-    cm = confusion_matrix(dir_true, dir_pred, labels=np.unique(dir_pred))
-    print(cm)
+    print("\n ### Direction prediction ###")
+    a = accuracy_score(dir_true, dir_pred)
     dir_naive = [1]*len(dir_true)
-    print(accuracy_score(dir_true, dir_naive))
+    a_naive = accuracy_score(dir_true, dir_naive)
+    cm = confusion_matrix(dir_true, dir_pred)
+    cr = classification_report(dir_true, dir_pred)
+    
+    print("\n # Accuracy #")
+    print(a)
 
-    print("\n ### Price prediction ### \n")
+    print('\n # Consfusion Report #')
+    print(cm)
+    
+    print('\n # Classification report #')
+    print(cr)
+
+    print("\n ### Price spread prediction ### \n")
     print("\n # Summary statistics #")
     summary_statistics = {
-        'Market' : y_pred.keys(),
-        'Market': y_pred.keys(), 
-        'Mean True Price': [np.mean(v) for v in y_true.values()],
-        'Std (true price)': [np.std(v) for v in y_true.values()],
-        'Mean Predicted Price': [np.mean(v) for v in y_pred.values()],
-        'Std (pred price)': [np.std(v) for v in y_pred.values()]
+        'Mean True PS': [np.mean(y_true)],
+        'Std (true)': [np.std(y_true)],
+        'Mean Predicted PS': [np.mean(y_pred)],
+        'Std (pred)': [np.std(y_pred)]
     }
     print(pd.DataFrame(data=summary_statistics))
 
-    print("\n # Error #")
+    print("\n # Regression Error #")
     print("MAE:        {:.2f}".format( np.mean(losses) ))
+
+    y_pred_extend = extension_set.dataset[-7:][1].flatten().tolist() + y_true
+    y_naive = y_pred_extend[:-7*24]
+
     error = { 
-        'Market': y_pred.keys(), 
-        'MAE' : [mean_absolute_error(y_true[k],y_pred[k]) for k in y_true.keys()],
+        'MAE'   : [mean_absolute_error(y_true, y_pred)],
+        'sMAPE' : [np.mean(2*np.abs(np.subtract(y_true,y_pred)) / (np.abs(y_true) + np.abs(y_pred)))],
+        'rMAE'  : [mean_absolute_error(y_true, y_pred) / mean_absolute_error(y_true, y_naive)]
     }
     print(pd.DataFrame(data=error))
 
-
-    """ d_std = np.std(delta_pred)
-    d_mean = np.mean(delta_pred)
+    ps_std = np.std(extension_set.dataset[:][1].flatten().tolist())
 
     trade = []
-    for s_pred, s_true in zip(delta_pred, delta_true):
-        if np.abs(s_pred) > (1*d_std + np.abs(d_mean)):
-            trade.append( np.sign(s_pred) == np.sign(s_true) )
+    for i in range(len(y_true)):
+        if np.abs(y_pred[i]) > ps_std:
+            trade.append( dir_pred[i] == dir_true[i] )
 
-    all_trade_acc = np.sum(np.sign(delta_pred) == np.sign(delta_true)) / len(delta_pred)
-    trade_rule_acc = np.sum(trade) / len(trade) """
+    trade_rule_acc = np.sum(trade) / len(trade)
+    print(np.sum(trade))
+    print(trade_rule_acc)
 
 def feature_filter(params):
     series_f_idxs = []
@@ -169,10 +178,23 @@ def feature_filter(params):
 
     if config.embedded_features:
         for k in config.f_mapping.keys():
-            if k == 'price':
-                series_f_idxs += list(config.f_mapping[k])
+            if k == 'price dayahead':
+                if config.model == 'MLP':
+                    series_f_idxs += list(config.f_mapping[k][-params['lookback']:])
+                    print(len(list(config.f_mapping[k][-params['lookback']:])))
+                else:
+                    series_f_idxs += list(config.f_mapping[k])
+            elif k == 'price intraday':
+                if config.model == 'MLP':
+                    series_f_idxs += list(config.f_mapping[k][-params['lookback']+11:])
+                    print(len(config.f_mapping[k][-params['lookback']+11:]))
+                else:
+                    series_f_idxs += list(config.f_mapping[k])
             elif k == 'flow' and params[k] == 1:
-                series_f_idxs += list(config.f_mapping[k])
+                if config.model == 'MLP':
+                    series_f_idxs += list(config.f_mapping[k][-params['lookback']:])
+                else:
+                    series_f_idxs += list(config.f_mapping[k])
             elif params[k] == 1:
                 static_f_idxs += list(config.f_mapping[k])
     else:
@@ -185,6 +207,7 @@ def objective(trial, model, train_set, val_set):
     trial.suggest_int("epochs", 10, 100)
     trial.suggest_float("weight_decay", 1e-5, 1e-1, log=True)
     trial.suggest_float("beta", 1e-1,3)
+    trial.suggest_int("lookback", config.min_lookback, config.max_lookback)
 
     # Set optimized model
     if config.embedded_features:
@@ -209,7 +232,7 @@ def objective(trial, model, train_set, val_set):
 
 def hyper_parameter_selection(model, train_set, val_set):
     study = optuna.create_study(direction="minimize")
-    study.optimize(lambda trial: objective(trial, model, train_set, val_set), n_trials=5)
+    study.optimize(lambda trial: objective(trial, model, train_set, val_set), n_trials=50)
 
     pruned_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.PRUNED]
     complete_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.COMPLETE]
@@ -245,7 +268,7 @@ if __name__ == "__main__":
         model = TwoHeadedHybridModel(output_size=config.output_size)
           
     models.append(model)
-    Dataset = DataLoaderCreator(model_name=config.model, lookback=config.lookback, k=config.k, embedded_features=config.embedded_features, mode_decomp=config.mode_decomp)
+    Dataset = DataLoaderCreator(model_name=config.model, lookback=config.max_lookback, k=config.k, embedded_features=config.embedded_features, mode_decomp=config.mode_decomp)
 
     for i, model in enumerate(models):
         hyper_params = hyper_parameter_selection(model, Dataset.train_set[i], Dataset.validate_set[i])        
@@ -257,4 +280,4 @@ if __name__ == "__main__":
         model = EnsembleModel(models, n_features=config.input_size, output_size=config.output_size)
         models = [model]
 
-    test(models, Dataset.validate_set)
+    test(models, Dataset.validate_set, Dataset.train_set[0])
