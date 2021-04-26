@@ -2,7 +2,7 @@ import numpy as np
 
 class Config(object):
    def __init__(self):
-      self.model              = "THD"
+      self.model              = "MLP"
 
       self.embedded_features  = True
 
