@@ -138,13 +138,14 @@ def test(models, datasets, extension_set):
     print('\n # Classification report #')
     print(cr)
 
-    print("\n ### Price spread prediction ### \n")
+    print("\n ### Price spread prediction ###")
     print("\n # Summary statistics #")
     summary_statistics = {
-        'Mean True PS': [np.mean(y_true)],
-        'Std (true)': [np.std(y_true)],
-        'Mean Predicted PS': [np.mean(y_pred)],
-        'Std (pred)': [np.std(y_pred)]
+        'N'                 : [len(y_true)],
+        'Mean True PS'      : [np.mean(y_true)],
+        'Std (true)'        : [np.std(y_true)],
+        'Mean Predicted PS' : [np.mean(y_pred)],
+        'Std (pred)'        : [np.std(y_pred)]
     }
     print(pd.DataFrame(data=summary_statistics))
 
@@ -161,16 +162,26 @@ def test(models, datasets, extension_set):
     }
     print(pd.DataFrame(data=error))
 
-    ps_std = np.std(extension_set.dataset[:][1].flatten().tolist())
-
-    trade = []
+    print("\n ### Direction strategy ###")
+    trade_true = []
+    trade_pred = []
     for i in range(len(y_true)):
-        if np.abs(y_pred[i]) > ps_std:
-            trade.append( dir_pred[i] == dir_true[i] )
+        if np.abs(y_pred[i]) >= 1:
+            trade_true.append(dir_true[i])
+            trade_pred.append(dir_pred[i])
 
-    trade_rule_acc = np.sum(trade) / len(trade)
-    print(np.sum(trade))
-    print(trade_rule_acc)
+    a = accuracy_score(trade_true, trade_pred)
+    cm = confusion_matrix(trade_true, trade_pred)
+    cr = classification_report(trade_true, trade_pred)
+
+    print("\n # Accuracy #")
+    print(a)
+
+    print('\n # Consfusion Report #')
+    print(cm)
+    
+    print('\n # Classification report #')
+    print(cr)
 
 def feature_filter(params):
     series_f_idxs = []
@@ -180,22 +191,20 @@ def feature_filter(params):
         for k in config.f_mapping.keys():
             if k == 'price dayahead':
                 if config.model == 'MLP':
-                    series_f_idxs += list(config.f_mapping[k][-params['lookback']:])
-                    print(len(list(config.f_mapping[k][-params['lookback']:])))
+                    series_f_idxs += list(config.f_mapping[k][-params['lookback']*24:])
                 else:
                     series_f_idxs += list(config.f_mapping[k])
             elif k == 'price intraday':
                 if config.model == 'MLP':
-                    series_f_idxs += list(config.f_mapping[k][-params['lookback']+11:])
-                    print(len(config.f_mapping[k][-params['lookback']+11:]))
+                    series_f_idxs += list(config.f_mapping[k][-params['lookback']*24+11:])
                 else:
                     series_f_idxs += list(config.f_mapping[k])
-            elif k == 'flow' and params[k] == 1:
+            elif k in ['flow 1', 'flow 2', 'flow 3', 'flow 4', 'flow 5'] and params['flow'] == 1:
                 if config.model == 'MLP':
-                    series_f_idxs += list(config.f_mapping[k][-params['lookback']:])
+                    series_f_idxs += list(config.f_mapping[k][-params['lookback']*24:])
                 else:
                     series_f_idxs += list(config.f_mapping[k])
-            elif params[k] == 1:
+            elif k in params.keys() and params[k] == 1:
                 static_f_idxs += list(config.f_mapping[k])
     else:
         series_f_idxs += list(config.f_mapping['price'])
@@ -206,7 +215,6 @@ def objective(trial, model, train_set, val_set):
     trial.suggest_float("lr", 1e-5, 1e-1, log=True)
     trial.suggest_int("epochs", 10, 100)
     trial.suggest_float("weight_decay", 1e-5, 1e-1, log=True)
-    trial.suggest_float("beta", 1e-1,3)
     trial.suggest_int("lookback", config.min_lookback, config.max_lookback)
 
     # Set optimized model
@@ -232,7 +240,7 @@ def objective(trial, model, train_set, val_set):
 
 def hyper_parameter_selection(model, train_set, val_set):
     study = optuna.create_study(direction="minimize")
-    study.optimize(lambda trial: objective(trial, model, train_set, val_set), n_trials=50)
+    study.optimize(lambda trial: objective(trial, model, train_set, val_set), n_trials=200)
 
     pruned_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.PRUNED]
     complete_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.COMPLETE]
