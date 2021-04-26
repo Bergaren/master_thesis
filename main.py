@@ -118,25 +118,20 @@ def test(models, datasets):
                 y_pred.extend(output.flatten().tolist())
                 y_true.extend(target.flatten().tolist())
 
-                """ for i, column in enumerate(y_pred.keys()):
-                    y_pred[column].extend(output[:,24*i:24*(i+1)].flatten().tolist())
-                    y_true[column].extend(target[:,24*i:24*(i+1)].flatten().tolist())
-                """
-
-    print("MSE: {:.2f}".format( np.mean(losses) ))
+    print("MAE: {:.2f}".format( np.mean(losses) ))
 
     dir_pred = np.sign(y_pred)
     dir_true = np.sign(y_true)
 
     print("\nAccuracy:")
     print(accuracy_score(dir_true, dir_pred))
-    print('\Consfusion Report:')
+    print('\nConsfusion Report:')
     cm = confusion_matrix(dir_true, dir_pred, labels=np.unique(dir_pred))
-    disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=np.unique(dir_pred))
     print(cm)
-    disp.plot()
-    plt.show()
-    """ print("\n ### Price prediction ### \n")
+    dir_naive = [1]*len(dir_true)
+    print(accuracy_score(dir_true, dir_naive))
+
+    print("\n ### Price prediction ### \n")
     print("\n # Summary statistics #")
     summary_statistics = {
         'Market' : y_pred.keys(),
@@ -153,44 +148,11 @@ def test(models, datasets):
     error = { 
         'Market': y_pred.keys(), 
         'MAE' : [mean_absolute_error(y_true[k],y_pred[k]) for k in y_true.keys()],
-        'MSE' : [mean_squared_error(y_true[k],y_pred[k]) for k in y_true.keys()],
     }
     print(pd.DataFrame(data=error))
 
-    print("\n ### Price-spread prediction ###")
-    delta_pred = np.subtract(y_pred['Dayahead SE3'], y_pred['Intraday SE3'])
-    delta_true = np.subtract(y_true['Dayahead SE3'], y_true['Intraday SE3'])
 
-    dir_pred = np.sign(delta_pred)
-    dir_true = np.sign(delta_true)
-
-    print("\n # Summary statistics #")
-    summary_statistics = {
-        'Mean True Spread': [np.mean(delta_pred) for v in y_true.values()],
-        'Std (true price)': [np.std(delta_pred) for v in y_true.values()],
-        'Mean Predicted Spread': [np.mean(delta_true) for v in y_pred.values()],
-        'Std (pred price)': [np.std(delta_true) for v in y_pred.values()]
-    }
-    print(pd.DataFrame(data=summary_statistics))
-
-    print("\n # Error #")
-    error = {  
-        'MAE' : [mean_absolute_error(delta_true, delta_pred)],
-        'MSE' : [mean_squared_error(delta_true, delta_pred)],
-        'Accuracy' : [accuracy_score(dir_true, dir_pred)]
-    }
-    print(pd.DataFrame(data=error))
-    
-    print('\nClassification Report:')
-    print(classification_report(dir_true, dir_pred, digits=3, labels=np.unique(dir_pred)))
-
-    print('Confusion matrix:')
-    print(confusion_matrix(dir_true, dir_pred, labels=np.unique(dir_pred))) """
-
-    """ fig1, axs = plt.subplots(2, 1)
-    colors = sns.color_palette("tab10")
-
-    d_std = np.std(delta_pred)
+    """ d_std = np.std(delta_pred)
     d_mean = np.mean(delta_pred)
 
     trade = []
@@ -198,12 +160,8 @@ def test(models, datasets):
         if np.abs(s_pred) > (1*d_std + np.abs(d_mean)):
             trade.append( np.sign(s_pred) == np.sign(s_true) )
 
-    all_trade_acc = np.sum(np.sign(delta_pred) == np.sign(delta_true)) / len(delta_pred) """
-    """ trade_rule_acc = np.sum(trade) / len(trade)
-
-    print('\n             Spread Acc    N')
-    print('All:         {:.3f}        {}'.format(all_trade_acc, len(delta_pred)))
-    print('>std:        {:.3f}        {}'.format(trade_rule_acc, len(trade))) """
+    all_trade_acc = np.sum(np.sign(delta_pred) == np.sign(delta_true)) / len(delta_pred)
+    trade_rule_acc = np.sum(trade) / len(trade) """
 
 def feature_filter(params):
     series_f_idxs = []
@@ -250,7 +208,7 @@ def objective(trial, model, train_set, val_set):
 
 def hyper_parameter_selection(model, train_set, val_set):
     study = optuna.create_study(direction="minimize")
-    study.optimize(lambda trial: objective(trial, model, train_set, val_set), n_trials=100)
+    study.optimize(lambda trial: objective(trial, model, train_set, val_set), n_trials=5)
 
     pruned_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.PRUNED]
     complete_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.COMPLETE]

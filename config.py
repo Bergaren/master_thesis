@@ -2,9 +2,9 @@ import numpy as np
 
 class Config(object):
    def __init__(self):
-      self.model              = "THD"
+      self.model              = "MLP"
 
-      self.embedded_features  = True
+      self.embedded_features  = False
 
       self.cluster            = False
       self.k                  = 4 if self.cluster else 1
