@@ -1,0 +1,4031 @@
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	30 
+	[2]
+Threshold: 0.3
+ # Accuracy # 
+0.544634703196347
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 485 3332]
+ [ 657 4286]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.42      0.13      0.20      3817
+         1.0       0.56      0.87      0.68      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.49      0.50      0.44      8760
+weighted avg       0.50      0.54      0.47      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5372146118721461
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 849 2968]
+ [1086 3857]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.22      0.30      3817
+         1.0       0.57      0.78      0.66      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.50      0.50      0.48      8760
+weighted avg       0.51      0.54      0.50      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5188356164383562
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1521 2296]
+ [1919 3024]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.40      0.42      3817
+         1.0       0.57      0.61      0.59      4943
+
+    accuracy                           0.52      8760
+   macro avg       0.51      0.51      0.50      8760
+weighted avg       0.51      0.52      0.52      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	30 
+	[2, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5550228310502283
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 514 3303]
+ [ 595 4348]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.13      0.21      3817
+         1.0       0.57      0.88      0.69      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.52      0.51      0.45      8760
+weighted avg       0.52      0.56      0.48      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5417808219178082
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 901 2916]
+ [1098 3845]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.24      0.31      3817
+         1.0       0.57      0.78      0.66      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.51      0.51      0.48      8760
+weighted avg       0.52      0.54      0.51      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.514269406392694
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1469 2348]
+ [1907 3036]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.38      0.41      3817
+         1.0       0.56      0.61      0.59      4943
+
+    accuracy                           0.51      8760
+   macro avg       0.50      0.50      0.50      8760
+weighted avg       0.51      0.51      0.51      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5404109589041096
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 917 2900]
+ [1126 3817]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.24      0.31      3817
+         1.0       0.57      0.77      0.65      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.51      0.51      0.48      8760
+weighted avg       0.52      0.54      0.51      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5284246575342466
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1212 2605]
+ [1526 3417]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.32      0.37      3817
+         1.0       0.57      0.69      0.62      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.51      0.50      0.50      8760
+weighted avg       0.51      0.53      0.51      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5134703196347032
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1568 2249]
+ [2013 2930]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.41      0.42      3817
+         1.0       0.57      0.59      0.58      4943
+
+    accuracy                           0.51      8760
+   macro avg       0.50      0.50      0.50      8760
+weighted avg       0.51      0.51      0.51      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	91 
+	[2]
+Threshold: 0.3
+ # Accuracy # 
+0.5624429223744293
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  71 3746]
+ [  87 4856]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.02      0.04      3817
+         1.0       0.56      0.98      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.51      0.50      0.38      8760
+weighted avg       0.51      0.56      0.42      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5522831050228311
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 261 3556]
+ [ 366 4577]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.42      0.07      0.12      3817
+         1.0       0.56      0.93      0.70      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.49      0.50      0.41      8760
+weighted avg       0.50      0.55      0.45      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5255707762557078
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 955 2862]
+ [1294 3649]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.42      0.25      0.31      3817
+         1.0       0.56      0.74      0.64      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.49      0.49      0.48      8760
+weighted avg       0.50      0.53      0.50      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	91 
+	[2, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5634703196347032
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 109 3708]
+ [ 116 4827]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.03      0.05      3817
+         1.0       0.57      0.98      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.52      0.50      0.39      8760
+weighted avg       0.53      0.56      0.43      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5542237442922374
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 323 3494]
+ [ 411 4532]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.08      0.14      3817
+         1.0       0.56      0.92      0.70      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.50      0.50      0.42      8760
+weighted avg       0.51      0.55      0.46      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5269406392694064
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1023 2794]
+ [1350 3593]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.27      0.33      3817
+         1.0       0.56      0.73      0.63      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.50      0.50      0.48      8760
+weighted avg       0.51      0.53      0.50      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.561986301369863
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 292 3525]
+ [ 312 4631]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.08      0.13      3817
+         1.0       0.57      0.94      0.71      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.53      0.51      0.42      8760
+weighted avg       0.53      0.56      0.46      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5513698630136986
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 611 3206]
+ [ 724 4219]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.16      0.24      3817
+         1.0       0.57      0.85      0.68      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.51      0.51      0.46      8760
+weighted avg       0.52      0.55      0.49      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5315068493150685
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1278 2539]
+ [1565 3378]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.33      0.38      3817
+         1.0       0.57      0.68      0.62      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.51      0.51      0.50      8760
+weighted avg       0.52      0.53      0.52      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	182 
+	[2]
+Threshold: 0.3
+ # Accuracy # 
+0.5639269406392694
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  16 3801]
+ [  19 4924]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.00      0.01      3817
+         1.0       0.56      1.00      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.51      0.50      0.36      8760
+weighted avg       0.52      0.56      0.41      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5631278538812785
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  96 3721]
+ [ 106 4837]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.03      0.05      3817
+         1.0       0.57      0.98      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.52      0.50      0.38      8760
+weighted avg       0.53      0.56      0.43      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5454337899543379
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 676 3141]
+ [ 841 4102]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.18      0.25      3817
+         1.0       0.57      0.83      0.67      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.51      0.50      0.46      8760
+weighted avg       0.51      0.55      0.49      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	182 
+	[2, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5633561643835616
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  25 3792]
+ [  33 4910]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.01      0.01      3817
+         1.0       0.56      0.99      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.50      0.50      0.37      8760
+weighted avg       0.51      0.56      0.41      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5638127853881278
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 152 3665]
+ [ 156 4787]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.04      0.07      3817
+         1.0       0.57      0.97      0.71      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.53      0.50      0.39      8760
+weighted avg       0.53      0.56      0.44      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5452054794520548
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 782 3035]
+ [ 949 3994]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.20      0.28      3817
+         1.0       0.57      0.81      0.67      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.51      0.51      0.47      8760
+weighted avg       0.52      0.55      0.50      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5626712328767123
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  93 3724]
+ [ 107 4836]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.02      0.05      3817
+         1.0       0.56      0.98      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.51      0.50      0.38      8760
+weighted avg       0.52      0.56      0.42      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5648401826484019
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 320 3497]
+ [ 315 4628]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.50      0.08      0.14      3817
+         1.0       0.57      0.94      0.71      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.54      0.51      0.43      8760
+weighted avg       0.54      0.56      0.46      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5357305936073059
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 976 2841]
+ [1226 3717]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.26      0.32      3817
+         1.0       0.57      0.75      0.65      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.51      0.50      0.49      8760
+weighted avg       0.51      0.54      0.51      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	365 
+	[2]
+Threshold: 0.3
+ # Accuracy # 
+0.5643835616438356
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[   6 3811]
+ [   5 4938]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.55      0.00      0.00      3817
+         1.0       0.56      1.00      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.55      0.50      0.36      8760
+weighted avg       0.56      0.56      0.41      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5643835616438356
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  27 3790]
+ [  26 4917]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.51      0.01      0.01      3817
+         1.0       0.56      0.99      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.54      0.50      0.37      8760
+weighted avg       0.54      0.56      0.41      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5554794520547945
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 352 3465]
+ [ 429 4514]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.09      0.15      3817
+         1.0       0.57      0.91      0.70      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.51      0.50      0.43      8760
+weighted avg       0.52      0.56      0.46      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	365 
+	[2, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5642694063926941
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[   7 3810]
+ [   7 4936]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.50      0.00      0.00      3817
+         1.0       0.56      1.00      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.53      0.50      0.36      8760
+weighted avg       0.54      0.56      0.41      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5635844748858447
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  34 3783]
+ [  40 4903]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.01      0.02      3817
+         1.0       0.56      0.99      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.51      0.50      0.37      8760
+weighted avg       0.52      0.56      0.41      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5527397260273973
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 387 3430]
+ [ 488 4455]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.10      0.16      3817
+         1.0       0.56      0.90      0.69      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.50      0.50      0.43      8760
+weighted avg       0.51      0.55      0.46      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5648401826484019
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  31 3786]
+ [  26 4917]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.54      0.01      0.02      3817
+         1.0       0.56      0.99      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.55      0.50      0.37      8760
+weighted avg       0.56      0.56      0.41      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5624429223744293
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  93 3724]
+ [ 109 4834]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.02      0.05      3817
+         1.0       0.56      0.98      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.51      0.50      0.38      8760
+weighted avg       0.52      0.56      0.42      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.55
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 589 3228]
+ [ 714 4229]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.15      0.23      3817
+         1.0       0.57      0.86      0.68      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.51      0.50      0.46      8760
+weighted avg       0.52      0.55      0.49      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	30 
+	[2]
+Threshold: 0.3
+ # Accuracy # 
+0.5461187214611872
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 679 3138]
+ [ 838 4105]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.18      0.25      3817
+         1.0       0.57      0.83      0.67      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.51      0.50      0.46      8760
+weighted avg       0.51      0.55      0.49      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5375570776255708
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1055 2762]
+ [1289 3654]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.28      0.34      3817
+         1.0       0.57      0.74      0.64      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.51      0.51      0.49      8760
+weighted avg       0.52      0.54      0.51      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5180365296803653
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1586 2231]
+ [1991 2952]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.42      0.43      3817
+         1.0       0.57      0.60      0.58      4943
+
+    accuracy                           0.52      8760
+   macro avg       0.51      0.51      0.51      8760
+weighted avg       0.51      0.52      0.52      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	30 
+	[2, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5476027397260274
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 641 3176]
+ [ 787 4156]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.17      0.24      3817
+         1.0       0.57      0.84      0.68      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.51      0.50      0.46      8760
+weighted avg       0.52      0.55      0.49      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5349315068493151
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1046 2771]
+ [1303 3640]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.27      0.34      3817
+         1.0       0.57      0.74      0.64      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.51      0.51      0.49      8760
+weighted avg       0.51      0.53      0.51      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5160958904109589
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1543 2274]
+ [1965 2978]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.40      0.42      3817
+         1.0       0.57      0.60      0.58      4943
+
+    accuracy                           0.52      8760
+   macro avg       0.50      0.50      0.50      8760
+weighted avg       0.51      0.52      0.51      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5343607305936073
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 991 2826]
+ [1253 3690]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.26      0.33      3817
+         1.0       0.57      0.75      0.64      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.50      0.50      0.49      8760
+weighted avg       0.51      0.53      0.51      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5208904109589041
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1264 2553]
+ [1644 3299]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.33      0.38      3817
+         1.0       0.56      0.67      0.61      4943
+
+    accuracy                           0.52      8760
+   macro avg       0.50      0.50      0.49      8760
+weighted avg       0.51      0.52      0.51      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5089041095890411
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1589 2228]
+ [2074 2869]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.42      0.42      3817
+         1.0       0.56      0.58      0.57      4943
+
+    accuracy                           0.51      8760
+   macro avg       0.50      0.50      0.50      8760
+weighted avg       0.51      0.51      0.51      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	91 
+	[2]
+Threshold: 0.3
+ # Accuracy # 
+0.5635844748858447
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 153 3664]
+ [ 159 4784]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.04      0.07      3817
+         1.0       0.57      0.97      0.71      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.53      0.50      0.39      8760
+weighted avg       0.53      0.56      0.44      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5517123287671233
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 427 3390]
+ [ 537 4406]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.11      0.18      3817
+         1.0       0.57      0.89      0.69      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.50      0.50      0.44      8760
+weighted avg       0.51      0.55      0.47      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5284246575342466
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1153 2664]
+ [1467 3476]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.30      0.36      3817
+         1.0       0.57      0.70      0.63      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.50      0.50      0.49      8760
+weighted avg       0.51      0.53      0.51      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	91 
+	[2, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5618721461187215
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 171 3646]
+ [ 192 4751]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.04      0.08      3817
+         1.0       0.57      0.96      0.71      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.52      0.50      0.40      8760
+weighted avg       0.52      0.56      0.44      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.552054794520548
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 481 3336]
+ [ 588 4355]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.13      0.20      3817
+         1.0       0.57      0.88      0.69      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.51      0.50      0.44      8760
+weighted avg       0.52      0.55      0.47      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.527283105022831
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1184 2633]
+ [1508 3435]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.31      0.36      3817
+         1.0       0.57      0.69      0.62      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.50      0.50      0.49      8760
+weighted avg       0.51      0.53      0.51      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5603881278538813
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 369 3448]
+ [ 403 4540]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.10      0.16      3817
+         1.0       0.57      0.92      0.70      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.52      0.51      0.43      8760
+weighted avg       0.53      0.56      0.47      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5510273972602739
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 747 3070]
+ [ 863 4080]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.20      0.28      3817
+         1.0       0.57      0.83      0.67      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.52      0.51      0.48      8760
+weighted avg       0.52      0.55      0.50      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5260273972602739
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1344 2473]
+ [1679 3264]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.35      0.39      3817
+         1.0       0.57      0.66      0.61      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.51      0.51      0.50      8760
+weighted avg       0.51      0.53      0.52      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	182 
+	[2]
+Threshold: 0.3
+ # Accuracy # 
+0.5642694063926941
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  45 3772]
+ [  45 4898]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.50      0.01      0.02      3817
+         1.0       0.56      0.99      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.53      0.50      0.37      8760
+weighted avg       0.54      0.56      0.42      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5603881278538813
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 246 3571]
+ [ 280 4663]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.06      0.11      3817
+         1.0       0.57      0.94      0.71      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.52      0.50      0.41      8760
+weighted avg       0.52      0.56      0.45      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5426940639269406
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1013 2804]
+ [1202 3741]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.27      0.34      3817
+         1.0       0.57      0.76      0.65      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.51      0.51      0.49      8760
+weighted avg       0.52      0.54      0.51      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	182 
+	[2, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5636986301369863
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  64 3753]
+ [  69 4874]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.02      0.03      3817
+         1.0       0.56      0.99      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.52      0.50      0.38      8760
+weighted avg       0.53      0.56      0.42      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5617579908675799
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 297 3520]
+ [ 319 4624]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.08      0.13      3817
+         1.0       0.57      0.94      0.71      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.52      0.51      0.42      8760
+weighted avg       0.53      0.56      0.46      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5417808219178082
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1063 2754]
+ [1260 3683]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.28      0.35      3817
+         1.0       0.57      0.75      0.65      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.51      0.51      0.50      8760
+weighted avg       0.52      0.54      0.52      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5641552511415525
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 156 3661]
+ [ 157 4786]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.50      0.04      0.08      3817
+         1.0       0.57      0.97      0.71      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.53      0.50      0.40      8760
+weighted avg       0.54      0.56      0.44      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5616438356164384
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 451 3366]
+ [ 474 4469]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.12      0.19      3817
+         1.0       0.57      0.90      0.70      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.53      0.51      0.44      8760
+weighted avg       0.53      0.56      0.48      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5350456621004567
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1169 2648]
+ [1425 3518]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.31      0.36      3817
+         1.0       0.57      0.71      0.63      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.51      0.51      0.50      8760
+weighted avg       0.52      0.54      0.52      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	365 
+	[2]
+Threshold: 0.3
+ # Accuracy # 
+0.5642694063926941
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[   6 3811]
+ [   6 4937]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.50      0.00      0.00      3817
+         1.0       0.56      1.00      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.53      0.50      0.36      8760
+weighted avg       0.54      0.56      0.41      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5651826484018265
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  37 3780]
+ [  29 4914]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.56      0.01      0.02      3817
+         1.0       0.57      0.99      0.72      4943
+
+    accuracy                           0.57      8760
+   macro avg       0.56      0.50      0.37      8760
+weighted avg       0.56      0.57      0.41      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5579908675799087
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 465 3352]
+ [ 520 4423]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.12      0.19      3817
+         1.0       0.57      0.89      0.70      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.52      0.51      0.44      8760
+weighted avg       0.53      0.56      0.48      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	365 
+	[2, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5639269406392694
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[   5 3812]
+ [   8 4935]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.38      0.00      0.00      3817
+         1.0       0.56      1.00      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.47      0.50      0.36      8760
+weighted avg       0.49      0.56      0.41      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5642694063926941
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  41 3776]
+ [  41 4902]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.50      0.01      0.02      3817
+         1.0       0.56      0.99      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.53      0.50      0.37      8760
+weighted avg       0.54      0.56      0.42      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5521689497716895
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 479 3338]
+ [ 585 4358]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.13      0.20      3817
+         1.0       0.57      0.88      0.69      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.51      0.50      0.44      8760
+weighted avg       0.52      0.55      0.47      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+Threshold: 0.3
+ # Accuracy # 
+0.5646118721461187
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  31 3786]
+ [  28 4915]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.53      0.01      0.02      3817
+         1.0       0.56      0.99      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.55      0.50      0.37      8760
+weighted avg       0.55      0.56      0.41      8760
+
+Threshold: 0.4
+ # Accuracy # 
+0.5623287671232877
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[  99 3718]
+ [ 116 4827]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.03      0.05      3817
+         1.0       0.56      0.98      0.72      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.51      0.50      0.38      8760
+weighted avg       0.52      0.56      0.43      8760
+
+Threshold: 0.5
+ # Accuracy # 
+0.5504566210045662
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[ 660 3157]
+ [ 781 4162]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.17      0.25      3817
+         1.0       0.57      0.84      0.68      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.51      0.51      0.46      8760
+weighted avg       0.52      0.55      0.49      8760
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'wp'] 
+	30 
+	[2]
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons', 'wp'] 
+	365 
+	[2]
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	30 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5574908925318761
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 516 3241]
+ [ 646 4381]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.14      0.21      3757
+         1.0       0.57      0.87      0.69      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.50      0.45      8784
+weighted avg       0.52      0.56      0.49      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5466757741347905
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 797 2960]
+ [1022 4005]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.21      0.29      3757
+         1.0       0.58      0.80      0.67      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.50      0.48      8784
+weighted avg       0.52      0.55      0.50      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5218579234972678
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1417 2340]
+ [1860 3167]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.38      0.40      3757
+         1.0       0.58      0.63      0.60      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.52      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	30 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5519125683060109
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 470 3287]
+ [ 649 4378]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.42      0.13      0.19      3757
+         1.0       0.57      0.87      0.69      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.50      0.50      0.44      8784
+weighted avg       0.51      0.55      0.48      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5405282331511839
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 807 2950]
+ [1086 3941]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.21      0.29      3757
+         1.0       0.57      0.78      0.66      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.50      0.50      0.47      8784
+weighted avg       0.51      0.54      0.50      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5231102003642987
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1411 2346]
+ [1843 3184]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.38      0.40      3757
+         1.0       0.58      0.63      0.60      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.52      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5400728597449909
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 813 2944]
+ [1096 3931]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.22      0.29      3757
+         1.0       0.57      0.78      0.66      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.50      0.50      0.47      8784
+weighted avg       0.51      0.54      0.50      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5298269581056466
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1134 2623]
+ [1507 3520]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.30      0.35      3757
+         1.0       0.57      0.70      0.63      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.50      0.50      0.49      8784
+weighted avg       0.51      0.53      0.51      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5103597449908925
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1522 2235]
+ [2066 2961]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.42      0.41      0.41      3757
+         1.0       0.57      0.59      0.58      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.51      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	91 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5659153005464481
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  82 3675]
+ [ 138 4889]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.37      0.02      0.04      3757
+         1.0       0.57      0.97      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.47      0.50      0.38      8784
+weighted avg       0.49      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.561247723132969
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 324 3433]
+ [ 421 4606]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.09      0.14      3757
+         1.0       0.57      0.92      0.71      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.50      0.50      0.42      8784
+weighted avg       0.51      0.56      0.47      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5428051001821493
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1053 2704]
+ [1312 3715]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.28      0.34      3757
+         1.0       0.58      0.74      0.65      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.54      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	91 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5642076502732241
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  90 3667]
+ [ 161 4866]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.36      0.02      0.04      3757
+         1.0       0.57      0.97      0.72      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.46      0.50      0.38      8784
+weighted avg       0.48      0.56      0.43      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5595400728597449
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 353 3404]
+ [ 465 4562]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.09      0.15      3757
+         1.0       0.57      0.91      0.70      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.50      0.50      0.43      8784
+weighted avg       0.51      0.56      0.47      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5355191256830601
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1097 2660]
+ [1420 3607]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.29      0.35      3757
+         1.0       0.58      0.72      0.64      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.50      0.49      8784
+weighted avg       0.52      0.54      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5635245901639344
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 273 3484]
+ [ 350 4677]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.07      0.12      3757
+         1.0       0.57      0.93      0.71      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.50      0.42      8784
+weighted avg       0.52      0.56      0.46      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5520264116575592
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 632 3125]
+ [ 810 4217]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.17      0.24      3757
+         1.0       0.57      0.84      0.68      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.50      0.46      8784
+weighted avg       0.52      0.55      0.49      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5290300546448088
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1312 2445]
+ [1692 3335]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.35      0.39      3757
+         1.0       0.58      0.66      0.62      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.53      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	182 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5704690346083788
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  23 3734]
+ [  39 4988]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.37      0.01      0.01      3757
+         1.0       0.57      0.99      0.73      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.47      0.50      0.37      8784
+weighted avg       0.49      0.57      0.42      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5677367941712204
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 170 3587]
+ [ 210 4817]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.05      0.08      3757
+         1.0       0.57      0.96      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.51      0.50      0.40      8784
+weighted avg       0.52      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.548155737704918
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 877 2880]
+ [1089 3938]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.23      0.31      3757
+         1.0       0.58      0.78      0.66      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.55      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	182 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5706967213114754
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  30 3727]
+ [  44 4983]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.41      0.01      0.02      3757
+         1.0       0.57      0.99      0.73      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.49      0.50      0.37      8784
+weighted avg       0.50      0.57      0.42      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5653460837887068
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 185 3572]
+ [ 246 4781]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.05      0.09      3757
+         1.0       0.57      0.95      0.71      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.50      0.50      0.40      8784
+weighted avg       0.51      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5420081967213115
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 944 2813]
+ [1210 3817]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.25      0.32      3757
+         1.0       0.58      0.76      0.65      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.54      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5659153005464481
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 121 3636]
+ [ 177 4850]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.41      0.03      0.06      3757
+         1.0       0.57      0.96      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.49      0.50      0.39      8784
+weighted avg       0.50      0.57      0.44      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5607923497267759
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 404 3353]
+ [ 505 4522]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.11      0.17      3757
+         1.0       0.57      0.90      0.70      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.50      0.44      8784
+weighted avg       0.52      0.56      0.48      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.536316029143898
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1158 2599]
+ [1474 3553]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.31      0.36      3757
+         1.0       0.58      0.71      0.64      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.54      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	365 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5711520947176685
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[   6 3751]
+ [  16 5011]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.27      0.00      0.00      3757
+         1.0       0.57      1.00      0.73      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.42      0.50      0.36      8784
+weighted avg       0.44      0.57      0.42      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5686475409836066
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  58 3699]
+ [  90 4937]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.39      0.02      0.03      3757
+         1.0       0.57      0.98      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.48      0.50      0.38      8784
+weighted avg       0.49      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5502049180327869
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 734 3023]
+ [ 928 4099]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.20      0.27      3757
+         1.0       0.58      0.82      0.67      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.51      0.47      8784
+weighted avg       0.52      0.55      0.50      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	365 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5697859744990893
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  12 3745]
+ [  34 4993]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.26      0.00      0.01      3757
+         1.0       0.57      0.99      0.73      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.42      0.50      0.37      8784
+weighted avg       0.44      0.57      0.42      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5664845173041895
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  81 3676]
+ [ 132 4895]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.38      0.02      0.04      3757
+         1.0       0.57      0.97      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.48      0.50      0.38      8784
+weighted avg       0.49      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5414389799635702
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 853 2904]
+ [1124 3903]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.23      0.30      3757
+         1.0       0.57      0.78      0.66      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.50      0.50      0.48      8784
+weighted avg       0.51      0.54      0.50      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5678506375227687
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  43 3714]
+ [  82 4945]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.34      0.01      0.02      3757
+         1.0       0.57      0.98      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.46      0.50      0.37      8784
+weighted avg       0.47      0.57      0.42      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5604508196721312
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 217 3540]
+ [ 321 4706]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.40      0.06      0.10      3757
+         1.0       0.57      0.94      0.71      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.49      0.50      0.41      8784
+weighted avg       0.50      0.56      0.45      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.531648451730419
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1081 2676]
+ [1438 3589]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.29      0.34      3757
+         1.0       0.57      0.71      0.64      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.50      0.50      0.49      8784
+weighted avg       0.51      0.53      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	30 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5527094717668488
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 622 3135]
+ [ 794 4233]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.17      0.24      3757
+         1.0       0.57      0.84      0.68      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.50      0.46      8784
+weighted avg       0.52      0.55      0.49      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5420081967213115
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 950 2807]
+ [1216 3811]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.25      0.32      3757
+         1.0       0.58      0.76      0.65      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.54      0.51      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5208333333333334
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1425 2332]
+ [1877 3150]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.38      0.40      3757
+         1.0       0.57      0.63      0.60      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.52      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	30 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5527094717668488
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 627 3130]
+ [ 799 4228]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.17      0.24      3757
+         1.0       0.57      0.84      0.68      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.50      0.46      8784
+weighted avg       0.52      0.55      0.49      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5409836065573771
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 968 2789]
+ [1243 3784]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.26      0.32      3757
+         1.0       0.58      0.75      0.65      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.54      0.51      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5252732240437158
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1412 2345]
+ [1825 3202]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.38      0.40      3757
+         1.0       0.58      0.64      0.61      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.53      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5366575591985429
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 916 2841]
+ [1229 3798]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.24      0.31      3757
+         1.0       0.57      0.76      0.65      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.50      0.50      0.48      8784
+weighted avg       0.51      0.54      0.51      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5284608378870674
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1196 2561]
+ [1581 3446]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.32      0.37      3757
+         1.0       0.57      0.69      0.62      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.53      0.51      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5105874316939891
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1480 2277]
+ [2022 3005]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.42      0.39      0.41      3757
+         1.0       0.57      0.60      0.58      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.51      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	91 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5704690346083788
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 195 3562]
+ [ 211 4816]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.05      0.09      3757
+         1.0       0.57      0.96      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.53      0.50      0.41      8784
+weighted avg       0.53      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5655737704918032
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 484 3273]
+ [ 543 4484]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.13      0.20      3757
+         1.0       0.58      0.89      0.70      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.52      0.51      0.45      8784
+weighted avg       0.53      0.57      0.49      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5479280510018215
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1112 2645]
+ [1326 3701]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.30      0.36      3757
+         1.0       0.58      0.74      0.65      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.52      0.52      0.50      8784
+weighted avg       0.53      0.55      0.53      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	91 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5683060109289617
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 198 3559]
+ [ 233 4794]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.05      0.09      3757
+         1.0       0.57      0.95      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.52      0.50      0.41      8784
+weighted avg       0.52      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5599954462659381
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 498 3259]
+ [ 606 4421]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.13      0.20      3757
+         1.0       0.58      0.88      0.70      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.51      0.45      8784
+weighted avg       0.52      0.56      0.49      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5374544626593807
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1090 2667]
+ [1396 3631]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.29      0.35      3757
+         1.0       0.58      0.72      0.64      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.54      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5647768670309654
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 365 3392]
+ [ 431 4596]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.10      0.16      3757
+         1.0       0.58      0.91      0.71      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.52      0.51      0.43      8784
+weighted avg       0.53      0.56      0.47      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5540755919854281
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 709 3048]
+ [ 869 4158]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.19      0.27      3757
+         1.0       0.58      0.83      0.68      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.51      0.47      8784
+weighted avg       0.52      0.55      0.50      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.536316029143898
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1284 2473]
+ [1600 3427]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.34      0.39      3757
+         1.0       0.58      0.68      0.63      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.54      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	182 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5725182149362478
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  83 3674]
+ [  81 4946]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.51      0.02      0.04      3757
+         1.0       0.57      0.98      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.54      0.50      0.38      8784
+weighted avg       0.54      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5719489981785064
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 288 3469]
+ [ 291 4736]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.50      0.08      0.13      3757
+         1.0       0.58      0.94      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.54      0.51      0.42      8784
+weighted avg       0.54      0.57      0.47      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5478142076502732
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 931 2826]
+ [1146 3881]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.25      0.32      3757
+         1.0       0.58      0.77      0.66      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.55      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	182 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.572632058287796
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  90 3667]
+ [  87 4940]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.51      0.02      0.05      3757
+         1.0       0.57      0.98      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.54      0.50      0.39      8784
+weighted avg       0.55      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5712659380692168
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 301 3456]
+ [ 310 4717]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.08      0.14      3757
+         1.0       0.58      0.94      0.71      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.53      0.51      0.43      8784
+weighted avg       0.54      0.57      0.47      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5448542805100182
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 944 2813]
+ [1185 3842]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.25      0.32      3757
+         1.0       0.58      0.76      0.66      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.54      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5676229508196722
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 171 3586]
+ [ 212 4815]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.05      0.08      3757
+         1.0       0.57      0.96      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.51      0.50      0.40      8784
+weighted avg       0.52      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5618169398907104
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 458 3299]
+ [ 550 4477]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.12      0.19      3757
+         1.0       0.58      0.89      0.70      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.52      0.51      0.45      8784
+weighted avg       0.52      0.56      0.48      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5429189435336976
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1105 2652]
+ [1363 3664]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.29      0.36      3757
+         1.0       0.58      0.73      0.65      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.54      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	365 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5713797814207651
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  24 3733]
+ [  32 4995]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.01      0.01      3757
+         1.0       0.57      0.99      0.73      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.50      0.50      0.37      8784
+weighted avg       0.51      0.57      0.42      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.569216757741348
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 178 3579]
+ [ 205 4822]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.05      0.09      3757
+         1.0       0.57      0.96      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.52      0.50      0.40      8784
+weighted avg       0.53      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5532786885245902
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 953 2804]
+ [1120 3907]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.25      0.33      3757
+         1.0       0.58      0.78      0.67      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.52      0.52      0.50      8784
+weighted avg       0.53      0.55      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	365 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5703551912568307
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  32 3725]
+ [  49 4978]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.40      0.01      0.02      3757
+         1.0       0.57      0.99      0.73      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.48      0.50      0.37      8784
+weighted avg       0.50      0.57      0.42      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5642076502732241
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 192 3565]
+ [ 263 4764]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.42      0.05      0.09      3757
+         1.0       0.57      0.95      0.71      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.50      0.50      0.40      8784
+weighted avg       0.51      0.56      0.45      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5420081967213115
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 973 2784]
+ [1239 3788]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.26      0.33      3757
+         1.0       0.58      0.75      0.65      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.54      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5702413479052824
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  86 3671]
+ [ 104 4923]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.02      0.04      3757
+         1.0       0.57      0.98      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.51      0.50      0.38      8784
+weighted avg       0.52      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5638661202185792
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 317 3440]
+ [ 391 4636]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.08      0.14      3757
+         1.0       0.57      0.92      0.71      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.50      0.42      8784
+weighted avg       0.52      0.56      0.47      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5381375227686703
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1106 2651]
+ [1406 3621]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.29      0.35      3757
+         1.0       0.58      0.72      0.64      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.54      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'wp'] 
+	91 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5701275045537341
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 193 3564]
+ [ 212 4815]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.05      0.09      3757
+         1.0       0.57      0.96      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.53      0.50      0.41      8784
+weighted avg       0.53      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5629553734061931
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 494 3263]
+ [ 576 4451]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.13      0.20      3757
+         1.0       0.58      0.89      0.70      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.52      0.51      0.45      8784
+weighted avg       0.53      0.56      0.49      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5432604735883424
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1189 2568]
+ [1444 3583]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.32      0.37      3757
+         1.0       0.58      0.71      0.64      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.52      0.51      0.51      8784
+weighted avg       0.53      0.54      0.53      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'wp'] 
+	91 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.569216757741348
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 219 3538]
+ [ 246 4781]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.06      0.10      3757
+         1.0       0.57      0.95      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.52      0.50      0.41      8784
+weighted avg       0.53      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5585154826958105
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 503 3254]
+ [ 624 4403]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.13      0.21      3757
+         1.0       0.58      0.88      0.69      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.50      0.45      8784
+weighted avg       0.52      0.56      0.49      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5355191256830601
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1163 2594]
+ [1486 3541]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.31      0.36      3757
+         1.0       0.58      0.70      0.63      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.54      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'wp'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.566712204007286
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 385 3372]
+ [ 434 4593]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.10      0.17      3757
+         1.0       0.58      0.91      0.71      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.52      0.51      0.44      8784
+weighted avg       0.53      0.57      0.48      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5535063752276868
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 733 3024]
+ [ 898 4129]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.20      0.27      3757
+         1.0       0.58      0.82      0.68      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.51      0.48      8784
+weighted avg       0.52      0.55      0.50      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5332422586520947
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1337 2420]
+ [1680 3347]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.36      0.39      3757
+         1.0       0.58      0.67      0.62      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'wp'] 
+	182 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5718351548269581
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  64 3693]
+ [  68 4959]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.02      0.03      3757
+         1.0       0.57      0.99      0.73      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.53      0.50      0.38      8784
+weighted avg       0.54      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5693306010928961
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 252 3505]
+ [ 278 4749]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.07      0.12      3757
+         1.0       0.58      0.94      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.53      0.51      0.42      8784
+weighted avg       0.53      0.57      0.46      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.548155737704918
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 922 2835]
+ [1134 3893]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.25      0.32      3757
+         1.0       0.58      0.77      0.66      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.55      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'wp'] 
+	182 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5725182149362478
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  75 3682]
+ [  73 4954]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.51      0.02      0.04      3757
+         1.0       0.57      0.99      0.73      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.54      0.50      0.38      8784
+weighted avg       0.55      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5680783242258652
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 268 3489]
+ [ 305 4722]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.07      0.12      3757
+         1.0       0.58      0.94      0.71      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.52      0.51      0.42      8784
+weighted avg       0.53      0.57      0.46      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5446265938069217
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 932 2825]
+ [1175 3852]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.25      0.32      3757
+         1.0       0.58      0.77      0.66      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.54      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'wp'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5677367941712204
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 152 3605]
+ [ 192 4835]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.04      0.07      3757
+         1.0       0.57      0.96      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.51      0.50      0.40      8784
+weighted avg       0.52      0.57      0.44      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5606785063752276
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 439 3318]
+ [ 541 4486]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.12      0.19      3757
+         1.0       0.57      0.89      0.70      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.50      0.44      8784
+weighted avg       0.52      0.56      0.48      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5369990892531876
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1074 2683]
+ [1384 3643]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.29      0.35      3757
+         1.0       0.58      0.72      0.64      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.54      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'wp'] 
+	365 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.573884335154827
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  67 3690]
+ [  53 4974]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.56      0.02      0.03      3757
+         1.0       0.57      0.99      0.73      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.57      0.50      0.38      8784
+weighted avg       0.57      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5677367941712204
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 188 3569]
+ [ 228 4799]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.05      0.09      3757
+         1.0       0.57      0.95      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.51      0.50      0.40      8784
+weighted avg       0.52      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5548724954462659
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 920 2837]
+ [1073 3954]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.24      0.32      3757
+         1.0       0.58      0.79      0.67      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.52      0.52      0.49      8784
+weighted avg       0.53      0.55      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'wp'] 
+	365 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5719489981785064
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  74 3683]
+ [  77 4950]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.02      0.04      3757
+         1.0       0.57      0.98      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.53      0.50      0.38      8784
+weighted avg       0.54      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5664845173041895
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 218 3539]
+ [ 269 4758]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.06      0.10      3757
+         1.0       0.57      0.95      0.71      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.51      0.50      0.41      8784
+weighted avg       0.52      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5473588342440802
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 965 2792]
+ [1184 3843]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.26      0.33      3757
+         1.0       0.58      0.76      0.66      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.55      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'wp'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5705828779599271
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 102 3655]
+ [ 117 4910]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.03      0.05      3757
+         1.0       0.57      0.98      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.52      0.50      0.39      8784
+weighted avg       0.53      0.57      0.44      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5632969034608379
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 333 3424]
+ [ 412 4615]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.09      0.15      3757
+         1.0       0.57      0.92      0.71      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.50      0.43      8784
+weighted avg       0.52      0.56      0.47      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5351775956284153
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1063 2694]
+ [1389 3638]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.28      0.34      3757
+         1.0       0.57      0.72      0.64      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.50      0.50      0.49      8784
+weighted avg       0.51      0.54      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons', 'wp'] 
+	91 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5681921675774135
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 211 3546]
+ [ 247 4780]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.06      0.10      3757
+         1.0       0.57      0.95      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.52      0.50      0.41      8784
+weighted avg       0.53      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5577185792349727
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 475 3282]
+ [ 603 4424]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.13      0.20      3757
+         1.0       0.57      0.88      0.69      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.50      0.45      8784
+weighted avg       0.52      0.56      0.48      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.53882058287796
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1100 2657]
+ [1394 3633]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.29      0.35      3757
+         1.0       0.58      0.72      0.64      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.54      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons', 'wp'] 
+	91 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5669398907103825
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 227 3530]
+ [ 274 4753]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.06      0.11      3757
+         1.0       0.57      0.95      0.71      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.51      0.50      0.41      8784
+weighted avg       0.52      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5580601092896175
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 516 3241]
+ [ 641 4386]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.14      0.21      3757
+         1.0       0.58      0.87      0.69      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.50      0.45      8784
+weighted avg       0.52      0.56      0.49      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5327868852459017
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1066 2691]
+ [1413 3614]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.28      0.34      3757
+         1.0       0.57      0.72      0.64      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.50      0.50      0.49      8784
+weighted avg       0.51      0.53      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons', 'wp'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5651183970856102
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 388 3369]
+ [ 451 4576]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.10      0.17      3757
+         1.0       0.58      0.91      0.71      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.52      0.51      0.44      8784
+weighted avg       0.53      0.57      0.48      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5525956284153005
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 726 3031]
+ [ 899 4128]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.19      0.27      3757
+         1.0       0.58      0.82      0.68      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.51      0.47      8784
+weighted avg       0.52      0.55      0.50      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5314207650273224
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1251 2506]
+ [1610 3417]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.33      0.38      3757
+         1.0       0.58      0.68      0.62      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.53      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons', 'wp'] 
+	182 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5727459016393442
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 104 3653]
+ [ 100 4927]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.51      0.03      0.05      3757
+         1.0       0.57      0.98      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.54      0.50      0.39      8784
+weighted avg       0.55      0.57      0.44      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5701275045537341
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 319 3438]
+ [ 338 4689]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.08      0.14      3757
+         1.0       0.58      0.93      0.71      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.53      0.51      0.43      8784
+weighted avg       0.54      0.57      0.47      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5475865209471766
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 926 2831]
+ [1143 3884]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.25      0.32      3757
+         1.0       0.58      0.77      0.66      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.55      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons', 'wp'] 
+	182 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5719489981785064
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 111 3646]
+ [ 114 4913]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.03      0.06      3757
+         1.0       0.57      0.98      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.53      0.50      0.39      8784
+weighted avg       0.54      0.57      0.44      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5695582877959927
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 341 3416]
+ [ 365 4662]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.09      0.15      3757
+         1.0       0.58      0.93      0.71      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.53      0.51      0.43      8784
+weighted avg       0.54      0.57      0.47      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5458788706739527
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 946 2811]
+ [1178 3849]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.25      0.32      3757
+         1.0       0.58      0.77      0.66      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.55      0.51      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons', 'wp'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5675091074681239
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 189 3568]
+ [ 231 4796]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.05      0.09      3757
+         1.0       0.57      0.95      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.51      0.50      0.40      8784
+weighted avg       0.52      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5591985428051002
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 482 3275]
+ [ 597 4430]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.13      0.20      3757
+         1.0       0.57      0.88      0.70      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.50      0.45      8784
+weighted avg       0.52      0.56      0.48      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5398451730418944
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1072 2685]
+ [1357 3670]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.29      0.35      3757
+         1.0       0.58      0.73      0.64      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.54      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons', 'wp'] 
+	365 
+	[2]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5732012750455373
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  76 3681]
+ [  68 4959]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.53      0.02      0.04      3757
+         1.0       0.57      0.99      0.73      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.55      0.50      0.38      8784
+weighted avg       0.55      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5680783242258652
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 214 3543]
+ [ 251 4776]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.06      0.10      3757
+         1.0       0.57      0.95      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.52      0.50      0.41      8784
+weighted avg       0.53      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5539617486338798
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 938 2819]
+ [1099 3928]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.25      0.32      3757
+         1.0       0.58      0.78      0.67      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.52      0.52      0.50      8784
+weighted avg       0.53      0.55      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons', 'wp'] 
+	365 
+	[2, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5728597449908925
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[  90 3667]
+ [  85 4942]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.51      0.02      0.05      3757
+         1.0       0.57      0.98      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.54      0.50      0.39      8784
+weighted avg       0.55      0.57      0.43      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5650045537340619
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 238 3519]
+ [ 302 4725]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.06      0.11      3757
+         1.0       0.57      0.94      0.71      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.51      0.50      0.41      8784
+weighted avg       0.52      0.57      0.45      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5483834244080146
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 989 2768]
+ [1199 3828]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.26      0.33      3757
+         1.0       0.58      0.76      0.66      5027
+
+    accuracy                           0.55      8784
+   macro avg       0.52      0.51      0.50      8784
+weighted avg       0.53      0.55      0.52      8784
+
+
+Variables: 
+	['holiday', 'monday', 'saturday', 'lagged', 'cons', 'wp'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ ### On test data ###
+Threshold: 0.3
+ # Accuracy # 
+0.5706967213114754
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 113 3644]
+ [ 127 4900]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.03      0.06      3757
+         1.0       0.57      0.97      0.72      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.52      0.50      0.39      8784
+weighted avg       0.53      0.57      0.44      8784
+
+ ### On test data ###
+Threshold: 0.4
+ # Accuracy # 
+0.5620446265938069
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[ 350 3407]
+ [ 440 4587]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.09      0.15      3757
+         1.0       0.57      0.91      0.70      5027
+
+    accuracy                           0.56      8784
+   macro avg       0.51      0.50      0.43      8784
+weighted avg       0.52      0.56      0.47      8784
+
+ ### On test data ###
+Threshold: 0.5
+ # Accuracy # 
+0.5372267759562842
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1063 2694]
+ [1371 3656]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.28      0.34      3757
+         1.0       0.58      0.73      0.64      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.51      0.51      0.49      8784
+weighted avg       0.52      0.54      0.51      8784

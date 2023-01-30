@@ -1,0 +1,4705 @@
+
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	30 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5452054794520548
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1714 2103]
+ [1881 3062]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.45      0.46      3817
+         1.0       0.59      0.62      0.61      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.55      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.355391    2.990926
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.311772  1.422421  0.818673
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	30 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5440639269406393
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1798 2019]
+ [1975 2968]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.47      0.47      3817
+         1.0       0.60      0.60      0.60      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.54      0.54      0.54      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.265519    3.419105
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.528985  1.423982  0.872368
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5378995433789955
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1813 2004]
+ [2044 2899]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.47      0.47      3817
+         1.0       0.59      0.59      0.59      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.286157    5.457923
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.501305  1.435035  1.112727
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	91 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5449771689497717
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1568 2249]
+ [1737 3206]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.41      0.44      3817
+         1.0       0.59      0.65      0.62      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.341318    1.845492
+ # Regression error # 
+        MAE    sMAPE     rMAE
+0  3.007717  1.46081  0.74351
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	91 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5445205479452054
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1595 2222]
+ [1768 3175]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.42      0.44      3817
+         1.0       0.59      0.64      0.61      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.312821    1.987137
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.059463  1.457023  0.756302
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.528310502283105
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1705 2112]
+ [2020 2923]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.45      0.45      3817
+         1.0       0.58      0.59      0.59      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.52      0.52      0.52      8760
+weighted avg       0.53      0.53      0.53      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.262613    2.608479
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.345925  1.458399  0.827116
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	182 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5528538812785389
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1231 2586]
+ [1331 3612]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.32      0.39      3817
+         1.0       0.58      0.73      0.65      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.53      0.53      0.52      8760
+weighted avg       0.54      0.55      0.53      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.543071    1.408249
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.908369  1.453071  0.718951
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	182 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5575342465753425
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1322 2495]
+ [1381 3562]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.35      0.41      3817
+         1.0       0.59      0.72      0.65      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.54      0.53      0.53      8760
+weighted avg       0.54      0.56      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763            0.48509    1.562454
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  2.916273  1.44056  0.720905
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5397260273972603
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1462 2355]
+ [1677 3266]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.38      0.42      3817
+         1.0       0.58      0.66      0.62      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.52      0.52      0.52      8760
+weighted avg       0.53      0.54      0.53      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.430715    1.879794
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.052971  1.455078  0.754697
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	365 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.548972602739726
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1099 2718]
+ [1233 3710]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.29      0.36      3817
+         1.0       0.58      0.75      0.65      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.52      0.52      0.50      8760
+weighted avg       0.53      0.55      0.52      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.502293    1.138018
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.872766  1.488161  0.710151
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	365 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5554794520547945
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1359 2458]
+ [1436 3507]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.36      0.41      3817
+         1.0       0.59      0.71      0.64      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.54      0.53      0.53      8760
+weighted avg       0.54      0.56      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.410089    1.315883
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.866542  1.471212  0.708612
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5452054794520548
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1504 2313]
+ [1671 3272]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.39      0.43      3817
+         1.0       0.59      0.66      0.62      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.55      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.371643    1.574736
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.950259  1.473212  0.729307
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	30 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.538013698630137
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1717 2100]
+ [1947 2996]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.45      0.46      3817
+         1.0       0.59      0.61      0.60      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763            0.32726    3.264044
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.473938  1.422134  0.858761
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	30 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5366438356164384
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1800 2017]
+ [2042 2901]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.47      0.47      3817
+         1.0       0.59      0.59      0.59      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.238432    3.732772
+ # Regression error # 
+        MAE     sMAPE     rMAE
+0  3.716775  1.425136  0.91879
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.528310502283105
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1808 2009]
+ [2123 2820]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.47      0.47      3817
+         1.0       0.58      0.57      0.58      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.52      0.52      0.52      8760
+weighted avg       0.53      0.53      0.53      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.276672    5.653471
+ # Regression error # 
+        MAE     sMAPE     rMAE
+0  4.670855  1.448445  1.15464
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	91 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5493150684931507
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1611 2206]
+ [1742 3201]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.42      0.45      3817
+         1.0       0.59      0.65      0.62      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.54      0.53      0.53      8760
+weighted avg       0.54      0.55      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763            0.39017    1.953386
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.020057  1.433552  0.746561
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	91 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5490867579908676
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1629 2188]
+ [1762 3181]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.43      0.45      3817
+         1.0       0.59      0.64      0.62      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.54      0.54      0.53      8760
+weighted avg       0.54      0.55      0.55      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.345433    2.058758
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.080518  1.439634  0.761507
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5319634703196348
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1736 2081]
+ [2019 2924]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.45      0.46      3817
+         1.0       0.58      0.59      0.59      4943
+
+    accuracy                           0.53      8760
+   macro avg       0.52      0.52      0.52      8760
+weighted avg       0.53      0.53      0.53      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763            0.26856    2.670923
+ # Regression error # 
+       MAE     sMAPE      rMAE
+0  3.35053  1.438829  0.828254
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	182 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5521689497716895
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1226 2591]
+ [1332 3611]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.32      0.38      3817
+         1.0       0.58      0.73      0.65      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.53      0.53      0.52      8760
+weighted avg       0.54      0.55      0.53      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.584766    1.465144
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.914822  1.432844  0.720547
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	182 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5587899543378996
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1309 2508]
+ [1357 3586]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.34      0.40      3817
+         1.0       0.59      0.73      0.65      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.54      0.53      0.53      8760
+weighted avg       0.55      0.56      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.555573    1.553416
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  2.917543  1.42882  0.721219
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5440639269406393
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1468 2349]
+ [1645 3298]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.38      0.42      3817
+         1.0       0.58      0.67      0.62      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.53      0.52      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.497612    1.920761
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.061196  1.442864  0.756731
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	365 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5465753424657535
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1005 2812]
+ [1160 3783]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.26      0.34      3817
+         1.0       0.57      0.77      0.66      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.52      0.51      0.50      8760
+weighted avg       0.53      0.55      0.52      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.549989    1.105871
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.869302  1.489143  0.709294
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	365 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5501141552511416
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1268 2549]
+ [1392 3551]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.33      0.39      3817
+         1.0       0.58      0.72      0.64      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.53      0.53      0.52      8760
+weighted avg       0.54      0.55      0.53      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.435412    1.274644
+ # Regression error # 
+        MAE    sMAPE     rMAE
+0  2.864269  1.47897  0.70805
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5441780821917809
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1494 2323]
+ [1670 3273]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.39      0.43      3817
+         1.0       0.58      0.66      0.62      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.53      0.52      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763             0.3716    1.554089
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  2.946947  1.47493  0.728488
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	30 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5488584474885845
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1781 2036]
+ [1916 3027]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.47      0.47      3817
+         1.0       0.60      0.61      0.61      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.54      0.54      0.54      8760
+weighted avg       0.55      0.55      0.55      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.387018    3.191738
+ # Regression error # 
+       MAE   sMAPE     rMAE
+0  3.42001  1.4167  0.84543
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	30 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5509132420091324
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1874 1943]
+ [1991 2952]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.49      0.49      3817
+         1.0       0.60      0.60      0.60      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.54      0.54      0.54      8760
+weighted avg       0.55      0.55      0.55      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.256947    3.666986
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.625699  1.413644  0.896276
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5455479452054794
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1854 1963]
+ [2018 2925]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.49      0.48      3817
+         1.0       0.60      0.59      0.60      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.54      0.54      0.54      8760
+weighted avg       0.55      0.55      0.55      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.408624     5.47001
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.484954  1.425416  1.108685
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	91 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5478310502283105
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1534 2283]
+ [1678 3265]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.40      0.44      3817
+         1.0       0.59      0.66      0.62      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.55      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.432809    1.893567
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.033054  1.442289  0.749774
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	91 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5515981735159817
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1568 2249]
+ [1679 3264]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.41      0.44      3817
+         1.0       0.59      0.66      0.62      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.54      0.54      0.53      8760
+weighted avg       0.54      0.55      0.55      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.408495    2.053817
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.072443  1.429123  0.759511
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5355022831050228
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1668 2149]
+ [1920 3023]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.44      0.45      3817
+         1.0       0.58      0.61      0.60      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.52      0.52      0.52      8760
+weighted avg       0.53      0.54      0.53      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.366672    2.579622
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  3.324308  1.44012  0.821772
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	182 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5570776255707762
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1191 2626]
+ [1254 3689]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.31      0.38      3817
+         1.0       0.58      0.75      0.66      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.54      0.53      0.52      8760
+weighted avg       0.54      0.56      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.619731    1.490949
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  2.942408  1.44006  0.727366
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	182 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5628995433789954
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1325 2492]
+ [1337 3606]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.50      0.35      0.41      3817
+         1.0       0.59      0.73      0.65      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.54      0.54      0.53      8760
+weighted avg       0.55      0.56      0.55      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.556227    1.682029
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.949211  1.417325  0.729048
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5434931506849315
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1441 2376]
+ [1623 3320]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.38      0.42      3817
+         1.0       0.58      0.67      0.62      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.52      0.52      8760
+weighted avg       0.53      0.54      0.53      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.497746    1.901119
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.054027  1.438794  0.754958
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	365 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5490867579908676
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1189 2628]
+ [1322 3621]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.31      0.38      3817
+         1.0       0.58      0.73      0.65      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.53      0.52      0.51      8760
+weighted avg       0.53      0.55      0.53      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.513698    1.302833
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.906039  1.471385  0.718375
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	365 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5560502283105023
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1447 2370]
+ [1519 3424]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.38      0.43      3817
+         1.0       0.59      0.69      0.64      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.54      0.54      0.53      8760
+weighted avg       0.55      0.56      0.55      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.415602    1.512035
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.907047  1.449874  0.718625
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5432648401826484
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1552 2265]
+ [1736 3207]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.41      0.44      3817
+         1.0       0.59      0.65      0.62      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.371091    1.668079
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.965514  1.460215  0.733078
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	30 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5417808219178082
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1772 2045]
+ [1969 2974]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.46      0.47      3817
+         1.0       0.59      0.60      0.60      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.327832    3.431433
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.557967  1.418149  0.879533
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	30 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5434931506849315
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1871 1946]
+ [2053 2890]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.49      0.48      3817
+         1.0       0.60      0.58      0.59      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.54      0.54      0.54      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.222476    3.849251
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.760676  1.414525  0.929643
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5365296803652968
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1872 1945]
+ [2115 2828]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.49      0.48      3817
+         1.0       0.59      0.57      0.58      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.312485    5.708133
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.655269  1.437681  1.150787
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	91 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5533105022831051
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1611 2206]
+ [1707 3236]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.42      0.45      3817
+         1.0       0.59      0.65      0.62      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.54      0.54      0.54      8760
+weighted avg       0.55      0.55      0.55      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.429584     1.97878
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.043764  1.424203  0.752421
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	91 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5514840182648402
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1620 2197]
+ [1732 3211]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.42      0.45      3817
+         1.0       0.59      0.65      0.62      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.54      0.54      0.54      8760
+weighted avg       0.55      0.55      0.55      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.392498    2.108365
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.094423  1.420766  0.764944
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5401826484018265
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1705 2112]
+ [1916 3027]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.45      0.46      3817
+         1.0       0.59      0.61      0.60      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.54      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.325902    2.657823
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.342309  1.431839  0.826222
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	182 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5535388127853881
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1290 2527]
+ [1384 3559]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.34      0.40      3817
+         1.0       0.58      0.72      0.65      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.53      0.53      0.52      8760
+weighted avg       0.54      0.55      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763            0.59317    1.524577
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  2.943621  1.42855  0.727666
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	182 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5613013698630137
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1358 2459]
+ [1384 3559]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.50      0.36      0.41      3817
+         1.0       0.59      0.72      0.65      4943
+
+    accuracy                           0.56      8760
+   macro avg       0.54      0.54      0.53      8760
+weighted avg       0.55      0.56      0.55      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.571531    1.644367
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.944621  1.417777  0.727913
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5432648401826484
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1455 2362]
+ [1639 3304]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.38      0.42      3817
+         1.0       0.58      0.67      0.62      4943
+
+    accuracy                           0.54      8760
+   macro avg       0.53      0.52      0.52      8760
+weighted avg       0.53      0.54      0.53      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.515283    1.926277
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.059582  1.435116  0.756331
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	365 
+	[2]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5461187214611872
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1128 2689]
+ [1287 3656]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.47      0.30      0.36      3817
+         1.0       0.58      0.74      0.65      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.52      0.52      0.50      8760
+weighted avg       0.53      0.55      0.52      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.538318     1.24583
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.894377  1.478715  0.715493
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	365 
+	[2, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5513698630136986
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1408 2409]
+ [1521 3422]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.37      0.42      3817
+         1.0       0.59      0.69      0.64      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.53      0.53      0.53      8760
+weighted avg       0.54      0.55      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.409925     1.44665
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.896003  1.462112  0.715895
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ ### Direction prediction ###
+ # Accuracy # 
+0.5496575342465754
+ # Accuracy naive # 
+0.5642694063926941
+ # Consfusion report # 
+[[1595 2222]
+ [1723 3220]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.48      0.42      0.45      3817
+         1.0       0.59      0.65      0.62      4943
+
+    accuracy                           0.55      8760
+   macro avg       0.54      0.53      0.53      8760
+weighted avg       0.54      0.55      0.54      8760
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.394153    4.271763           0.336099    1.619853
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  2.951539  1.461553  0.729623
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	30 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5111566484517304
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1640 2117]
+ [2177 2850]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.44      0.43      3757
+         1.0       0.57      0.57      0.57      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.51      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.507665    4.909195
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.164132  1.488341  0.846249
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	30 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5094489981785064
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1724 2033]
+ [2276 2751]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.46      0.44      3757
+         1.0       0.58      0.55      0.56      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.51      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.466071    6.808224
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.742372  1.486139  0.941006
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5007969034608379
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1741 2016]
+ [2369 2658]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.42      0.46      0.44      3757
+         1.0       0.57      0.53      0.55      5027
+
+    accuracy                           0.50      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.50      0.50      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.544958    11.59249
+ # Regression error # 
+       MAE     sMAPE      rMAE
+0  7.80121  1.505231  1.278389
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	91 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5283469945355191
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1497 2260]
+ [1883 3144]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.40      0.42      3757
+         1.0       0.58      0.63      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.591779    3.022111
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.510873  1.491066  0.739199
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	91 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5127504553734062
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1639 2118]
+ [2162 2865]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.44      0.43      3757
+         1.0       0.57      0.57      0.57      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.51      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.476037    4.319397
+ # Regression error # 
+      MAE     sMAPE      rMAE
+0  4.8149  1.494809  0.789021
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5153688524590164
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1742 2015]
+ [2242 2785]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.46      0.45      3757
+         1.0       0.58      0.55      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577            0.54639    6.004768
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.380606  1.481548  0.881723
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	182 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5338114754098361
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1548 2209]
+ [1886 3141]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.41      0.43      3757
+         1.0       0.59      0.62      0.61      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.53      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.602912    2.447488
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.347285  1.497499  0.712392
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	182 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5218579234972678
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1668 2089]
+ [2111 2916]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.44      0.44      3757
+         1.0       0.58      0.58      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.518508    3.221497
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.539507  1.500343  0.743892
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5207194899817851
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1781 1976]
+ [2234 2793]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.47      0.46      3757
+         1.0       0.59      0.56      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577             0.4721    4.132088
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.826766  1.475855  0.790965
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	365 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5311930783242259
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1778 1979]
+ [2139 2888]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.47      0.46      3757
+         1.0       0.59      0.57      0.58      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.53      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.327969    2.327483
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.325266  1.504154  0.708784
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	365 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5229963570127505
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1826 1931]
+ [2259 2768]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.49      0.47      3757
+         1.0       0.59      0.55      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.297763    2.992458
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.480296  1.497833  0.734189
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5229963570127505
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1854 1903]
+ [2287 2740]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.49      0.47      3757
+         1.0       0.59      0.55      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.52      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577            0.31393    3.489291
+ # Regression error # 
+       MAE     sMAPE      rMAE
+0  4.59522  1.481545  0.753021
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	30 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5142304189435337
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1758 1999]
+ [2268 2759]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.47      0.45      3757
+         1.0       0.58      0.55      0.56      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.51      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.523106    5.337146
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.392649  1.481145  0.883697
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	30 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5163934426229508
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1814 1943]
+ [2305 2722]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.48      0.46      3757
+         1.0       0.58      0.54      0.56      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.488629    7.247658
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.973569  1.480913  0.978892
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.4989754098360656
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1726 2031]
+ [2370 2657]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.42      0.46      0.44      3757
+         1.0       0.57      0.53      0.55      5027
+
+    accuracy                           0.50      8784
+   macro avg       0.49      0.49      0.49      8784
+weighted avg       0.50      0.50      0.50      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.629412   12.470487
+ # Regression error # 
+        MAE     sMAPE     rMAE
+0  8.099623  1.512797  1.32729
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	91 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5300546448087432
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1559 2198]
+ [1930 3097]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.41      0.43      3757
+         1.0       0.58      0.62      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.53      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.566635    3.113807
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.576833  1.477828  0.750008
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	91 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5147996357012751
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1686 2071]
+ [2191 2836]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.45      0.44      3757
+         1.0       0.58      0.56      0.57      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.51      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.400196    4.311465
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.856363  1.487464  0.795815
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5137750455373407
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1717 2040]
+ [2231 2796]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.46      0.45      3757
+         1.0       0.58      0.56      0.57      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.51      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.509501    6.114551
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.435737  1.480128  0.890757
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	182 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5300546448087432
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1608 2149]
+ [1979 3048]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.43      0.44      3757
+         1.0       0.59      0.61      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.53      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.473282    2.433958
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.358078  1.497606  0.714161
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	182 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5191256830601093
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1667 2090]
+ [2134 2893]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.44      0.44      3757
+         1.0       0.58      0.58      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.413499    3.256856
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.545923  1.498981  0.744943
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5221994535519126
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1778 1979]
+ [2218 2809]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.47      0.46      3757
+         1.0       0.59      0.56      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.391462    4.232584
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  4.852291  1.47821  0.795148
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	365 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5338114754098361
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1815 1942]
+ [2153 2874]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.48      0.47      3757
+         1.0       0.60      0.57      0.58      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.53      0.53      0.53      8784
+weighted avg       0.54      0.53      0.54      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577            0.28219    2.312212
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  4.323366  1.50519  0.708473
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	365 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5216302367941712
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1841 1916]
+ [2286 2741]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.49      0.47      3757
+         1.0       0.59      0.55      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.260995    3.005923
+ # Regression error # 
+       MAE     sMAPE      rMAE
+0  4.48103  1.496945  0.734309
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5193533697632058
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1851 1906]
+ [2316 2711]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.49      0.47      3757
+         1.0       0.59      0.54      0.56      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.52      0.52      0.51      8784
+weighted avg       0.53      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.284396    3.522086
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.603319  1.483771  0.754349
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	30 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5068306010928961
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1676 2081]
+ [2251 2776]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.45      0.44      3757
+         1.0       0.57      0.55      0.56      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.51      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.435108    5.013663
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.271938  1.486733  0.863916
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	30 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5045537340619308
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1772 1985]
+ [2367 2660]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.47      0.45      3757
+         1.0       0.57      0.53      0.55      5027
+
+    accuracy                           0.50      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.50      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.347357    6.833413
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.845181  1.493991  0.957853
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.49715391621129323
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1780 1977]
+ [2440 2587]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.42      0.47      0.45      3757
+         1.0       0.57      0.51      0.54      5027
+
+    accuracy                           0.50      8784
+   macro avg       0.49      0.49      0.49      8784
+weighted avg       0.50      0.50      0.50      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.276284   11.351247
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  7.769906  1.511255  1.273259
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	91 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5258424408014571
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1508 2249]
+ [1916 3111]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.40      0.42      3757
+         1.0       0.58      0.62      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.563352    3.075952
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.549159  1.489511  0.745473
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	91 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5141165755919854
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1654 2103]
+ [2165 2862]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.44      0.44      3757
+         1.0       0.58      0.57      0.57      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.52      0.51      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.459759    4.293944
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.842085  1.490745  0.793475
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.52367941712204
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1712 2045]
+ [2139 2888]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.46      0.45      3757
+         1.0       0.59      0.57      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.52      0.52      0.51      8784
+weighted avg       0.53      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.548279    5.783251
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  5.287057  1.46908  0.866393
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	182 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5269808743169399
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1464 2293]
+ [1862 3165]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.39      0.41      3757
+         1.0       0.58      0.63      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.612782    2.566928
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.387193  1.498951  0.718932
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	182 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.519011839708561
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1614 2143]
+ [2082 2945]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.43      0.43      3757
+         1.0       0.58      0.59      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.528216    3.439529
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.597704  1.492063  0.753428
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.51775956284153
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1694 2063]
+ [2173 2854]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.45      0.44      3757
+         1.0       0.58      0.57      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.502884    4.146528
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.800642  1.474929  0.786684
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	365 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5356329690346083
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1798 1959]
+ [2120 2907]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.48      0.47      3757
+         1.0       0.60      0.58      0.59      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.53      0.53      0.53      8784
+weighted avg       0.54      0.54      0.54      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.279283    2.381289
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.340202  1.493426  0.711231
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	365 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5228825136612022
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1842 1915]
+ [2276 2751]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.49      0.47      3757
+         1.0       0.59      0.55      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.241225    3.144963
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.528386  1.486936  0.742069
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5221994535519126
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1857 1900]
+ [2297 2730]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.49      0.47      3757
+         1.0       0.59      0.54      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.260442    3.474812
+ # Regression error # 
+       MAE     sMAPE      rMAE
+0  4.58671  1.476428  0.751627
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	30 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5104735883424408
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1734 2023]
+ [2277 2750]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.46      0.45      3757
+         1.0       0.58      0.55      0.56      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.51      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577            0.49254      5.4362
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.509094  1.479514  0.902779
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	30 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5095628415300546
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1807 1950]
+ [2358 2669]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.48      0.46      3757
+         1.0       0.58      0.53      0.55      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.51      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.436893    7.365118
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  6.113628  1.484919  1.001844
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5006830601092896
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1773 1984]
+ [2402 2625]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.42      0.47      0.45      3757
+         1.0       0.57      0.52      0.54      5027
+
+    accuracy                           0.50      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.50      0.50      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.565069   12.256814
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  8.108309  1.506677  1.328713
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	91 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5259562841530054
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1507 2250]
+ [1914 3113]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.40      0.42      3757
+         1.0       0.58      0.62      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.586826    3.216963
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.618858  1.480332  0.756895
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	91 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5176457194899818
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1657 2100]
+ [2137 2890]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.44      0.44      3757
+         1.0       0.58      0.57      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.434761    4.371769
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.886212  1.483519  0.800706
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5226548269581056
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1699 2058]
+ [2135 2892]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.45      0.45      3757
+         1.0       0.58      0.58      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.577986    5.961518
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  5.357303  1.46463  0.877905
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	182 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5264116575591985
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1545 2212]
+ [1948 3079]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.41      0.43      3757
+         1.0       0.58      0.61      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.501054    2.529723
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  4.397596  1.49745  0.720637
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	182 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5166211293260473
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1628 2129]
+ [2117 2910]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.43      0.43      3757
+         1.0       0.58      0.58      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.453413    3.399293
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.601216  1.493374  0.754004
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.51775956284153
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1712 2045]
+ [2191 2836]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.46      0.45      3757
+         1.0       0.58      0.56      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.445854    4.190497
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  4.815128  1.47643  0.789058
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	365 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5344945355191257
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1819 1938]
+ [2151 2876]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.48      0.47      3757
+         1.0       0.60      0.57      0.58      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.53      0.53      0.53      8784
+weighted avg       0.54      0.53      0.54      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.263941     2.38184
+ # Regression error # 
+        MAE     sMAPE     rMAE
+0  4.339949  1.494448  0.71119
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	365 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5235655737704918
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1830 1927]
+ [2258 2769]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.49      0.47      3757
+         1.0       0.59      0.55      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.52      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.247957    3.132313
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.521194  1.488275  0.740891
+
+Variables: 
+	seperate 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5229963570127505
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1855 1902]
+ [2288 2739]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.49      0.47      3757
+         1.0       0.59      0.54      0.57      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.52      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.277552    3.473048
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.584743  1.479554  0.751305
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	30 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5151411657559198
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1518 2239]
+ [2020 3007]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.40      0.42      3757
+         1.0       0.57      0.60      0.59      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.52      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.597005    5.717068
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.969757  1.486722  0.814397
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	30 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5199225865209471
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1559 2198]
+ [2019 3008]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.41      0.43      3757
+         1.0       0.58      0.60      0.59      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.601426    6.119315
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.172029  1.473848  0.847544
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5116120218579235
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1666 2091]
+ [2199 2828]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.44      0.44      3757
+         1.0       0.57      0.56      0.57      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.51      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.375965     9.41143
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  6.176024  1.484872  1.012069
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	91 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5319899817850637
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1373 2384]
+ [1727 3300]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.37      0.40      3757
+         1.0       0.58      0.66      0.62      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.654941    2.981112
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.377942  1.488467  0.717416
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	91 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5266393442622951
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1384 2373]
+ [1785 3242]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.37      0.40      3757
+         1.0       0.58      0.64      0.61      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.50      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.634262    3.109014
+ # Regression error # 
+      MAE     sMAPE     rMAE
+0  4.4313  1.489562  0.72616
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5212887067395264
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1469 2288]
+ [1917 3110]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.39      0.41      3757
+         1.0       0.58      0.62      0.60      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.594458    3.902419
+ # Regression error # 
+       MAE     sMAPE      rMAE
+0  4.68604  1.482541  0.767904
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	182 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5340391621129326
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1379 2378]
+ [1715 3312]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.37      0.40      3757
+         1.0       0.58      0.66      0.62      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.656134    1.967775
+ # Regression error # 
+        MAE     sMAPE     rMAE
+0  4.233586  1.507195  0.69376
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	182 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5324453551912568
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1412 2345]
+ [1762 3265]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.38      0.41      3757
+         1.0       0.58      0.65      0.61      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.650941    2.038816
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.260183  1.509142  0.698119
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5267531876138434
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1474 2283]
+ [1874 3153]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.39      0.41      3757
+         1.0       0.58      0.63      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.621005    2.480099
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.378085  1.497448  0.717439
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	365 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5376821493624773
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1608 2149]
+ [1912 3115]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.43      0.44      3757
+         1.0       0.59      0.62      0.61      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.54      0.54      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.387794    1.633185
+ # Regression error # 
+        MAE    sMAPE      rMAE
+0  4.161425  1.53219  0.681935
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	365 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5356329690346083
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1623 2134]
+ [1945 3082]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.43      0.44      3757
+         1.0       0.59      0.61      0.60      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.54      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.390448    1.681555
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.175253  1.528922  0.684201
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5327868852459017
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1642 2115]
+ [1989 3038]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.44      0.44      3757
+         1.0       0.59      0.60      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.53      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.404437    1.960965
+ # Regression error # 
+        MAE     sMAPE     rMAE
+0  4.229252  1.519596  0.69305
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	30 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5200364298724954
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1666 2091]
+ [2125 2902]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.44      0.44      3757
+         1.0       0.58      0.58      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.611741    6.177854
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.180132  1.470028  0.848871
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	30 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5210610200364298
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1657 2100]
+ [2107 2920]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.44      0.44      3757
+         1.0       0.58      0.58      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.651186    6.633332
+ # Regression error # 
+        MAE     sMAPE     rMAE
+0  5.406889  1.467737  0.88603
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5112704918032787
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1688 2069]
+ [2224 2803]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.45      0.44      3757
+         1.0       0.58      0.56      0.57      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.51      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.509776   10.017958
+ # Regression error # 
+       MAE     sMAPE      rMAE
+0  6.49412  1.482315  1.064195
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	91 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5344945355191257
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1479 2278]
+ [1811 3216]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.39      0.42      3757
+         1.0       0.59      0.64      0.61      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.53      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.610875    3.146987
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.446652  1.475387  0.728675
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	91 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5270947176684881
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1478 2279]
+ [1875 3152]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.39      0.42      3757
+         1.0       0.58      0.63      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.597056    3.273443
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.501195  1.479229  0.737613
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5181010928961749
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1511 2246]
+ [1987 3040]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.40      0.42      3757
+         1.0       0.58      0.60      0.59      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.548509    4.056477
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.764658  1.477364  0.780787
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	182 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5272085610200364
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1491 2266]
+ [1887 3140]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.40      0.42      3757
+         1.0       0.58      0.62      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.517696    1.960062
+ # Regression error # 
+       MAE     sMAPE      rMAE
+0  4.24465  1.510287  0.695573
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	182 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5265255009107468
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1511 2246]
+ [1913 3114]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.40      0.42      3757
+         1.0       0.58      0.62      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.505724    2.044458
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.274161  1.510587  0.700409
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5217440801457195
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1533 2224]
+ [1977 3050]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.41      0.42      3757
+         1.0       0.58      0.61      0.59      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.470408    2.513791
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.409284  1.502056  0.722552
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	365 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5412112932604736
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1637 2120]
+ [1910 3117]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.44      0.45      3757
+         1.0       0.60      0.62      0.61      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.53      0.53      0.53      8784
+weighted avg       0.54      0.54      0.54      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577            0.35288    1.621688
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.159414  1.523907  0.681606
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	365 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.537568306010929
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1638 2119]
+ [1943 3084]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.44      0.45      3757
+         1.0       0.59      0.61      0.60      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.53      0.52      0.52      8784
+weighted avg       0.53      0.54      0.54      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.354065    1.669598
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.175317  1.524221  0.684212
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.531648451730419
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1661 2096]
+ [2018 3009]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.44      0.45      3757
+         1.0       0.59      0.60      0.59      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.53      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.374931    1.948173
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.230702  1.517467  0.693288
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	30 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5141165755919854
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1582 2175]
+ [2093 2934]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.42      0.43      3757
+         1.0       0.57      0.58      0.58      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.51      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.562148    5.966157
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.133879  1.481918  0.841292
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	30 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5183287795992714
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1623 2134]
+ [2097 2930]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.43      0.43      3757
+         1.0       0.58      0.58      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.543382    6.361047
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.344304  1.473237  0.875774
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.513091985428051
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1716 2041]
+ [2236 2791]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.46      0.45      3757
+         1.0       0.58      0.56      0.57      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.51      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.322642    9.877043
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  6.452769  1.484589  1.057419
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	91 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.530396174863388
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1448 2309]
+ [1816 3211]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.39      0.41      3757
+         1.0       0.58      0.64      0.61      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.616805    3.071835
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.418089  1.482138  0.723995
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	91 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5237932604735883
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1460 2297]
+ [1886 3141]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.39      0.41      3757
+         1.0       0.58      0.62      0.60      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.593795    3.200584
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.472339  1.483355  0.732885
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5194672131147541
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1481 2276]
+ [1945 3082]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.39      0.41      3757
+         1.0       0.58      0.61      0.59      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.568522    4.004994
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.740472  1.482883  0.776824
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	182 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5336976320582878
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1359 2398]
+ [1698 3329]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.36      0.40      3757
+         1.0       0.58      0.66      0.62      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.672309    2.045822
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.265701  1.505153  0.699023
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	182 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5310792349726776
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1377 2380]
+ [1739 3288]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.37      0.40      3757
+         1.0       0.58      0.65      0.61      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.671097    2.118176
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.293822  1.505256  0.703631
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5251593806921676
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1437 2320]
+ [1851 3176]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.38      0.41      3757
+         1.0       0.58      0.63      0.60      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.654134    2.558013
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.418321  1.499391  0.724033
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	365 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5421220400728597
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1641 2116]
+ [1906 3121]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.44      0.45      3757
+         1.0       0.60      0.62      0.61      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.53      0.53      0.53      8784
+weighted avg       0.54      0.54      0.54      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.360202    1.677046
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.171142  1.519272  0.683528
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	365 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5416666666666666
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1651 2106]
+ [1920 3107]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.44      0.45      3757
+         1.0       0.60      0.62      0.61      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.53      0.53      0.53      8784
+weighted avg       0.54      0.54      0.54      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.363889    1.728605
+ # Regression error # 
+       MAE     sMAPE      rMAE
+0  4.18801  1.517499  0.686292
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'wp'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5319899817850637
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1678 2079]
+ [2032 2995]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.45      0.45      0.45      3757
+         1.0       0.59      0.60      0.59      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.53      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.382138    2.001776
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.242934  1.511103  0.695292
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	30 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5165072859744991
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1659 2098]
+ [2149 2878]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.44      0.44      3757
+         1.0       0.58      0.57      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.597172    6.518423
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.363203  1.471951  0.878871
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	30 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5195810564663024
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1662 2095]
+ [2125 2902]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.44      0.44      3757
+         1.0       0.58      0.58      0.58      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.612796    6.973532
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  5.597688  1.464507  0.917296
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	30 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5149134790528234
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1737 2020]
+ [2241 2786]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.46      0.45      3757
+         1.0       0.58      0.55      0.57      5027
+
+    accuracy                           0.51      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.51      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.502717   10.603316
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  6.772745  1.479944  1.109854
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	91 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5297131147540983
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1465 2292]
+ [1839 3188]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.39      0.41      3757
+         1.0       0.58      0.63      0.61      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577            0.61465    3.240137
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.485457  1.474367  0.735035
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	91 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5243624772313297
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1477 2280]
+ [1898 3129]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.39      0.41      3757
+         1.0       0.58      0.62      0.60      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.596956    3.367998
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.537194  1.473908  0.743513
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	91 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5162795992714025
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1503 2254]
+ [1995 3032]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.43      0.40      0.41      3757
+         1.0       0.57      0.60      0.59      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.50      0.50      0.50      8784
+weighted avg       0.51      0.52      0.51      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.561601    4.178104
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.819578  1.478998  0.789787
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	182 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5300546448087432
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1477 2280]
+ [1848 3179]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.39      0.42      3757
+         1.0       0.58      0.63      0.61      5027
+
+    accuracy                           0.53      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.53      0.53      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.542854    2.020063
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.271677  1.504995  0.700002
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	182 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5248178506375227
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1479 2278]
+ [1896 3131]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.39      0.41      3757
+         1.0       0.58      0.62      0.60      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.532708    2.102873
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.303288  1.508116  0.705182
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	182 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5227686703096539
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1502 2255]
+ [1937 3090]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.44      0.40      0.42      3757
+         1.0       0.58      0.61      0.60      5027
+
+    accuracy                           0.52      8784
+   macro avg       0.51      0.51      0.51      8784
+weighted avg       0.52      0.52      0.52      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.510346    2.570396
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.442519  1.502188  0.727998
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	365 
+	[2]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5437158469945356
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1660 2097]
+ [1911 3116]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.44      0.45      3757
+         1.0       0.60      0.62      0.61      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.53      0.53      0.53      8784
+weighted avg       0.54      0.54      0.54      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.344252    1.670432
+ # Regression error # 
+       MAE     sMAPE      rMAE
+0  4.16936  1.517736  0.683235
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	365 
+	[2, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5404143897996357
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1668 2089]
+ [1948 3079]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.44      0.45      3757
+         1.0       0.60      0.61      0.60      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.53      0.53      0.53      8784
+weighted avg       0.54      0.54      0.54      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.344365    1.719135
+ # Regression error # 
+        MAE     sMAPE     rMAE
+0  4.186962  1.517684  0.68612
+
+Variables: 
+	spread 
+	['holiday', 'monday', 'saturday', 'cons', 'wp'] 
+	365 
+	[2, 3, 4, 5, 6, 7]
+ #### On test data ####
+ ### Direction prediction ###
+ # Accuracy # 
+0.5355191256830601
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[1689 2068]
+ [2012 3015]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.46      0.45      0.45      3757
+         1.0       0.59      0.60      0.60      5027
+
+    accuracy                           0.54      8784
+   macro avg       0.52      0.52      0.52      8784
+weighted avg       0.53      0.54      0.54      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.367845    1.993006
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  4.243743  1.512225  0.695425

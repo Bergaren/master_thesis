@@ -1,0 +1,16 @@
+  Params:     lr: 0.0012857911263160467 
+    weight_decay: 0.04103593024448919 
+    lookback: 7 
+    wp: 1 
+    nuclear: 0 
+    solar: 0 
+    cons: 1 
+    cap: 1 
+    year: 0 
+    week: 1 
+    day of week: 0 
+    holiday: 1 
+    flow: 1 
+    GRU_B_n_layers: 1 
+    GRU_B_n_units: 249 
+    GRU_B_dropout: 0.24630627854987205 

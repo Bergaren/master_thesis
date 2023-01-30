@@ -1,0 +1,16 @@
+  Params:     lr: 9.132093656988346e-05 
+    weight_decay: 0.002778950645943964 
+    lookback: 2 
+    wp: 1 
+    nuclear: 1 
+    solar: 0 
+    cons: 0 
+    cap: 0 
+    year: 0 
+    week: 0 
+    day of week: 1 
+    holiday: 0 
+    flow: 0 
+    LSTM_A_n_layers: 1 
+    LSTM_A_n_units: 122 
+    LSTM_A_dropout: 0.3168542902635006 

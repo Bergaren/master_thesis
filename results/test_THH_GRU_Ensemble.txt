@@ -1,0 +1,30 @@
+
+ ### Direction prediction ###
+ # Accuracy # 
+0.5722905282331512
+ # Accuracy naive # 
+0.5722905282331512
+ # Consfusion report # 
+[[   0 3757]
+ [   0 5027]]
+ # Classification report # 
+              precision    recall  f1-score   support
+
+         0.0       0.00      0.00      0.00      3757
+         1.0       0.57      1.00      0.73      5027
+
+    accuracy                           0.57      8784
+   macro avg       0.29      0.50      0.36      8784
+weighted avg       0.33      0.57      0.42      8784
+
+ ### Price spread prediction ### 
+
+ # Summary statistics # 
+   Mean True PS  Std (true)  Mean Predicted PS  Std (pred)
+0      0.585708     7.27577           0.345374    0.085751
+ # Regression error # 
+        MAE     sMAPE      rMAE
+0  3.987119  1.639355  0.653396
+ ### Direction strategy ### 
+
+ Test failed 

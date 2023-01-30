@@ -1,0 +1,34 @@
+  Params:     lr: 0.00017113379792908732 
+    weight_decay: 5.041941245678691e-05 
+    lookback: 29 
+    wp: 1 
+    nuclear: 1 
+    solar: 0 
+    cons: 0 
+    cap: 1 
+    year: 1 
+    week: 1 
+    day of week: 1 
+    holiday: 0 
+    flow: 1 
+    RNN_head_output_size: 6 
+    MLP_head_output_size: 7 
+    LSTM_A_n_layers: 5 
+    LSTM_A_n_units: 139 
+    LSTM_A_dropout: 0.4061448264323198 
+    MLP_A_n_layers: 5 
+    MLP_A_n_units_l0: 110 
+    MLP_A_dropout_l0: 0.463182224251218 
+    MLP_A_n_units_l1: 100 
+    MLP_A_dropout_l1: 0.472439607965083 
+    MLP_A_n_units_l2: 201 
+    MLP_A_dropout_l2: 0.1152664656900422 
+    MLP_A_n_units_l3: 190 
+    MLP_A_dropout_l3: 0.3479828801503969 
+    MLP_A_n_units_l4: 5 
+    MLP_A_dropout_l4: 0.369444822570184 
+    Tail_A_n_layers: 2 
+    Tail_A_n_units_l0: 125 
+    Tail_A_dropout_l0: 0.22803252493032472 
+    Tail_A_n_units_l1: 160 
+    Tail_A_dropout_l1: 0.1810241664859178 

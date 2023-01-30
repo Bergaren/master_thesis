@@ -1,0 +1,20 @@
+  Params:     lr: 0.0005494453958127605 
+    weight_decay: 0.007372386286617622 
+    lookback: 1 
+    wp: 1 
+    nuclear: 0 
+    solar: 1 
+    cons: 1 
+    cap: 1 
+    year: 1 
+    week: 1 
+    day of week: 0 
+    holiday: 1 
+    flow: 1 
+    MLP_A_n_layers: 3 
+    MLP_A_n_units_l0: 211 
+    MLP_A_dropout_l0: 0.3905149858394237 
+    MLP_A_n_units_l1: 143 
+    MLP_A_dropout_l1: 0.36464162535734845 
+    MLP_A_n_units_l2: 86 
+    MLP_A_dropout_l2: 0.4971917950698974 

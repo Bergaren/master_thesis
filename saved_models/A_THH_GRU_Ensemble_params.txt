@@ -1,0 +1,24 @@
+  Params:     lr: 0.000835222869785134 
+    weight_decay: 0.010787915036301318 
+    lookback: 24 
+    wp: 1 
+    nuclear: 0 
+    solar: 1 
+    cons: 1 
+    cap: 1 
+    year: 0 
+    week: 1 
+    day of week: 0 
+    holiday: 0 
+    flow: 1 
+    RNN_head_output_size: 14 
+    MLP_head_output_size: 5 
+    GRU_A_n_layers: 3 
+    GRU_A_n_units: 151 
+    GRU_A_dropout: 0.4814072974582945 
+    MLP_A_n_layers: 1 
+    MLP_A_n_units_l0: 252 
+    MLP_A_dropout_l0: 0.1255427066199416 
+    Tail_A_n_layers: 1 
+    Tail_A_n_units_l0: 103 
+    Tail_A_dropout_l0: 0.2715391891480404 

@@ -1,0 +1,5 @@
+.env
+__pycache__
+data/production_data/
+data/conumption_data/
+data/feature_data.csv
